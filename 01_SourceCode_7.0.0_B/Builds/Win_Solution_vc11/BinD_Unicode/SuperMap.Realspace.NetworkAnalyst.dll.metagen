@@ -1,0 +1,268 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Realspace.NetworkAnalyst, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Class SuperMap.Realspace.NetworkAnalyst.FacilityAnalyst3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Realspace.NetworkAnalyst.FacilityAnalystSetting3D AnalystSetting 'get set' : 
+  Methods:
+    get_AnalystSetting(): PrivateScope, Public, HideBySig, SpecialName
+    set_AnalystSetting(FacilityAnalystSetting3D): PrivateScope, Public, HideBySig, SpecialName
+    Load(): PrivateScope, Public, HideBySig
+    Check(): PrivateScope, Public, HideBySig
+    FindSourceFromNode(Int32, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    FindSourceFromEdge(Int32, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    FindSinkFromNode(Int32, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    FindSinkFromEdge(Int32, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    TraceUpFromNode(Int32, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    TraceUpFromEdge(Int32, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    TraceDownFromNode(Int32, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    TraceDownFromEdge(Int32, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    FindCriticalFacilitiesUpFromNode(Int32[], Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    FindCriticalFacilitiesUpFromEdge(Int32[], Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Realspace.NetworkAnalyst.FacilityAnalystSetting3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Realspace.NetworkAnalyst.FacilityAnalystSetting3D): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String DirectionField 'get set' : 
+    Int32[] BarrierEdges 'get set' : 
+    Int32[] BarrierNodes 'get set' : 
+    Double Tolerance 'get set' : 
+    SuperMap.Realspace.NetworkAnalyst.WeightFieldInfos3D WeightFieldInfos 'get set' : 
+    System.String TNodeIDField 'get set' : 
+    System.String FNodeIDField 'get set' : 
+    System.String EdgeIDField 'get set' : 
+    System.String NodeIDField 'get set' : 
+    SuperMap.Data.DatasetVector NetworkDataset 'get set' : 
+  Methods:
+    get_NetworkDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_NetworkDataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_NodeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_NodeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_EdgeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_EdgeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FNodeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_FNodeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TNodeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_TNodeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_WeightFieldInfos(): PrivateScope, Public, HideBySig, SpecialName
+    set_WeightFieldInfos(WeightFieldInfos3D): PrivateScope, Public, HideBySig, SpecialName
+    get_Tolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierNodes(): PrivateScope, Public, HideBySig, SpecialName
+    set_BarrierNodes(Int32[]): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierEdges(): PrivateScope, Public, HideBySig, SpecialName
+    set_BarrierEdges(Int32[]): PrivateScope, Public, HideBySig, SpecialName
+    get_DirectionField(): PrivateScope, Public, HideBySig, SpecialName
+    set_DirectionField(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Realspace.NetworkAnalyst.WeightFieldInfos3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Realspace.NetworkAnalyst.WeightFieldInfos3D): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    SuperMap.Realspace.NetworkAnalyst.WeightFieldInfo3D Item [System.String] 'get ' : 
+    SuperMap.Realspace.NetworkAnalyst.WeightFieldInfo3D Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Add(WeightFieldInfo3D): PrivateScope, Public, HideBySig
+    IndexOf(String): PrivateScope, Public, HideBySig
+    Remove(Int32): PrivateScope, Public, HideBySig
+    Remove(String): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class SuperMap.Realspace.NetworkAnalyst.WeightFieldInfo3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Realspace.NetworkAnalyst.WeightFieldInfo3D): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String TFWeightField 'get set' : 
+    System.String FTWeightField 'get set' : 
+    System.String Name 'get set' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    set_Name(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FTWeightField(): PrivateScope, Public, HideBySig, SpecialName
+    set_FTWeightField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TFWeightField(): PrivateScope, Public, HideBySig, SpecialName
+    set_TFWeightField(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Realspace.NetworkAnalyst.FacilityAnalystResult3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Double Cost 'get ' : 
+    Int32[] Edges 'get ' : 
+    Int32[] Nodes 'get ' : 
+  Methods:
+    get_Nodes(): PrivateScope, Public, HideBySig, SpecialName
+    get_Edges(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cost(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Realspace.NetworkAnalyst.FacilityAnalystCheckResult3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Int32,System.Int32] ArcErrorInfos 'get ' : 
+    System.Collections.Generic.Dictionary`2[System.Int32,System.Int32] NodeErrorInfos 'get ' : 
+  Methods:
+    get_NodeErrorInfos(): PrivateScope, Public, HideBySig, SpecialName
+    get_ArcErrorInfos(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Realspace.NetworkAnalyst.NetworkBuilder3D: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    BuildNetwork(DatasetVector, DatasetVector, String[], String[], Datasource, String, NetworkSplitMode3D, Double): PrivateScope, Public, Static, HideBySig
+    BuildNetwork(DatasetVector, String[], Datasource, String, NetworkSplitMode3D, Double): PrivateScope, Public, Static, HideBySig
+    BuildNetwork(DatasetVector, DatasetVector, String, String, String, String, Datasource, String): PrivateScope, Public, Static, HideBySig
+    BuildFacilityNetworkDirections(FacilityAnalystSetting3D, Int32[], Int32[], String): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Struct SuperMap.Realspace.NetworkAnalyst.NetworkSplitMode3D: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Realspace.NetworkAnalyst.NetworkSplitMode3D None = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Realspace.NetworkAnalyst.NetworkSplitMode3D LineSplitByPoint = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Realspace.NetworkAnalyst.NetworkSplitMode3D LineSplitByPointAndLine = 2 : Public, Static, Literal, HasDefault
+Class SuperMap.Realspace.NetworkAnalyst.TransportationAnalyst3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Realspace.NetworkAnalyst.TransportationAnalystSetting3D AnalystSetting 'get set' : 
+  Methods:
+    get_AnalystSetting(): PrivateScope, Public, HideBySig, SpecialName
+    set_AnalystSetting(TransportationAnalystSetting3D): PrivateScope, Public, HideBySig, SpecialName
+    Load(): PrivateScope, Public, HideBySig
+    Check(): PrivateScope, Public, HideBySig
+    FindPath(TransportationAnalystParameter3D): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Realspace.NetworkAnalyst.TransportationAnalystSetting3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Realspace.NetworkAnalyst.TransportationAnalystSetting3D): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String EdgeFilter 'get set' : 
+    System.String[] TwoWayRuleValues 'get set' : 
+    System.String[] ProhibitedWayRuleValues 'get set' : 
+    System.String[] TFSingleWayRuleValues 'get set' : 
+    System.String[] FTSingleWayRuleValues 'get set' : 
+    System.String RuleField 'get set' : 
+    System.String EdgeNameField 'get set' : 
+    System.String NodeNameField 'get set' : 
+    Int32[] BarrierEdges 'get set' : 
+    Int32[] BarrierNodes 'get set' : 
+    Double Tolerance 'get set' : 
+    SuperMap.Realspace.NetworkAnalyst.WeightFieldInfos3D WeightFieldInfos 'get set' : 
+    System.String TNodeIDField 'get set' : 
+    System.String FNodeIDField 'get set' : 
+    System.String EdgeIDField 'get set' : 
+    System.String NodeIDField 'get set' : 
+    SuperMap.Data.DatasetVector NetworkDataset 'get set' : 
+  Methods:
+    get_NetworkDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_NetworkDataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_NodeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_NodeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_EdgeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_EdgeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FNodeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_FNodeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TNodeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_TNodeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_WeightFieldInfos(): PrivateScope, Public, HideBySig, SpecialName
+    set_WeightFieldInfos(WeightFieldInfos3D): PrivateScope, Public, HideBySig, SpecialName
+    get_Tolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierNodes(): PrivateScope, Public, HideBySig, SpecialName
+    set_BarrierNodes(Int32[]): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierEdges(): PrivateScope, Public, HideBySig, SpecialName
+    set_BarrierEdges(Int32[]): PrivateScope, Public, HideBySig, SpecialName
+    get_NodeNameField(): PrivateScope, Public, HideBySig, SpecialName
+    set_NodeNameField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_EdgeNameField(): PrivateScope, Public, HideBySig, SpecialName
+    set_EdgeNameField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RuleField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RuleField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FTSingleWayRuleValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_FTSingleWayRuleValues(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_TFSingleWayRuleValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_TFSingleWayRuleValues(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_ProhibitedWayRuleValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_ProhibitedWayRuleValues(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_TwoWayRuleValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_TwoWayRuleValues(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_EdgeFilter(): PrivateScope, Public, HideBySig, SpecialName
+    set_EdgeFilter(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Realspace.NetworkAnalyst.TransportationAnalystParameter3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Realspace.NetworkAnalyst.TransportationAnalystParameter3D): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Boolean IsRoutesReturn 'get set' : 
+    Boolean IsStopIndexesReturn 'get set' : 
+    Boolean IsEdgesReturn 'get set' : 
+    Boolean IsNodesReturn 'get set' : 
+    SuperMap.Data.Point3Ds BarrierPoints 'get set' : 
+    Int32[] BarrierEdges 'get set' : 
+    Int32[] BarrierNodes 'get set' : 
+    SuperMap.Data.Point3Ds Points 'get set' : 
+    Int32[] Nodes 'get set' : 
+    System.String WeightName 'get set' : 
+  Methods:
+    get_WeightName(): PrivateScope, Public, HideBySig, SpecialName
+    set_WeightName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Nodes(): PrivateScope, Public, HideBySig, SpecialName
+    set_Nodes(Int32[]): PrivateScope, Public, HideBySig, SpecialName
+    get_Points(): PrivateScope, Public, HideBySig, SpecialName
+    set_Points(Point3Ds): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierNodes(): PrivateScope, Public, HideBySig, SpecialName
+    set_BarrierNodes(Int32[]): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierEdges(): PrivateScope, Public, HideBySig, SpecialName
+    set_BarrierEdges(Int32[]): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierPoints(): PrivateScope, Public, HideBySig, SpecialName
+    set_BarrierPoints(Point3Ds): PrivateScope, Public, HideBySig, SpecialName
+    get_IsNodesReturn(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsNodesReturn(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsEdgesReturn(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsEdgesReturn(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsStopIndexesReturn(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsStopIndexesReturn(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsRoutesReturn(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsRoutesReturn(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Realspace.NetworkAnalyst.TransportationAnalystResult3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Data.GeoLine3D[] Routes 'get ' : 
+    Double[] Weights 'get ' : 
+    Double[][] StopWeights 'get ' : 
+    Int32[][] StopIndexes 'get ' : 
+    Int32[][] Edges 'get ' : 
+    Int32[][] Nodes 'get ' : 
+  Methods:
+    get_Nodes(): PrivateScope, Public, HideBySig, SpecialName
+    get_Edges(): PrivateScope, Public, HideBySig, SpecialName
+    get_StopIndexes(): PrivateScope, Public, HideBySig, SpecialName
+    get_StopWeights(): PrivateScope, Public, HideBySig, SpecialName
+    get_Weights(): PrivateScope, Public, HideBySig, SpecialName
+    get_Routes(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Realspace.NetworkAnalyst.TransportationAnalystCheckResult3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Int32,System.Int32] ArcErrorInfos 'get ' : 
+    System.Collections.Generic.Dictionary`2[System.Int32,System.Int32] NodeErrorInfos 'get ' : 
+  Methods:
+    get_NodeErrorInfos(): PrivateScope, Public, HideBySig, SpecialName
+    get_ArcErrorInfos(): PrivateScope, Public, HideBySig, SpecialName

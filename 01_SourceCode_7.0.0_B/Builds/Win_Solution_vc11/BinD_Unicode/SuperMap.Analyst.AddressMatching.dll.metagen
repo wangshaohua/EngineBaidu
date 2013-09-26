@@ -1,0 +1,115 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Analyst.AddressMatching, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Class SuperMap.Analyst.AddressMatching.AddressDictionary: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    System.String Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Contains(String): PrivateScope, Public, HideBySig
+    IndexOf(String): PrivateScope, Public, HideBySig
+    Add(String): PrivateScope, Public, HideBySig
+    Delete(Int32): PrivateScope, Public, HideBySig
+    Delete(String): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    Load(String): PrivateScope, Public, HideBySig
+    Save(): PrivateScope, Public, HideBySig
+    SaveAs(String): PrivateScope, Public, HideBySig
+    TextToDictionary(String, String): PrivateScope, Public, Static, HideBySig
+    DictionaryToText(String, String): PrivateScope, Public, Static, HideBySig
+    MergeDictionary(String, String, String): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Analyst.AddressMatching.AddressMatch: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Analyst.AddressMatching.AddressMatchSetting Setting 'get set' : 
+  Methods:
+    get_Setting(): PrivateScope, Public, HideBySig, SpecialName
+    set_Setting(AddressMatchSetting): PrivateScope, Public, HideBySig, SpecialName
+    Load(): PrivateScope, Public, HideBySig
+    Match(AddressMatchParameter): PrivateScope, Public, HideBySig
+    SegmentAddress(String): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Analyst.AddressMatching.AddressMatchParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.AddressMatching.AddressMatchParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsAddressSegmented 'get set' : 
+    Boolean IsLocationReturn 'get set' : 
+    SuperMap.Data.GeoRegion SearchRegion 'get set' : 
+    System.String SearchAddress 'get set' : 
+    Int32 ResultCount 'get set' : 
+    SuperMap.Data.DatasetVector[] SearchDatasets 'get ' : 
+  Methods:
+    get_SearchDatasets(): PrivateScope, Public, HideBySig, SpecialName
+    get_ResultCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_ResultCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SearchAddress(): PrivateScope, Public, HideBySig, SpecialName
+    set_SearchAddress(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SearchRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_SearchRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_IsLocationReturn(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsLocationReturn(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAddressSegmented(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAddressSegmented(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    AddSearchDataset(DatasetVector): PrivateScope, Public, HideBySig
+    SetSearchDataset(Int32, DatasetVector): PrivateScope, Public, HideBySig
+    RemoveSearchDataset(Int32): PrivateScope, Public, HideBySig
+    ClearSearchDataset(): PrivateScope, Public, HideBySig
+Class SuperMap.Analyst.AddressMatching.AddressMatchSetting: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.AddressMatching.AddressMatchSetting): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String DictionaryFile 'get set' : 
+    System.String[] Fields 'get ' : 
+    SuperMap.Data.DatasetVector[] Datasets 'get ' : 
+  Methods:
+    get_Datasets(): PrivateScope, Public, HideBySig, SpecialName
+    get_Fields(): PrivateScope, Public, HideBySig, SpecialName
+    get_DictionaryFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_DictionaryFile(String): PrivateScope, Public, HideBySig, SpecialName
+    AddSearchData(DatasetVector, String): PrivateScope, Public, HideBySig
+    SetSearchData(Int32, DatasetVector, String): PrivateScope, Public, HideBySig
+    RemoveSearchData(Int32): PrivateScope, Public, HideBySig
+    ClearSearchData(): PrivateScope, Public, HideBySig
+Class SuperMap.Analyst.AddressMatching.AddressMatchResults: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Analyst.AddressMatching.AddressMatchResult Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Analyst.AddressMatching.AddressMatchResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.Point2D Location 'get ' : 
+    System.String Address 'get ' : 
+    Double Score 'get ' : 
+    Int32 ID   'get ' : 
+    SuperMap.Data.DatasetVector Dataset 'get ' : 
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    get_ID(): PrivateScope, Public, HideBySig, SpecialName
+    get_Score(): PrivateScope, Public, HideBySig, SpecialName
+    get_Address(): PrivateScope, Public, HideBySig, SpecialName
+    get_Location(): PrivateScope, Public, HideBySig, SpecialName

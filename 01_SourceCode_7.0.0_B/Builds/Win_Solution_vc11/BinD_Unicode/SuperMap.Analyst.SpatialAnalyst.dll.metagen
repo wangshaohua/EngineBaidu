@@ -1,0 +1,1419 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Analyst.SpatialAnalyst, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Class SuperMap.Analyst.SpatialAnalyst.GridAnalystSetting: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.GridAnalystSetting): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.PixelFormat PixelFormat 'get set' :  (Obsolete)
+    Boolean UseNoValue 'get set' :  (Obsolete)
+    Boolean IsShowProgress 'get set' : 
+    SuperMap.Data.Datasource OutputDatasource 'get set' : 
+    System.String VectorOutputNamePrefix 'get set' : 
+    System.String GridOutputNamePrefix 'get set' : 
+    SuperMap.Data.GeoRegion ValidRegion 'get set' : 
+    Double CellSize 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.CellSizeType CellSizeType 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.BoundsType BoundsType 'get set' : 
+  Methods:
+    get_BoundsType(): PrivateScope, Public, HideBySig, SpecialName
+    set_BoundsType(BoundsType): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_CellSizeType(): PrivateScope, Public, HideBySig, SpecialName
+    set_CellSizeType(CellSizeType): PrivateScope, Public, HideBySig, SpecialName
+    get_CellSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_CellSize(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ValidRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_ValidRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_GridOutputNamePrefix(): PrivateScope, Public, HideBySig, SpecialName
+    set_GridOutputNamePrefix(String): PrivateScope, Public, HideBySig, SpecialName
+    get_VectorOutputNamePrefix(): PrivateScope, Public, HideBySig, SpecialName
+    set_VectorOutputNamePrefix(String): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_IsShowProgress(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsShowProgress(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_UseNoValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseNoValue(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    set_PixelFormat(PixelFormat): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.BoundsType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.BoundsType Intersection = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.BoundsType Union = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.BoundsType Custom = 3 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.CellSizeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.CellSizeType Min = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.CellSizeType Max = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.CellSizeType Custom = 3 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Min = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Max = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Mean = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Stdev = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Sum = 5 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Variety = 6 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Range = 7 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Majority = 8 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Minority = 9 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode Median = 10 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.ReclassType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.ReclassType Unique = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ReclassType Range = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.SmoothMethod: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.SmoothMethod None = -1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.SmoothMethod BSpline = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.SmoothMethod Polish = 1 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.SearchMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.SearchMode None = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.SearchMode QuadTree = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.SearchMode KdTreeFixedRadius = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.SearchMode KdTreeFixedCount = 3 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.TerrainStatisticType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.TerrainStatisticType Unique = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.TerrainStatisticType Mean = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.TerrainStatisticType Min = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.TerrainStatisticType Max = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.TerrainStatisticType Majority = 5 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.TerrainStatisticType Median = 6 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.TerrainInterpolateType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.TerrainInterpolateType IDW = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.TerrainInterpolateType Kriging = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.TerrainInterpolateType TIN = 3 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.BasicStatisticsAnalystResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Double StandardDeviation 'get ' : 
+    Double Mean 'get ' : 
+    Double Min 'get ' : 
+    Double Max 'get ' : 
+  Methods:
+    get_Max(): PrivateScope, Public, HideBySig, SpecialName
+    get_Min(): PrivateScope, Public, HideBySig, SpecialName
+    get_Mean(): PrivateScope, Public, HideBySig, SpecialName
+    get_StandardDeviation(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.BufferAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    CreateBuffer(Recordset, DatasetVector, BufferAnalystParameter, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    CreateBuffer(DatasetVector, DatasetVector, BufferAnalystParameter, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    CreateMultiBuffer(Recordset, DatasetVector, Double[], BufferRadiusUnit, Int32, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    CreateMultiBuffer(DatasetVector, DatasetVector, Double[], BufferRadiusUnit, Int32, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    CreateLineOneSideMultiBuffer(DatasetVector, DatasetVector, Double[], BufferRadiusUnit, Int32, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    CreateLineOneSideMultiBuffer(Recordset, DatasetVector, Double[], BufferRadiusUnit, Int32, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.CalculationTerrain: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.TerrainAnalystSetting AnalystSetting 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_AnalystSetting(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_AnalystSetting(TerrainAnalystSetting): PrivateScope, Public, Static, HideBySig, SpecialName
+    CalculateSlope(DatasetGrid, SlopeType, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    CalculateAspect(DatasetGrid, Datasource, String): PrivateScope, Public, Static, HideBySig
+    CalculateHillShade(DatasetGrid, ShadowMode, Double, Double, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    CalculateOrthoImage(DatasetGrid, Colors, Color, Double, Datasource, String): PrivateScope, Public, Static, HideBySig (Obsolete)
+    CalculateOrthoImage(DatasetGrid, Colors, Double, Datasource, String): PrivateScope, Public, Static, HideBySig (Obsolete)
+    CalculateOrthoImage(DatasetGrid, ColorDictionary, Color, Datasource, String): PrivateScope, Public, Static, HideBySig
+    CalculateOrthoImage(DatasetGrid, Colors, Color, Datasource, String): PrivateScope, Public, Static, HideBySig
+    CalculateProfile(DatasetGrid, GeoLine, Double): PrivateScope, Public, Static, HideBySig (Obsolete)
+    CalculateProfile(DatasetGrid, GeoLine): PrivateScope, Public, Static, HideBySig
+    FindExtremum(DatasetGrid, GeoRegion, Int32): PrivateScope, Public, Static, HideBySig
+    Flood(DatasetGrid, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    CutFill(DatasetGrid, Double, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    CutFill(DatasetGrid, GeoLine3D, Double, Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig
+    CutFill(DatasetGrid, GeoRegion, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    CutFill(DatasetGrid, DatasetGrid, Datasource, String): PrivateScope, Public, Static, HideBySig
+    ComputeSurfaceDistance(DatasetGrid, GeoLine): PrivateScope, Public, Static, HideBySig
+    ComputeSurfaceArea(DatasetGrid, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ComputeSurfaceVolume(DatasetGrid, GeoRegion, Double): PrivateScope, Public, Static, HideBySig
+    ComputePointSlope(DatasetGrid, Point2D, SlopeType, Double): PrivateScope, Public, Static, HideBySig
+    ComputePointAspect(DatasetGrid, Point2D): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.TerrainAnalystSetting: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.TerrainAnalystSetting): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.PixelFormat PixelFormat 'get set' :  (Obsolete)
+    Boolean UseNoValue 'get set' :  (Obsolete)
+    Boolean IsShowProgress 'get set' : 
+    SuperMap.Data.Datasource OutputDatasource 'get set' : 
+    System.String VectorOutputNamePrefix 'get set' : 
+    System.String GridOutputNamePrefix 'get set' : 
+    SuperMap.Data.GeoRegion ValidRegion 'get set' : 
+    Double CellSize 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.CellSizeType CellSizeType 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.BoundsType BoundsType 'get set' : 
+  Methods:
+    get_BoundsType(): PrivateScope, Public, HideBySig, SpecialName
+    set_BoundsType(BoundsType): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_CellSizeType(): PrivateScope, Public, HideBySig, SpecialName
+    set_CellSizeType(CellSizeType): PrivateScope, Public, HideBySig, SpecialName
+    get_CellSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_CellSize(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ValidRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_ValidRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_GridOutputNamePrefix(): PrivateScope, Public, HideBySig, SpecialName
+    set_GridOutputNamePrefix(String): PrivateScope, Public, HideBySig, SpecialName
+    get_VectorOutputNamePrefix(): PrivateScope, Public, HideBySig, SpecialName
+    set_VectorOutputNamePrefix(String): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_IsShowProgress(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsShowProgress(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_UseNoValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseNoValue(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    set_PixelFormat(PixelFormat): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ExtremumInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.Point2Ds MinPoints 'get ' : 
+    SuperMap.Data.Point2Ds MaxPoints 'get ' : 
+    Double MinValue 'get ' : 
+    Double MaxValue 'get ' : 
+  Methods:
+    get_MaxValue(): PrivateScope, Public, HideBySig, SpecialName
+    get_MinValue(): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxPoints(): PrivateScope, Public, HideBySig, SpecialName
+    get_MinPoints(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.CutFillResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.DatasetGrid CutFillGridResult 'get ' : 
+    Double RemainderArea 'get ' : 
+    Double CutVolume 'get ' : 
+    Double CutArea 'get ' : 
+    Double FillVolume 'get ' : 
+    Double FillArea 'get ' : 
+  Methods:
+    get_FillArea(): PrivateScope, Public, HideBySig, SpecialName
+    get_FillVolume(): PrivateScope, Public, HideBySig, SpecialName
+    get_CutArea(): PrivateScope, Public, HideBySig, SpecialName
+    get_CutVolume(): PrivateScope, Public, HideBySig, SpecialName
+    get_RemainderArea(): PrivateScope, Public, HideBySig, SpecialName
+    get_CutFillGridResult(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ProfileResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.GeoLine XYCoordinate 'get ' : 
+    SuperMap.Data.GeoLine Profile 'get ' : 
+  Methods:
+    get_Profile(): PrivateScope, Public, HideBySig, SpecialName
+    get_XYCoordinate(): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.SlopeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.SlopeType Degree = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.SlopeType Radian = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.SlopeType Percent = 3 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.ShadowMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.ShadowMode IlluminationAndShadow = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ShadowMode Shadow = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ShadowMode Illumination = 3 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.CalibrateOptions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.CalibrateMode, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Unit ToleranceUnit 'get set' : 
+    System.String ErrorInfoField 'get set' : 
+    Boolean RetainingAllRoutes 'get set' : 
+    Boolean IgnoringGaps 'get set' : 
+    Double Tolerance 'get set' : 
+    SuperMap.Data.CalibrateMode RouteCalibrationMode 'get set' : 
+  Methods:
+    EnableAll(): PrivateScope, Public, HideBySig
+    DisableAll(): PrivateScope, Public, HideBySig
+    get_RouteCalibrationMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_RouteCalibrationMode(CalibrateMode): PrivateScope, Public, HideBySig, SpecialName
+    get_Tolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoringGaps(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoringGaps(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_RetainingAllRoutes(): PrivateScope, Public, HideBySig, SpecialName
+    set_RetainingAllRoutes(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ErrorInfoField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ErrorInfoField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ToleranceUnit(): PrivateScope, Public, HideBySig, SpecialName
+    set_ToleranceUnit(Unit): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ComputeDistanceResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Int32[] ReferenceGeometryIDs 'get set' : 
+    Double Distance 'get set' : 
+    Int32 SourceGeometryID 'get set' : 
+  Methods:
+    get_SourceGeometryID(): PrivateScope, Public, HideBySig, SpecialName
+    get_Distance(): PrivateScope, Public, HideBySig, SpecialName
+    get_ReferenceGeometryIDs(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ConversionAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.GridAnalystSetting AnalystSetting 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_AnalystSetting(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_AnalystSetting(GridAnalystSetting): PrivateScope, Public, Static, HideBySig, SpecialName
+    VectorToRaster(ConversionAnalystParameter): PrivateScope, Public, Static, HideBySig
+    RasterToVector(ConversionAnalystParameter): PrivateScope, Public, Static, HideBySig
+    ThinRaster(Dataset, Int32 IsLong, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ConversionAnalystParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.ConversionAnalystParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsThinRaster 'get set' : 
+    Int32 SmoothDegree 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.SmoothMethod SmoothMethod 'get set' : 
+    Double CellSize 'get set' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get set' : 
+    SuperMap.Data.DatasetType TargetDatasetType 'get set' : 
+    Double SpecifiedValueTolerance 'get set' : 
+    Int32 SpecifiedValue 'get set' : 
+    Double BackOrNoValueTolerance 'get set' : 
+    Int32 BackOrNoValue 'get set' : 
+    SuperMap.Data.GeoRegion ClipRegion 'get set' : 
+    System.String ValueFieldName 'get set' : 
+    System.String TargetDatasetName 'get set' : 
+    SuperMap.Data.Datasource TargetDatasource 'get set' : 
+    SuperMap.Data.Dataset SourceDataset 'get set' : 
+  Methods:
+    get_SourceDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasetName(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasetName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ValueFieldName(): PrivateScope, Public, HideBySig, SpecialName
+    set_ValueFieldName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ClipRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_ClipRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_BackOrNoValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackOrNoValue(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_BackOrNoValueTolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackOrNoValueTolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_SpecifiedValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpecifiedValue(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SpecifiedValueTolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpecifiedValueTolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasetType(DatasetType): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    set_PixelFormat(PixelFormat): PrivateScope, Public, HideBySig, SpecialName
+    get_CellSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_CellSize(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_SmoothMethod(): PrivateScope, Public, HideBySig, SpecialName
+    set_SmoothMethod(SmoothMethod): PrivateScope, Public, HideBySig, SpecialName
+    get_SmoothDegree(): PrivateScope, Public, HideBySig, SpecialName
+    set_SmoothDegree(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_IsThinRaster(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsThinRaster(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.CostPathLineResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+  Properties:
+    Double Cost 'get ' : 
+    SuperMap.Data.DatasetVector CostPathLineDataset 'get ' : 
+  Methods:
+    get_CostPathLineDataset(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cost(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.DistanceAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.GridAnalystSetting AnalystSetting 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_AnalystSetting(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_AnalystSetting(GridAnalystSetting): PrivateScope, Public, Static, HideBySig, SpecialName
+    StraightDistance(DistanceAnalystParameter): PrivateScope, Public, Static, HideBySig
+    StraightDistance(Dataset, Double, Double, Datasource, String, String, String): PrivateScope, Public, Static, HideBySig (Obsolete)
+    CostDistance(DistanceAnalystParameter): PrivateScope, Public, Static, HideBySig
+    CostDistance(Dataset, DatasetGrid, Double, Double, Datasource, String, String, String): PrivateScope, Public, Static, HideBySig (Obsolete)
+    SurfaceDistance(DistanceAnalystParameter): PrivateScope, Public, Static, HideBySig
+    CostPath(Dataset, DatasetGrid, DatasetGrid, ComputeType, Datasource, String): PrivateScope, Public, Static, HideBySig
+    PathLine(Point2D, DatasetGrid, DatasetGrid, SmoothMethod, Int32): PrivateScope, Public, Static, HideBySig
+    CostPathLine(Point2D, Point2D, DistanceAnalystParameter): PrivateScope, Public, Static, HideBySig
+    CostPathLine(Point2D, Point2D, DatasetGrid, SmoothMethod, Int32, Datasource, String): PrivateScope, Public, Static, HideBySig (Obsolete)
+    SurfacePathLine(Point2D, Point2D, DistanceAnalystParameter): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.DistanceAnalystResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.DatasetGrid AllocationDatasetGrid 'get ' : 
+    SuperMap.Data.DatasetGrid DirectionDatasetGrid 'get ' : 
+    SuperMap.Data.DatasetGrid DistanceDatasetGrid 'get ' : 
+  Methods:
+    get_DistanceDatasetGrid(): PrivateScope, Public, HideBySig, SpecialName
+    get_DirectionDatasetGrid(): PrivateScope, Public, HideBySig, SpecialName
+    get_AllocationDatasetGrid(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.PathLineResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Double Cost 'get ' : 
+    SuperMap.Data.GeoLine PathLine 'get ' : 
+  Methods:
+    get_PathLine(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cost(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.DistanceAnalystParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.DistanceAnalystParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 PathLineSmoothDegree 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.SmoothMethod PathLineSmoothMethod 'get set' : 
+    Double MaxDownslopeDegree 'get set' : 
+    Double MaxUpslopeDegree 'get set' : 
+    System.String AllocationGridName 'get set' : 
+    System.String DirectionGridName 'get set' : 
+    System.String DistanceGridName 'get set' : 
+    SuperMap.Data.Datasource AllocationDatasource 'get set' :  (Obsolete)
+    SuperMap.Data.Datasource DirectionDatasource 'get set' :  (Obsolete)
+    SuperMap.Data.Datasource DistanceDatasource 'get set' :  (Obsolete)
+    SuperMap.Data.Datasource TargetDatasource 'get set' : 
+    SuperMap.Data.Datasource OutputDataSource 'get set' :  (Obsolete)
+    SuperMap.Data.DatasetGrid SurfaceGrid 'get set' : 
+    SuperMap.Data.DatasetGrid CostGrid 'get set' : 
+    SuperMap.Data.Dataset SourceDataset 'get set' : 
+    Double MaxDistance 'get set' : 
+    Double CellSize 'get set' : 
+  Methods:
+    get_CellSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_CellSize(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxDistance(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxDistance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_CostGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_CostGrid(DatasetGrid): PrivateScope, Public, HideBySig, SpecialName
+    get_SurfaceGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_SurfaceGrid(DatasetGrid): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputDataSource(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputDataSource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_DistanceDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_DistanceDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_DirectionDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_DirectionDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_AllocationDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_AllocationDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_DistanceGridName(): PrivateScope, Public, HideBySig, SpecialName
+    set_DistanceGridName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_DirectionGridName(): PrivateScope, Public, HideBySig, SpecialName
+    set_DirectionGridName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AllocationGridName(): PrivateScope, Public, HideBySig, SpecialName
+    set_AllocationGridName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxUpslopeDegree(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxUpslopeDegree(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxDownslopeDegree(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxDownslopeDegree(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_PathLineSmoothMethod(): PrivateScope, Public, HideBySig, SpecialName
+    set_PathLineSmoothMethod(SmoothMethod): PrivateScope, Public, HideBySig, SpecialName
+    get_PathLineSmoothDegree(): PrivateScope, Public, HideBySig, SpecialName
+    set_PathLineSmoothDegree(Int32): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.ComputeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.ComputeType Cell = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ComputeType Zone = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ComputeType All = 2 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.Generalization: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    Dissolve(DatasetVector, Datasource, String, DissolveParameter): PrivateScope, Public, Static, HideBySig
+    Eliminate(DatasetVector, Double, Double, EliminateMode, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    DualLineToCenterLine(Recordset, Double, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    RegionToCenterLine(GeoRegion): PrivateScope, Public, Static, HideBySig
+    RegionToCenterLine(GeoRegion, Point2D, Point2D): PrivateScope, Public, Static, HideBySig
+    RegionToCenterLine(Recordset, Datasource, String): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.DissolveParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.DissolveParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.StatisticType[] StatisticsTypes 'get set' : 
+    System.String[] StatisticsFieldNames 'get set' : 
+    System.String[] FieldNames 'get set' : 
+    System.String FilterString 'get set' : 
+    Double Tolerance 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.DissolveType DissolveType 'get set' : 
+    Boolean IsNullValue 'get set' : 
+    Boolean IsPreProcess 'get set' : 
+  Methods:
+    get_IsPreProcess(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPreProcess(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsNullValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsNullValue(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_DissolveType(): PrivateScope, Public, HideBySig, SpecialName
+    set_DissolveType(DissolveType): PrivateScope, Public, HideBySig, SpecialName
+    get_Tolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_FilterString(): PrivateScope, Public, HideBySig, SpecialName
+    set_FilterString(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FieldNames(): PrivateScope, Public, HideBySig, SpecialName
+    set_FieldNames(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_StatisticsFieldNames(): PrivateScope, Public, HideBySig, SpecialName
+    set_StatisticsFieldNames(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_StatisticsTypes(): PrivateScope, Public, HideBySig, SpecialName
+    set_StatisticsTypes(StatisticType[]): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.EliminateMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.EliminateMode EliminateByArea = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.EliminateMode EliminateByBorder = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.DissolveType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.DissolveType OnlyMultiPart = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.DissolveType Single = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.DissolveType MultiPart = 3 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.StatisticType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.StatisticType Max = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticType Min = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticType Sum = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticType Mean = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticType First = 5 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticType Last = 6 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.StatisticsType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.StatisticsType Max = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticsType Min = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticsType Sum = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticsType Mean = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticsType First = 5 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticsType Last = 6 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.GeneralizeAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.GridAnalystSetting AnalystSetting 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_AnalystSetting(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_AnalystSetting(GridAnalystSetting): PrivateScope, Public, Static, HideBySig, SpecialName
+    Aggregate(DatasetGrid, Int32, AggregationType, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig
+    Reclass(DatasetGrid, ReclassMappingTable, ReclassPixelFormat, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Replace(DatasetGrid, Dictionary`2, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Resample(Dataset, Double, ResampleMode, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Dissolve(DatasetVector, Datasource, String, DissolveParameter): PrivateScope, Public, Static, HideBySig (Obsolete)
+    Eliminate(DatasetVector, Double, Double, EliminateMode, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig (Obsolete)
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ReclassMappingTable: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.ReclassMappingTable): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double ChangeNoValueTo 'get set' : 
+    Boolean RetainNoValue 'get set' : 
+    Double ChangeMissingValueTo 'get set' : 
+    Boolean RetainMissingValue 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.ReclassType ReclassType 'get set' : 
+    Int32 SegmentCount 'get ' : 
+    SuperMap.Analyst.SpatialAnalyst.ReclassSegment[] Segments 'get set' : 
+  Methods:
+    ToXMLFile(String): PrivateScope, Public, HideBySig
+    FromXMLFile(String): PrivateScope, Public, HideBySig
+    ToXML(): PrivateScope, Public, HideBySig
+    FromXML(String): PrivateScope, Public, HideBySig
+    get_Segments(): PrivateScope, Public, HideBySig, SpecialName
+    set_Segments(ReclassSegment[]): PrivateScope, Public, HideBySig, SpecialName
+    get_SegmentCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_ReclassType(): PrivateScope, Public, HideBySig, SpecialName
+    set_ReclassType(ReclassType): PrivateScope, Public, HideBySig, SpecialName
+    get_RetainMissingValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_RetainMissingValue(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ChangeMissingValueTo(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChangeMissingValueTo(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_RetainNoValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_RetainNoValue(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ChangeNoValueTo(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChangeNoValueTo(Double): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ReclassSegment: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.ReclassSegment): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.ReclassSegmentType SegmentType 'get set' : 
+    Double NewValue 'get set' : 
+    Double EndValue 'get set' : 
+    Double StartValue 'get set' : 
+  Methods:
+    get_StartValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartValue(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_EndValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndValue(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_NewValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_NewValue(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_SegmentType(): PrivateScope, Public, HideBySig, SpecialName
+    set_SegmentType(ReclassSegmentType): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.ReclassPixelFormat: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.ReclassPixelFormat Bit32 = 320 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ReclassPixelFormat Bit64 = 64 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ReclassPixelFormat Single = 3200 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ReclassPixelFormat Double = 6400 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.AggregationType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.AggregationType Sum = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.AggregationType Min = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.AggregationType Max = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.AggregationType Average = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.AggregationType Median = 4 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.ResampleMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.ResampleMode Nearest = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ResampleMode Bilinear = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ResampleMode Cubic = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.ReclassSegmentType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.ReclassSegmentType OpenClose = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ReclassSegmentType CloseOpen = 1 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.GenerateEventTableParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.DatasetVector, SuperMap.Data.Datasource, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Unit SearchRadiusUnit 'get set' : 
+    System.String OutputDatasetRouteField 'get set' : 
+    System.String OutputDatasetName 'get set' : 
+    SuperMap.Data.Datasource OutputDatasource 'get set' : 
+    Boolean RetainingAllFields 'get set' : 
+    Boolean FindingClosestRoute 'get set' : 
+    Boolean HasDistanceField 'get set' : 
+    Double SearchRadius 'get set' : 
+    System.String MeasureEndField 'get set' : 
+    System.String MeasureStartField 'get set' : 
+    System.String MeasureField 'get set' : 
+    System.String RouteIDField 'get set' : 
+    SuperMap.Data.DatasetVector EventDataset 'get set' : 
+  Methods:
+    get_EventDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_EventDataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_RouteIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RouteIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureStartField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureStartField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureEndField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureEndField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SearchRadius(): PrivateScope, Public, HideBySig, SpecialName
+    set_SearchRadius(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_HasDistanceField(): PrivateScope, Public, HideBySig, SpecialName
+    set_HasDistanceField(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_FindingClosestRoute(): PrivateScope, Public, HideBySig, SpecialName
+    set_FindingClosestRoute(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_RetainingAllFields(): PrivateScope, Public, HideBySig, SpecialName
+    set_RetainingAllFields(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputDatasetName(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputDatasetName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputDatasetRouteField(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputDatasetRouteField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SearchRadiusUnit(): PrivateScope, Public, HideBySig, SpecialName
+    set_SearchRadiusUnit(Unit): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.EventType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.EventType PointEvent = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.EventType LineEvent = 2 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.GenerateRoutesParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.Datasource, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String MeasureEndField 'get set' : 
+    System.String MeasureStartField 'get set' : 
+    System.String MeasureField 'get set' : 
+    System.String PointRouteIDField 'get set' : 
+    System.String LineRouteIDField 'get set' : 
+    System.String ErrorInfoField 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.GenerateType Type 'get set' : 
+    System.String OutputDatasetName 'get set' : 
+    SuperMap.Data.Datasource OutputDatasource 'get set' : 
+    Boolean IgnoringGaps 'get set' : 
+    Double Ratio 'get set' : 
+    Double MeasureOffset 'get set' : 
+    Double Tolerance 'get set' : 
+    SuperMap.Data.DatasetVector DatasetPoint 'get set' : 
+  Methods:
+    get_DatasetPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_DatasetPoint(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_Tolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureOffset(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureOffset(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Ratio(): PrivateScope, Public, HideBySig, SpecialName
+    set_Ratio(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoringGaps(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoringGaps(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputDatasetName(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputDatasetName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, HideBySig, SpecialName
+    set_Type(GenerateType): PrivateScope, Public, HideBySig, SpecialName
+    get_ErrorInfoField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ErrorInfoField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LineRouteIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineRouteIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_PointRouteIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_PointRouteIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureStartField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureStartField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureEndField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureEndField(String): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.GenerateType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.GenerateType ByPoint = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GenerateType BySingleField = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GenerateType ByDoubleFields = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.GenerateType ByLength = 3 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.GenerateSpatialDataParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.DatasetVector, System.String, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.DatasetVector, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String EventRouteIDField 'get set' : 
+    System.String OutputDatasetName 'get set' : 
+    System.String ErrorInfoField 'get set' : 
+    System.String MeasureEndField 'get set' : 
+    System.String MeasureStartField 'get set' : 
+    System.String MeasureField 'get set' : 
+    System.String MeasureOffsetField 'get set' : 
+    System.String RouteIDField 'get set' : 
+    SuperMap.Data.DatasetVector EventTable 'get set' : 
+    SuperMap.Data.DatasetVector ReferenceLineM 'get set' : 
+  Methods:
+    get_ReferenceLineM(): PrivateScope, Public, HideBySig, SpecialName
+    set_ReferenceLineM(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_EventTable(): PrivateScope, Public, HideBySig, SpecialName
+    set_EventTable(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_RouteIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RouteIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureOffsetField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureOffsetField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureStartField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureStartField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureEndField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureEndField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ErrorInfoField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ErrorInfoField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputDatasetName(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputDatasetName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_EventRouteIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_EventRouteIDField(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.GridHistogram: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 GroupCount 'get set' : 
+  Methods:
+    get_GroupCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_GroupCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    GetFrequencies(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Analyst.SpatialAnalyst.InterpolationParameter: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 MaxPointCountForInterpolation 'get set' : 
+    Int32 MaxPointCountInNode 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType Type 'get ' : 
+    Int32 ExpectedCount 'get set' : 
+    Double SearchRadius 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.SearchMode SearchMode 'get set' : 
+    Double Resolution 'get set' : 
+  Methods:
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+    set_Resolution(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_SearchMode(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_SearchMode(SearchMode): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_SearchRadius(): PrivateScope, Public, HideBySig, SpecialName
+    set_SearchRadius(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ExpectedCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExpectedCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxPointCountInNode(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxPointCountInNode(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxPointCountForInterpolation(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxPointCountForInterpolation(Int32): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Analyst.SpatialAnalyst.InterpolationDensityParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Analyst.SpatialAnalyst.InterpolationParameter
+    Void .ctor(Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType Type 'get ' : 
+    SuperMap.Analyst.SpatialAnalyst.SearchMode SearchMode 'get set' : 
+  Methods:
+    get_SearchMode(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_SearchMode(SearchMode): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Struct SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType IDW = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType SimpleKriging = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType Kriging = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType UniversalKriging = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType RBF = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType DENSITY = 9 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.InterpolationIDWParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Analyst.SpatialAnalyst.InterpolationParameter
+    Void .ctor(Double, SuperMap.Analyst.SpatialAnalyst.SearchMode, Double, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, SuperMap.Analyst.SpatialAnalyst.SearchMode, Double, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType Type 'get ' : 
+    SuperMap.Analyst.SpatialAnalyst.SearchMode SearchMode 'get set' : 
+    Int32 Power 'get set' : 
+  Methods:
+    get_Power(): PrivateScope, Public, HideBySig, SpecialName
+    set_Power(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SearchMode(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_SearchMode(SearchMode): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class SuperMap.Analyst.SpatialAnalyst.InterpolationKrigingParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Analyst.SpatialAnalyst.InterpolationParameter
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType, Double, SuperMap.Analyst.SpatialAnalyst.SearchMode, Double, Int32, SuperMap.Analyst.SpatialAnalyst.VariogramMode): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, SuperMap.Analyst.SpatialAnalyst.SearchMode, Double, Int32, SuperMap.Analyst.SpatialAnalyst.VariogramMode): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType Type 'get ' : 
+    SuperMap.Analyst.SpatialAnalyst.VariogramMode VariogramMode 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.Exponent Exponent 'get set' : 
+    Double Nugget 'get set' : 
+    Double Mean 'get set' : 
+    Double Angle 'get set' : 
+    Double Sill 'get set' : 
+    Double Range 'get set' : 
+  Methods:
+    get_Range(): PrivateScope, Public, HideBySig, SpecialName
+    set_Range(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Sill(): PrivateScope, Public, HideBySig, SpecialName
+    set_Sill(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Angle(): PrivateScope, Public, HideBySig, SpecialName
+    set_Angle(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Mean(): PrivateScope, Public, HideBySig, SpecialName
+    set_Mean(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Nugget(): PrivateScope, Public, HideBySig, SpecialName
+    set_Nugget(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Exponent(): PrivateScope, Public, HideBySig, SpecialName
+    set_Exponent(Exponent): PrivateScope, Public, HideBySig, SpecialName
+    get_VariogramMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_VariogramMode(VariogramMode): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Struct SuperMap.Analyst.SpatialAnalyst.Exponent: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.Exponent exp1 = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.Exponent exp2 = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.VariogramMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.VariogramMode Exponential = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.VariogramMode Gaussian = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.VariogramMode Spherical = 9 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.InterpolationRBFParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Analyst.SpatialAnalyst.InterpolationParameter
+    Void .ctor(Double, Double, Double, SuperMap.Analyst.SpatialAnalyst.SearchMode, Double, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.InterpolationAlgorithmType Type 'get ' : 
+    Double Smooth 'get set' : 
+    Double Tension 'get set' : 
+  Methods:
+    get_Tension(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tension(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Smooth(): PrivateScope, Public, HideBySig, SpecialName
+    set_Smooth(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class SuperMap.Analyst.SpatialAnalyst.Interpolator: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.GridAnalystSetting AnalystSetting 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_AnalystSetting(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_AnalystSetting(GridAnalystSetting): PrivateScope, Public, Static, HideBySig, SpecialName
+    Interpolate(InterpolationParameter, Recordset, String, Double, Datasource, String, PixelFormat): PrivateScope, Public, Static, HideBySig
+    Interpolate(InterpolationParameter, DatasetVector, String, Double, Datasource, String, PixelFormat): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.RouteEventsParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.RouteEventsParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.EventType Type 'get ' : 
+    System.String MeasureEndField 'get set' : 
+    System.String MeasureStartField 'get set' : 
+    System.String MeasureField 'get set' : 
+    System.String RouteIDField 'get set' : 
+    SuperMap.Data.DatasetVector EventDataset 'get set' : 
+  Methods:
+    get_EventDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_EventDataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_RouteIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RouteIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureStartField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureStartField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MeasureEndField(): PrivateScope, Public, HideBySig, SpecialName
+    set_MeasureEndField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Analyst.SpatialAnalyst.LinearReferencing: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    GenerateRoutes(DatasetVector, GenerateRoutesParameter): PrivateScope, Public, Static, HideBySig
+    GenerateEventTable(DatasetVector, GenerateEventTableParameter): PrivateScope, Public, Static, HideBySig
+    CalibrateRoutes(DatasetVector, String, DatasetVector, String, String, CalibrateOptions, Datasource, String): PrivateScope, Public, Static, HideBySig
+    GenerateSpatialData(GenerateSpatialDataParameter): PrivateScope, Public, Static, HideBySig
+    DissolveRouteEvents(RouteEventsParameter, String[], EventDissolveType, Datasource, String, RouteEventsParameter, String[], StatisticsType[], Double IsConst): PrivateScope, Public, Static, HideBySig
+    OverlayRouteEvents(RouteEventsParameter, RouteEventsParameter, EventOverlayType, Datasource, String, RouteEventsParameter, Double IsConst, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    RebuildSpatialData(DatasetVector): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.EventDissolveType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.EventDissolveType EventOverlap = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.EventDissolveType EventConcatenate = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.EventOverlayType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.EventOverlayType EventIntersect = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.EventOverlayType EventUnion = 2 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.MathAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.GridAnalystSetting AnalystSetting 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_AnalystSetting(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_AnalystSetting(GridAnalystSetting): PrivateScope, Public, Static, HideBySig, SpecialName
+    Plus(DatasetGrid, DatasetGrid, GeoRegion, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Minus(DatasetGrid, DatasetGrid, GeoRegion, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Multiply(DatasetGrid, DatasetGrid, GeoRegion, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Divide(DatasetGrid, DatasetGrid, GeoRegion, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Execute(String, GeoRegion, PixelFormat, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig
+    ToInt(DatasetGrid, GeoRegion, Datasource, String): PrivateScope, Public, Static, HideBySig
+    ToFloat(DatasetGrid, GeoRegion, Datasource, String): PrivateScope, Public, Static, HideBySig
+    ExecuteFromXML(String, Datasource, String): PrivateScope, Public, Static, HideBySig
+    ToXMLFile(String, String, GeoRegion, PixelFormat, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsParameter: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType ShapeType 'get ' : 
+    Boolean IsIgnoreNoValue 'get set' : 
+    System.String TargetDatasetName 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode StatisticsMode 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.NeighbourUnitType UnitType 'get set' : 
+    SuperMap.Data.Datasource TargetDatasource 'get set' : 
+    SuperMap.Data.DatasetGrid SourceDataset 'get set' : 
+  Methods:
+    get_SourceDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceDataset(DatasetGrid): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_UnitType(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnitType(NeighbourUnitType): PrivateScope, Public, HideBySig, SpecialName
+    get_StatisticsMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_StatisticsMode(GridStatisticsMode): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasetName(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasetName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsIgnoreNoValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsIgnoreNoValue(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ShapeType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsAnnulusParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsParameter
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsAnnulusParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType ShapeType 'get ' : 
+    Double OuterRadius 'get set' : 
+    Double InnerRadius 'get set' : 
+  Methods:
+    get_InnerRadius(): PrivateScope, Public, HideBySig, SpecialName
+    set_InnerRadius(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_OuterRadius(): PrivateScope, Public, HideBySig, SpecialName
+    set_OuterRadius(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ShapeType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType Rectangle = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType Circle = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType Annulus = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType Wedge = 4 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.NeighbourUnitType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.NeighbourUnitType Cell = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.NeighbourUnitType Map = 2 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsCircleParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsParameter
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsCircleParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType ShapeType 'get ' : 
+    Double Radius 'get set' : 
+  Methods:
+    get_Radius(): PrivateScope, Public, HideBySig, SpecialName
+    set_Radius(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ShapeType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsRectangleParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsParameter
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsRectangleParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType ShapeType 'get ' : 
+    Double Height 'get set' : 
+    Double Width 'get set' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    set_Width(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    set_Height(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ShapeType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsWedgeParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsParameter
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.NeighbourStatisticsWedgeParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.NeighbourShapeType ShapeType 'get ' : 
+    Double EndAngle 'get set' : 
+    Double StartAngle 'get set' : 
+    Double Radius 'get set' : 
+  Methods:
+    get_Radius(): PrivateScope, Public, HideBySig, SpecialName
+    set_Radius(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_StartAngle(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartAngle(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_EndAngle(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndAngle(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ShapeType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.OverlayAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    Clip(DatasetVector, Geometry[], DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Clip(Recordset, Recordset, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Clip(DatasetVector, DatasetVector, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Erase(DatasetVector, Geometry[], DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Erase(Recordset, Recordset, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Erase(DatasetVector, DatasetVector, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Identity(DatasetVector, Geometry[], DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Identity(Recordset, Recordset, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Identity(DatasetVector, DatasetVector, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Intersect(DatasetVector, Geometry[], DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Intersect(Recordset, Recordset, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Intersect(DatasetVector, DatasetVector, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    XOR(DatasetVector, Geometry[], DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    XOR(Recordset, Recordset, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    XOR(DatasetVector, DatasetVector, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Union(DatasetVector, Geometry[], DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Union(Recordset, Recordset, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Union(DatasetVector, DatasetVector, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Update(DatasetVector, Geometry[], DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Update(Recordset, Recordset, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+    Update(DatasetVector, DatasetVector, DatasetVector, OverlayAnalystParameter): PrivateScope, Public, Static, HideBySig
+Class SuperMap.Analyst.SpatialAnalyst.OverlayAnalystParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.OverlayAnalystParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double Tolerance 'get set' : 
+    System.String[] OperationRetainedFields 'get set' : 
+    System.String[] SourceRetainedFields 'get set' : 
+  Methods:
+    get_SourceRetainedFields(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceRetainedFields(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_OperationRetainedFields(): PrivateScope, Public, HideBySig, SpecialName
+    set_OperationRetainedFields(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_Tolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ProximityAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    CreateThiessenPolygon(Point2Ds, GeoRegion): PrivateScope, Public, Static, HideBySig
+    CreateThiessenPolygon(Recordset, GeoRegion): PrivateScope, Public, Static, HideBySig
+    CreateThiessenPolygon(DatasetVector, GeoRegion): PrivateScope, Public, Static, HideBySig
+    CreateThiessenPolygon(Point2Ds, Datasource, String, GeoRegion): PrivateScope, Public, Static, HideBySig
+    CreateThiessenPolygon(Recordset, Datasource, String, GeoRegion): PrivateScope, Public, Static, HideBySig
+    CreateThiessenPolygon(DatasetVector, Datasource, String, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ComputeMinDistance(Geometry[], Recordset, Double, Double): PrivateScope, Public, Static, HideBySig
+    ComputeMinDistance(Recordset, Recordset, Double, Double): PrivateScope, Public, Static, HideBySig
+    ComputeMinDistance(Geometry[], Recordset, Double, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    ComputeMinDistance(Recordset, Recordset, Double, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    ComputeRangeDistance(Geometry[], Recordset, Double, Double): PrivateScope, Public, Static, HideBySig
+    ComputeRangeDistance(Recordset, Recordset, Double, Double): PrivateScope, Public, Static, HideBySig
+    ComputeRangeDistance(Geometry[], Recordset, Double, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    ComputeRangeDistance(Recordset, Recordset, Double, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.RasterClip: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    ClipDatasetRaster(Dataset, GeoRegion, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig (Obsolete)
+    Clip(DatasetImage, GeoRegion, Boolean(HasFieldMarshal), String, RasterClipFileType): PrivateScope, Public, Static, HideBySig
+    Clip(Dataset, GeoRegion, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig
+    Split(Dataset, GeoLine, Datasource, String, String): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.RasterClipFileType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.RasterClipFileType TIF = 103 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterClipFileType IMG = 101 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterClipFileType SIT = 204 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterClipFileType BMP = 121 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterClipFileType JPG = 122 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterClipFileType PNG = 123 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterClipFileType GIF = 124 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.RasterMosaic: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    Mosaic(Dataset[], Double, Double, RasterJoinType, RasterJoinPixelFormat, Double, EncodeType, Rectangle2D, Datasource, String): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPMono = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPFBit = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPByte = 8 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPTByte = 16 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPRGB = 24 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPRGBA = 32 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPLongLong = 64 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPLong = 320 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPFloat = 3200 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPDouble = 6400 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPFirst = 10000 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPLast = 20000 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPMax = 30000 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPMin = 40000 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinPixelFormat RJPMajority = 50000 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.SpatialAnalyst.RasterJoinType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinType RJMFirst = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinType RJMLast = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinType RJMMax = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinType RJMMin = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.RasterJoinType RJMMean = 4 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.StatisticsAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    CreateHistogram(DatasetGrid, Int32): PrivateScope, Public, Static, HideBySig
+    BasicStatistics(DatasetGrid): PrivateScope, Public, Static, HideBySig
+    CommonStatistics(DatasetGrid, DatasetGrid[], StatisticsCompareType, Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig
+    CommonStatistics(DatasetGrid, Double, StatisticsCompareType, Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig
+    NeighbourStatistics(NeighbourStatisticsParameter): PrivateScope, Public, Static, HideBySig
+    ZonalStatisticsOnRasterValue(ZonalStatisticsAnalystParameter): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ZonalStatisticsAnalystResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.DatasetVector ResultTable 'get ' : 
+    SuperMap.Data.DatasetGrid ResultDatasetGrid 'get ' : 
+  Methods:
+    get_ResultDatasetGrid(): PrivateScope, Public, HideBySig, SpecialName
+    get_ResultTable(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.ZonalStatisticsAnalystParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.ZonalStatisticsAnalystParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsIgnoreNoValue 'get set' : 
+    System.String TargetTableName 'get set' : 
+    System.String TargetDatasetName 'get set' : 
+    System.String ZonalFieldName 'get set' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get set' :  (Obsolete)
+    SuperMap.Analyst.SpatialAnalyst.GridStatisticsMode StatisticsMode 'get set' : 
+    SuperMap.Data.Datasource TargetDatasource 'get set' : 
+    SuperMap.Data.Dataset ValueDataset 'get set' : 
+    SuperMap.Data.Dataset ZonalDataset 'get set' : 
+  Methods:
+    get_ZonalDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_ZonalDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_ValueDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_ValueDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_StatisticsMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_StatisticsMode(GridStatisticsMode): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    set_PixelFormat(PixelFormat): PrivateScope, Public, HideBySig, SpecialName
+    get_ZonalFieldName(): PrivateScope, Public, HideBySig, SpecialName
+    set_ZonalFieldName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasetName(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasetName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetTableName(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetTableName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsIgnoreNoValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsIgnoreNoValue(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.StatisticsCompareType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.StatisticsCompareType Less = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticsCompareType LessOrEqual = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticsCompareType Equal = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticsCompareType Greater = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.StatisticsCompareType GreaterOrEqual = 5 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.SpatialAnalyst.SurfaceAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    ExtractIsoline(SurfaceExtractParameter, Point3Ds, TerrainInterpolateType, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, Recordset, String, TerrainInterpolateType, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, DatasetVector, String, TerrainInterpolateType, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, Point3Ds, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, Recordset, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, DatasetVector, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, DatasetGrid, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, DatasetGrid): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, Point3Ds, TerrainInterpolateType, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, Recordset, String, TerrainInterpolateType, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, DatasetVector, String, TerrainInterpolateType, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, Point3Ds, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, Recordset, String, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, DatasetVector, String, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, DatasetGrid, Datasource, String, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoline(SurfaceExtractParameter, DatasetGrid, Datasource, String): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, DatasetGrid, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, Recordset, String, TerrainInterpolateType, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, Point3Ds, TerrainInterpolateType, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, DatasetVector, String, TerrainInterpolateType, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, Recordset, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, Point3Ds, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, DatasetVector, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, DatasetGrid, Datasource, String, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, Recordset, String, TerrainInterpolateType, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, Point3Ds, TerrainInterpolateType, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, DatasetVector, String, TerrainInterpolateType, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, Recordset, String, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, Point3Ds, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    ExtractIsoregion(SurfaceExtractParameter, DatasetVector, String, Datasource, String, Double, GeoRegion): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.SurfaceExtractParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Double[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] ExpectedZValues 'get set' : 
+    Double ResampleTolerance 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.SmoothMethod SmoothMethod 'get set' : 
+    Int32 Smoothness 'get set' : 
+    Double DatumValue 'get set' : 
+    Double Interval 'get set' : 
+  Methods:
+    get_Interval(): PrivateScope, Public, HideBySig, SpecialName
+    set_Interval(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_DatumValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_DatumValue(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Smoothness(): PrivateScope, Public, HideBySig, SpecialName
+    set_Smoothness(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SmoothMethod(): PrivateScope, Public, HideBySig, SpecialName
+    set_SmoothMethod(SmoothMethod): PrivateScope, Public, HideBySig, SpecialName
+    get_ResampleTolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_ResampleTolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ExpectedZValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExpectedZValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class SuperMap.Analyst.SpatialAnalyst.TerrainBuilder: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    BuildLake(DatasetGrid, DatasetVector, Double): PrivateScope, Public, Static, HideBySig
+    BuildLake(DatasetGrid, DatasetVector, String): PrivateScope, Public, Static, HideBySig
+    BuildTerrain(TerrainBuilderParameter, Datasource, String): PrivateScope, Public, Static, HideBySig
+    BuildTerrain(DatasetVector, String, DatasetVector, String, TerrainInterpolateType, TerrainStatisticType, Double, Double, PixelFormat, EncodeType, Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig (Obsolete)
+    BuildTerrain(DatasetVector, String, TerrainInterpolateType, TerrainStatisticType, Double, Double, PixelFormat, EncodeType, Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig (Obsolete)
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.TerrainBuilderParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.SpatialAnalyst.TerrainBuilderParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsProcessFlatArea 'get set' : 
+    SuperMap.Data.EncodeType EncodeType 'get set' : 
+    Double ResampleLen 'get set' : 
+    Double ZFactor 'get set' : 
+    Double CellSize 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.TerrainStatisticType StatisticType 'get set' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get set' : 
+    SuperMap.Analyst.SpatialAnalyst.TerrainInterpolateType InterpolateType 'get set' : 
+    SuperMap.Data.DatasetVector EraseDataset 'get set' : 
+    SuperMap.Data.DatasetVector ClipDataset 'get set' : 
+    SuperMap.Data.DatasetVector LakeDataset 'get set' : 
+    System.String LakeAltitudeFiled 'get set' : 
+    System.String[] PointAltitudeFileds 'get set' : 
+    System.String[] LineAltitudeFileds 'get set' : 
+    SuperMap.Data.DatasetVector[] PointDatasets 'get set' : 
+    SuperMap.Data.DatasetVector[] LineDatasets 'get set' : 
+  Methods:
+    get_LineDatasets(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineDatasets(DatasetVector[]): PrivateScope, Public, HideBySig, SpecialName
+    get_PointDatasets(): PrivateScope, Public, HideBySig, SpecialName
+    set_PointDatasets(DatasetVector[]): PrivateScope, Public, HideBySig, SpecialName
+    get_LineAltitudeFileds(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineAltitudeFileds(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_PointAltitudeFileds(): PrivateScope, Public, HideBySig, SpecialName
+    set_PointAltitudeFileds(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_LakeAltitudeFiled(): PrivateScope, Public, HideBySig, SpecialName
+    set_LakeAltitudeFiled(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LakeDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_LakeDataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_ClipDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_ClipDataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_EraseDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_EraseDataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_InterpolateType(): PrivateScope, Public, HideBySig, SpecialName
+    set_InterpolateType(TerrainInterpolateType): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    set_PixelFormat(PixelFormat): PrivateScope, Public, HideBySig, SpecialName
+    get_StatisticType(): PrivateScope, Public, HideBySig, SpecialName
+    set_StatisticType(TerrainStatisticType): PrivateScope, Public, HideBySig, SpecialName
+    get_CellSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_CellSize(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ZFactor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ZFactor(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ResampleLen(): PrivateScope, Public, HideBySig, SpecialName
+    set_ResampleLen(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_EncodeType(): PrivateScope, Public, HideBySig, SpecialName
+    set_EncodeType(EncodeType): PrivateScope, Public, HideBySig, SpecialName
+    get_IsProcessFlatArea(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsProcessFlatArea(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.VectorClip: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Methods:
+    ClipDatasetVector(DatasetVector, GeoRegion, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig
+Class SuperMap.Analyst.SpatialAnalyst.VisibleResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Double BarrierAlterHeight 'get ' : 
+    SuperMap.Data.Point3D BarrierPoint 'get ' : 
+    Int32 ToPointIndex 'get ' : 
+    Int32 FromPointIndex 'get ' : 
+    Boolean Visible 'get ' : 
+  Methods:
+    get_Visible(): PrivateScope, Public, HideBySig, SpecialName
+    get_FromPointIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_ToPointIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierPoint(): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierAlterHeight(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.SpatialAnalyst.VisibilityAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Properties:
+    SuperMap.Analyst.SpatialAnalyst.GridAnalystSetting AnalystSetting 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    LineOfSight(DatasetGrid, Point3D, Point3D): PrivateScope, Public, Static, HideBySig
+    get_AnalystSetting(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_AnalystSetting(GridAnalystSetting): PrivateScope, Public, Static, HideBySig, SpecialName
+    IsVisible(DatasetGrid, Point3Ds, Point3Ds): PrivateScope, Public, Static, HideBySig
+    IsVisible(DatasetGrid, Point3D, Point3D): PrivateScope, Public, Static, HideBySig
+    CalculateViewShed(DatasetGrid, Point3Ds, Double[], Double[], Double[], Datasource, String, ViewShedType): PrivateScope, Public, Static, HideBySig
+    CalculateViewShed(DatasetGrid, Point3D, Double, Double, Double, Datasource, String): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Struct SuperMap.Analyst.SpatialAnalyst.ViewShedType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.SpatialAnalyst.ViewShedType ViewShedIntersect = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.SpatialAnalyst.ViewShedType ViewShedUnion = 1 : Public, Static, Literal, HasDefault

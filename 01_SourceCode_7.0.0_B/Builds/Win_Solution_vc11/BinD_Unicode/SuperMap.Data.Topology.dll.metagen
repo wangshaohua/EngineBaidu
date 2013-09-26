@@ -1,0 +1,109 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Data.Topology, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Class SuperMap.Data.Topology.TopologyPreprocessOptions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.Topology.TopologyPreprocessOptions): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ArePolygonsChecked 'get set' : 
+    Boolean AreVertexesSnapped 'get set' : 
+    Boolean AreVertexArcInserted 'get set' : 
+    Boolean AreArcsInserted 'get set' : 
+  Methods:
+    get_AreArcsInserted(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreArcsInserted(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreVertexArcInserted(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreVertexArcInserted(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreVertexesSnapped(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreVertexesSnapped(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ArePolygonsChecked(): PrivateScope, Public, HideBySig, SpecialName
+    set_ArePolygonsChecked(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Topology.TopologyProcessing: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    BuildRegions(DatasetVector, Datasource, String, TopologyProcessingOptions): PrivateScope, Public, Static, HideBySig
+    BuildRegions(DatasetVector, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Clean(DatasetVector, TopologyProcessingOptions): PrivateScope, Public, Static, HideBySig
+    PickupLeftRightRegions(DatasetVector, DatasetVector, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    PickupBorder(DatasetVector, Datasource, String, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    SplitLinesByRegions(Recordset, Recordset): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Data.Topology.TopologyProcessingOptions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.Topology.TopologyProcessingOptions): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Topology.ArcAndVertexFilterMode FilterMode 'get set' : 
+    Double VertexTolerance 'get set' : 
+    System.String ArcFilterString 'get set' : 
+    SuperMap.Data.Recordset VertexFilterRecordset 'get set' : 
+    Boolean AreAdjacentEndpointsMerged 'get set' : 
+    Boolean AreLinesIntersected 'get set' : 
+    Boolean AreDuplicatedLinesCleaned 'get set' : 
+    Double UndershootsTolerance 'get set' : 
+    Boolean AreUndershootsExtended 'get set' : 
+    Boolean AreRedundantVerticesCleaned 'get set' : 
+    Double OvershootsTolerance 'get set' : 
+    Boolean AreOvershootsCleaned 'get set' : 
+    Boolean ArePseudoNodesCleaned 'get set' : 
+  Methods:
+    get_ArePseudoNodesCleaned(): PrivateScope, Public, HideBySig, SpecialName
+    set_ArePseudoNodesCleaned(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreOvershootsCleaned(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreOvershootsCleaned(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_OvershootsTolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_OvershootsTolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_AreRedundantVerticesCleaned(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreRedundantVerticesCleaned(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreUndershootsExtended(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreUndershootsExtended(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_UndershootsTolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_UndershootsTolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_AreDuplicatedLinesCleaned(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreDuplicatedLinesCleaned(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreLinesIntersected(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreLinesIntersected(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreAdjacentEndpointsMerged(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreAdjacentEndpointsMerged(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_VertexFilterRecordset(): PrivateScope, Public, HideBySig, SpecialName
+    set_VertexFilterRecordset(Recordset): PrivateScope, Public, HideBySig, SpecialName
+    get_ArcFilterString(): PrivateScope, Public, HideBySig, SpecialName
+    set_ArcFilterString(String): PrivateScope, Public, HideBySig, SpecialName
+    get_VertexTolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_VertexTolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_FilterMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_FilterMode(ArcAndVertexFilterMode): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Data.Topology.ArcAndVertexFilterMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Topology.ArcAndVertexFilterMode None = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Topology.ArcAndVertexFilterMode Arc = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Topology.ArcAndVertexFilterMode Vertex = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Topology.ArcAndVertexFilterMode ArcAndVertex = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Topology.ArcAndVertexFilterMode ArcOrVertex = 5 : Public, Static, Literal, HasDefault
+Class SuperMap.Data.Topology.TopologyValidator: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    Preprocess(DatasetVector[], Int32[], TopologyPreprocessOptions, Double): PrivateScope, Public, Static, HideBySig
+    Preprocess(DatasetVector[], Int32[], Double): PrivateScope, Public, Static, HideBySig
+    Preprocess(TopologyDatasetRelationItem[], Double): PrivateScope, Public, Static, HideBySig
+    Preprocess(DatasetTopology): PrivateScope, Public, Static, HideBySig
+    Validate(Recordset, Recordset, TopologyRule, Double, GeoRegion, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Validate(DatasetVector, DatasetVector, TopologyRule, Double, GeoRegion, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Validate(DatasetTopology, GeoRegion): PrivateScope, Public, Static, HideBySig
+    FixTopoError(DatasetVector, DatasetVector, DatasetVector): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName

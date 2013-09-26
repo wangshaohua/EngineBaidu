@@ -1,0 +1,73 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Analyst.TerrainAnalyst, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Class SuperMap.Analyst.TerrainAnalyst.HydrologyAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    FillSink(DatasetGrid, Datasource, String, DatasetVector): PrivateScope, Public, Static, HideBySig
+    FillSink(DatasetGrid, Datasource, String): PrivateScope, Public, Static, HideBySig
+    FlowDirection(DatasetGrid, Boolean(HasFieldMarshal), Datasource, String, String): PrivateScope, Public, Static, HideBySig
+    FlowDirection(DatasetGrid, Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig
+    FlowAccumulation(DatasetGrid, DatasetGrid, Datasource, String): PrivateScope, Public, Static, HideBySig
+    FlowLength(DatasetGrid, DatasetGrid, Boolean(HasFieldMarshal), Datasource, String): PrivateScope, Public, Static, HideBySig
+    Basin(DatasetGrid, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Watershed(DatasetGrid, DatasetGrid, Datasource, String): PrivateScope, Public, Static, HideBySig
+    Watershed(DatasetGrid, Point2Ds, Datasource, String): PrivateScope, Public, Static, HideBySig
+    StreamLink(DatasetGrid, DatasetGrid, Datasource, String): PrivateScope, Public, Static, HideBySig
+    StreamToLine(DatasetGrid, DatasetGrid, Datasource, String, StreamOrderType): PrivateScope, Public, Static, HideBySig
+    PourPoints(DatasetGrid, DatasetGrid, Int32, Datasource, String): PrivateScope, Public, Static, HideBySig
+    StreamOrder(DatasetGrid, DatasetGrid, StreamOrderType, Datasource, String): PrivateScope, Public, Static, HideBySig
+    BuildQuadMesh(QuadMeshParameter): PrivateScope, Public, Static, HideBySig
+    BuildQuadMesh(QuadMeshParameter, Datasource, String): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Analyst.TerrainAnalyst.QuadMeshParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.TerrainAnalyst.QuadMeshParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.GeoRegion, Int32, Int32, SuperMap.Data.Point2D, SuperMap.Data.Point2D, SuperMap.Data.Point2D, SuperMap.Data.Point2D, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String ColField 'get set' : 
+    System.String RowField 'get set' : 
+    SuperMap.Data.Point2D LeftTopPoint 'get set' : 
+    SuperMap.Data.Point2D RightTopPoint 'get set' : 
+    SuperMap.Data.Point2D RightBottomPoint 'get set' : 
+    SuperMap.Data.Point2D LeftBottomPoint 'get set' : 
+    Int32 ColCount 'get set' : 
+    Int32 RowCount 'get set' : 
+    SuperMap.Data.GeoRegion QuadMeshRegion 'get set' : 
+  Methods:
+    get_QuadMeshRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_QuadMeshRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_RowCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_RowCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ColCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_LeftBottomPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_LeftBottomPoint(Point2D): PrivateScope, Public, HideBySig, SpecialName
+    get_RightBottomPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_RightBottomPoint(Point2D): PrivateScope, Public, HideBySig, SpecialName
+    get_RightTopPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_RightTopPoint(Point2D): PrivateScope, Public, HideBySig, SpecialName
+    get_LeftTopPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_LeftTopPoint(Point2D): PrivateScope, Public, HideBySig, SpecialName
+    get_RowField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RowField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ColField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColField(String): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.TerrainAnalyst.StreamOrderType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.TerrainAnalyst.StreamOrderType Strahler = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.TerrainAnalyst.StreamOrderType Shreve = 2 : Public, Static, Literal, HasDefault

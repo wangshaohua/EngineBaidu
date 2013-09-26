@@ -1,0 +1,1798 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Data.Conversion, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Struct SuperMap.Data.Conversion.FileType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Conversion.FileType None = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType BMP = 121 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType PNG = 123 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType TIF = 103 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType JPG = 122 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType GIF = 124 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType IMG = 101 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType GRD = 142 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType RAW = 161 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType SIT = 204 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType GBDEM = 143 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType USGSDEM = 144 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType TEMSClutter = 146 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType SCV = 63 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType CSV = 64 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType SHP = 8 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType COVERAGE = 6 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType E00 = 7 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType TAB = 11 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType MIF = 12 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType WOR = 13 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType DXF = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType DWG = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType KML = 53 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType KMZ = 54 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType GML = 51 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType MAPGIS = 55 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType LIDAR = 17 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType TEMSBuildingVector = 42 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType TEMSVector = 41 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType SDEVector = 68 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType SDERaster = 69 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType FileGDBVector = 70 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType FileGDBRaster = 71 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType ENCS57 = 40 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType DGN = 16 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType ModelX = 503 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType ModelOSG = 505 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType BIL = 141 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType BIP = 148 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType BSQ = 149 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.FileType AIBinGrid = 145 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Conversion.CADVersion: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Conversion.CADVersion CAD12 = 12 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.CADVersion CAD13 = 13 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.CADVersion CAD14 = 14 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.CADVersion CAD2000 = 2000 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.CADVersion CAD2004 = 2004 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.CADVersion CAD2007 = 2007 : Public, Static, Literal, HasDefault
+Class SuperMap.Data.Conversion.ConversionToolkit: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetImpSupportedFileTypes(Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    GetExpSupportedFileTypes(Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+Class SuperMap.Data.Conversion.ImportSetting: AutoLayout, AnsiClass, Class, Public, Abstract
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Data.Conversion.ImportMode ImportMode 'get set' : 
+    SuperMap.Data.PrjCoordSys TargetPrjCoordSys 'get set' : 
+    SuperMap.Data.Datasource TargetDatasource 'get set' : 
+    SuperMap.Data.DatasourceConnectionInfo TargetDatasourceConnectionInfo 'get set' : 
+    SuperMap.Data.EncodeType TargetEncodeType 'get set' : 
+    SuperMap.Data.Charset SourceFileCharset 'get set' : 
+    SuperMap.Data.Conversion.FileType SourceFileType 'get ' : 
+    System.String TargetDatasetName 'get set' : 
+    System.String SourceFilePath 'get set' : 
+    Boolean IsUseFME 'get set' : 
+  Methods:
+    get_IsUseFME(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsUseFME(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasetName(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasetName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceFileType(): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceFileCharset(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceFileCharset(Charset): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetEncodeType(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetEncodeType(EncodeType): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasourceConnectionInfo(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasourceConnectionInfo(DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetPrjCoordSys(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetPrjCoordSys(PrjCoordSys): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportMode(ImportMode): PrivateScope, Public, HideBySig, SpecialName
+    GetTargetDataInfos(String, EncodeType, PrjCoordSys): PrivateScope, Public, HideBySig
+    GetTargetDataInfos(String): PrivateScope, Public, HideBySig
+    SetTargetDataInfos(ImportDataInfos): PrivateScope, Public, HideBySig
+    GetSourcePrjCoordSys(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Conversion.ImportSettingWOR: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource, SuperMap.Data.Workspace): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo, SuperMap.Data.WorkspaceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingWOR): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Workspace TargetWorkspace 'get set' : 
+    SuperMap.Data.WorkspaceConnectionInfo TargetWorkspaceConnectionInfo 'get set' : 
+  Methods:
+    get_TargetWorkspaceConnectionInfo(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetWorkspaceConnectionInfo(WorkspaceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetWorkspace(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetWorkspace(Workspace): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingMIF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingMIF): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String StyleMappingTableFile 'get set' : 
+    Boolean IsAttributeIgnored 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+    Boolean ImportingAsCAD 'get set' : 
+  Methods:
+    get_ImportingAsCAD(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsCAD(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_StyleMappingTableFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_StyleMappingTableFile(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingTAB: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingTAB): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String StyleMappingTableFile 'get set' : 
+    Boolean IsAttributeIgnored 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+    Boolean ImportingAsCAD 'get set' : 
+  Methods:
+    get_ImportingAsCAD(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsCAD(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_StyleMappingTableFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_StyleMappingTableFile(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingSHP: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingSHP): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsImportAs3D 'get set' : 
+    Boolean IsAttributeIgnored 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+  Methods:
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsImportAs3D(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsImportAs3D(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingCoverage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingCoverage): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsAttributeIgnored 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+  Methods:
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingE00: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingE00): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsAttributeIgnored 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+  Methods:
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingDWG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingDWG): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ImportingXRecord 'get set' : 
+    Boolean KeepingParametricPart 'get set' : 
+    Boolean IsImportAs3D 'get set' : 
+    Boolean IsBlockAttributeIgnored 'get set' : 
+    System.String StyleMappingTableFile 'get set' : 
+    Boolean ImportingInvisibleLayer 'get set' : 
+    Boolean ImportingByLayer 'get set' : 
+    Boolean ImportingExternalData 'get set' : 
+    Int32 CurveSegment 'get set' : 
+    Boolean IsLWPLineWidthIgnored 'get set' : 
+    Boolean ImportingBlockAsPoint 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+    Boolean ImportingAsCAD 'get set' : 
+  Methods:
+    get_ImportingAsCAD(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsCAD(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingBlockAsPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingBlockAsPoint(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsLWPLineWidthIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsLWPLineWidthIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_CurveSegment(): PrivateScope, Public, HideBySig, SpecialName
+    set_CurveSegment(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingExternalData(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingExternalData(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingByLayer(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingByLayer(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingInvisibleLayer(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingInvisibleLayer(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_StyleMappingTableFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_StyleMappingTableFile(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsBlockAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsBlockAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsImportAs3D(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsImportAs3D(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_KeepingParametricPart(): PrivateScope, Public, HideBySig, SpecialName
+    set_KeepingParametricPart(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingXRecord(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingXRecord(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingDXF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingDXF): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ImportingXRecord 'get set' : 
+    Boolean KeepingParametricPart 'get set' : 
+    Boolean IsImportAs3D 'get set' : 
+    Boolean IsBlockAttributeIgnored 'get set' : 
+    System.String StyleMappingTableFile 'get set' : 
+    Boolean ImportingInvisibleLayer 'get set' : 
+    Boolean ImportingByLayer 'get set' : 
+    Boolean ImportingExternalData 'get set' : 
+    Int32 CurveSegment 'get set' : 
+    Boolean IsLWPLineWidthIgnored 'get set' : 
+    Boolean ImportingBlockAsPoint 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+    Boolean ImportingAsCAD 'get set' : 
+  Methods:
+    get_ImportingAsCAD(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsCAD(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingBlockAsPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingBlockAsPoint(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsLWPLineWidthIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsLWPLineWidthIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_CurveSegment(): PrivateScope, Public, HideBySig, SpecialName
+    set_CurveSegment(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingExternalData(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingExternalData(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingByLayer(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingByLayer(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingInvisibleLayer(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingInvisibleLayer(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_StyleMappingTableFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_StyleMappingTableFile(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsBlockAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsBlockAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsImportAs3D(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsImportAs3D(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_KeepingParametricPart(): PrivateScope, Public, HideBySig, SpecialName
+    set_KeepingParametricPart(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingXRecord(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingXRecord(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingTIF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingTIF): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    System.String WorldFilePath 'get set' : 
+    SuperMap.Data.Conversion.MultiBandImportMode MultiBandImportMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+    Boolean ImportingAsGrid 'get set' : 
+  Methods:
+    get_ImportingAsGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsGrid(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_MultiBandImportMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_MultiBandImportMode(MultiBandImportMode): PrivateScope, Public, HideBySig, SpecialName
+    get_WorldFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_WorldFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingIMG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingIMG): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    SuperMap.Data.Conversion.MultiBandImportMode MultiBandImportMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+    Boolean ImportingAsGrid 'get set' : 
+  Methods:
+    get_ImportingAsGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsGrid(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_MultiBandImportMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_MultiBandImportMode(MultiBandImportMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingPNG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingPNG): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    SuperMap.Data.Conversion.MultiBandImportMode MultiBandImportMode 'get set' : 
+    System.String WorldFilePath 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+    Boolean ImportingAsGrid 'get set' : 
+  Methods:
+    get_ImportingAsGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsGrid(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_WorldFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_WorldFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MultiBandImportMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_MultiBandImportMode(MultiBandImportMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingGRD: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingGRD): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+  Methods:
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingBMP: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingBMP): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    SuperMap.Data.Conversion.MultiBandImportMode MultiBandImportMode 'get set' : 
+    System.String WorldFilePath 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+    Boolean ImportingAsGrid 'get set' : 
+  Methods:
+    get_ImportingAsGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsGrid(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_WorldFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_WorldFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MultiBandImportMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_MultiBandImportMode(MultiBandImportMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingGIF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingGIF): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    System.String WorldFilePath 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+    Boolean ImportingAsGrid 'get set' : 
+  Methods:
+    get_ImportingAsGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsGrid(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_WorldFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_WorldFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingJPG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingJPG): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    SuperMap.Data.Conversion.MultiBandImportMode MultiBandImportMode 'get set' : 
+    System.String WorldFilePath 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+    Boolean ImportingAsGrid 'get set' : 
+  Methods:
+    get_ImportingAsGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsGrid(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_WorldFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_WorldFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MultiBandImportMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_MultiBandImportMode(MultiBandImportMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingRAW: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingRAW): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+  Methods:
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingSIT: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingSIT): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    System.String Password 'get set' : 
+  Methods:
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingKML: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingKML): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean UnvisibleObjectIgnored 'get set' : 
+    Boolean ImportingAsCAD 'get set' : 
+  Methods:
+    get_ImportingAsCAD(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsCAD(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_UnvisibleObjectIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnvisibleObjectIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingKMZ: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingKMZ): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean UnvisibleObjectIgnored 'get set' : 
+    Boolean ImportingAsCAD 'get set' : 
+  Methods:
+    get_ImportingAsCAD(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsCAD(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_UnvisibleObjectIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_UnvisibleObjectIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingMAPGIS: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingMAPGIS): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String ColorIndexFilePath 'get set' : 
+    Boolean ImportingAsCAD 'get set' : 
+  Methods:
+    get_ImportingAsCAD(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsCAD(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ColorIndexFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColorIndexFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingTEMSBuildingVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingTEMSBuildingVector): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+  Methods:
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingTEMSClutter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingTEMSClutter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsPyramidBuilt 'get set' : 
+  Methods:
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingTEMSVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingTEMSVector): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+  Methods:
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingSCV: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingSCV): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SuperMap.Data.Conversion.ImportSettingCSV: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingCSV): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+    System.String Separator 'get set' : 
+    Boolean FirstRowIsField 'get set' : 
+  Methods:
+    get_FirstRowIsField(): PrivateScope, Public, HideBySig, SpecialName
+    set_FirstRowIsField(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_Separator(): PrivateScope, Public, HideBySig, SpecialName
+    set_Separator(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingGML: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingGML): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ImportingByLayer 'get set' : 
+    Boolean ImportingAsCAD 'get set' : 
+    Boolean IsAttributeIgnored 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+  Methods:
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingAsCAD(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsCAD(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingByLayer(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingByLayer(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingSDEVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String, System.String, System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String, System.String, System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingSDEVector): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsAttributeIgnored 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+    System.String PortName 'get set' : 
+    System.String Password 'get set' : 
+    System.String User 'get set' : 
+    System.String Database 'get set' : 
+    System.String Server 'get set' : 
+  Methods:
+    get_Server(): PrivateScope, Public, HideBySig, SpecialName
+    set_Server(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Database(): PrivateScope, Public, HideBySig, SpecialName
+    set_Database(String): PrivateScope, Public, HideBySig, SpecialName
+    get_User(): PrivateScope, Public, HideBySig, SpecialName
+    set_User(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_PortName(): PrivateScope, Public, HideBySig, SpecialName
+    set_PortName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingSDERaster: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, System.String, System.String, System.String, System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String, System.String, System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingSDERaster): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String PortName 'get set' : 
+    System.String Password 'get set' : 
+    System.String User 'get set' : 
+    System.String Database 'get set' : 
+    System.String Server 'get set' : 
+    SuperMap.Data.Conversion.MultiBandImportMode MultiBandImportMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+    Boolean ImportingAsGrid 'get set' : 
+  Methods:
+    get_ImportingAsGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsGrid(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_MultiBandImportMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_MultiBandImportMode(MultiBandImportMode): PrivateScope, Public, HideBySig, SpecialName
+    get_Server(): PrivateScope, Public, HideBySig, SpecialName
+    set_Server(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Database(): PrivateScope, Public, HideBySig, SpecialName
+    set_Database(String): PrivateScope, Public, HideBySig, SpecialName
+    get_User(): PrivateScope, Public, HideBySig, SpecialName
+    set_User(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_PortName(): PrivateScope, Public, HideBySig, SpecialName
+    set_PortName(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingFileGDBVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingFileGDBVector): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsAttributeIgnored 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+  Methods:
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingFileGDBRaster: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingFileGDBRaster): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.MultiBandImportMode MultiBandImportMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+    Boolean ImportingAsGrid 'get set' : 
+  Methods:
+    get_ImportingAsGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsGrid(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_MultiBandImportMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_MultiBandImportMode(MultiBandImportMode): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingDGN: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingDGN): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String StyleMappingTableFile 'get set' : 
+    Boolean ImportingByLayer 'get set' : 
+    Boolean ImportingCellAsPoint 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+    Boolean ImportingAsCAD 'get set' : 
+  Methods:
+    get_ImportingAsCAD(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsCAD(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingCellAsPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingCellAsPoint(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingByLayer(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingByLayer(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_StyleMappingTableFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_StyleMappingTableFile(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingLIDAR: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingLIDAR): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsImportAs3D 'get set' : 
+    Boolean IsAttributeIgnored 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+  Methods:
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAttributeIgnored(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAttributeIgnored(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsImportAs3D(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsImportAs3D(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingBIL: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingBIL): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+  Methods:
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingBIP: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingBIP): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+  Methods:
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingBSQ: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingBSQ): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+  Methods:
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingModelOSG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingModelOSG): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.ValueType Position 'get set' Point3D IsBoxed : 
+  Methods:
+    get_Position(): PrivateScope, Public, HideBySig, SpecialName
+    set_Position(ValueType Point3D IsBoxed): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Data.Conversion.ImportMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Conversion.ImportMode None = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.ImportMode Overwrite = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.ImportMode Append = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Conversion.MultiBandImportMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Conversion.MultiBandImportMode SingleBand = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.MultiBandImportMode MultiBand = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.MultiBandImportMode Composite = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Conversion.IgnoreMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Conversion.IgnoreMode IgnoreNone = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.IgnoreMode IgnoreSignal = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.IgnoreMode IgnoreBorder = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Conversion.GMLVersion: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Conversion.GMLVersion GML = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.GMLVersion GMLSF = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Conversion.GMLVersion GML212 = 2 : Public, Static, Literal, HasDefault
+Class SuperMap.Data.Conversion.ExportSteppedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(Int32, Int32, SuperMap.Data.Conversion.ExportSetting, Int32, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean Cancel 'get set' : 
+    Int32 Count 'get ' : 
+    SuperMap.Data.Conversion.ExportSetting CurrentTask 'get ' : 
+    Int32 SubPercent 'get ' : 
+    Int32 TotalPercent 'get ' : 
+  Methods:
+    get_TotalPercent(): PrivateScope, Public, HideBySig, SpecialName
+    get_SubPercent(): PrivateScope, Public, HideBySig, SpecialName
+    get_CurrentTask(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cancel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cancel(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSteppedEventHandler: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, ExportSteppedEventArgs): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, ExportSteppedEventArgs, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SuperMap.Data.Conversion.DataExport: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Data.Conversion.ExportSettings ExportSettings 'get set' : 
+  Events:
+    SuperMap.Data.Conversion.ExportSteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(ExportSteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(ExportSteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_ExportSettings(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportSettings(ExportSettings): PrivateScope, Public, HideBySig, SpecialName
+    Run(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Conversion.ExportSetting: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSetting): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    SuperMap.Data.Charset TargetFileCharset 'get set' : 
+    Boolean IsOverwrite 'get set' : 
+    System.String TargetFilePath 'get set' : 
+    System.Object SourceData 'get set' : 
+  Methods:
+    get_SourceData(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_SourceData(Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TargetFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsOverwrite(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsOverwrite(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileCharset(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetFileCharset(Charset): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    GetSupportedFileType(): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ExportSettings: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    SuperMap.Data.Conversion.ExportSetting Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Add(ExportSetting): PrivateScope, Public, HideBySig
+    Insert(Int32, ExportSetting): PrivateScope, Public, HideBySig
+    Remove(Int32): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class SuperMap.Data.Conversion.ExportResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.Conversion.ExportSetting[] FailedSettings 'get ' : 
+    SuperMap.Data.Conversion.ExportSetting[] SucceedSettings 'get ' : 
+  Methods:
+    get_SucceedSettings(): PrivateScope, Public, HideBySig, SpecialName
+    get_FailedSettings(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSteppedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(System.String, System.String, Int32, Int32, SuperMap.Data.Conversion.ImportSetting, Int32, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean Cancel 'get set' : 
+    Int32 Count 'get ' : 
+    SuperMap.Data.Conversion.ImportSetting CurrentTask 'get ' : 
+    Int32 SubPercent 'get ' : 
+    Int32 TotalPercent 'get ' : 
+    System.String Message 'get ' : 
+    System.String Title 'get ' : 
+  Methods:
+    get_Title(): PrivateScope, Public, HideBySig, SpecialName
+    get_Message(): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalPercent(): PrivateScope, Public, HideBySig, SpecialName
+    get_SubPercent(): PrivateScope, Public, HideBySig, SpecialName
+    get_CurrentTask(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cancel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cancel(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSteppedEventHandler: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, ImportSteppedEventArgs): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, ImportSteppedEventArgs, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SuperMap.Data.Conversion.DataImport: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Data.Conversion.ImportSettings ImportSettings 'get set' : 
+  Events:
+    SuperMap.Data.Conversion.ImportSteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(ImportSteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(ImportSteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportSettings(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportSettings(ImportSettings): PrivateScope, Public, HideBySig, SpecialName
+    Run(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Conversion.ImportSettings: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    SuperMap.Data.Conversion.ImportSetting Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Add(ImportSetting): PrivateScope, Public, HideBySig
+    Insert(Int32, ImportSetting): PrivateScope, Public, HideBySig
+    Remove(Int32): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class SuperMap.Data.Conversion.ImportResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Data.Conversion.ImportSetting[] FailedSettings 'get ' : 
+    SuperMap.Data.Conversion.ImportSetting[] SucceedSettings 'get ' : 
+  Methods:
+    get_SucceedSettings(): PrivateScope, Public, HideBySig, SpecialName
+    get_FailedSettings(): PrivateScope, Public, HideBySig, SpecialName
+    GetSucceedDatasetNames(ImportSetting): PrivateScope, Public, HideBySig
+    GetSucceedMapNames(ImportSetting): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Conversion.ExportSettingDWG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingDWG): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ExportingXRecord 'get set' : 
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    Boolean ExportingBorder 'get set' : 
+    Boolean ExportingExternalData 'get set' : 
+    SuperMap.Data.Conversion.CADVersion Version 'get set' : 
+  Methods:
+    get_Version(): PrivateScope, Public, HideBySig, SpecialName
+    set_Version(CADVersion): PrivateScope, Public, HideBySig, SpecialName
+    get_ExportingExternalData(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportingExternalData(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ExportingBorder(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportingBorder(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_ExportingXRecord(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportingXRecord(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingDXF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingDXF): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ExportingXRecord 'get set' : 
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    Boolean ExportingBorder 'get set' : 
+    Boolean ExportingExternalData 'get set' : 
+    SuperMap.Data.Conversion.CADVersion Version 'get set' : 
+  Methods:
+    get_Version(): PrivateScope, Public, HideBySig, SpecialName
+    set_Version(CADVersion): PrivateScope, Public, HideBySig, SpecialName
+    get_ExportingExternalData(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportingExternalData(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ExportingBorder(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportingBorder(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_ExportingXRecord(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportingXRecord(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingPNG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingPNG): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    System.String WorldFilePath 'get set' : 
+  Methods:
+    get_WorldFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_WorldFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingTIF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingTIF): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    Boolean ExportingGeoTransformFile 'get set' : 
+    Boolean ExportingPRJFile 'get set' :  (Obsolete)
+  Methods:
+    get_ExportingPRJFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportingPRJFile(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ExportingGeoTransformFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportingGeoTransformFile(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingBMP: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingBMP): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    System.String WorldFilePath 'get set' : 
+  Methods:
+    get_WorldFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_WorldFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingGIF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingGIF): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    System.String WorldFilePath 'get set' : 
+  Methods:
+    get_WorldFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_WorldFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingJPG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingJPG): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    Int32 Compression 'get set' : 
+    System.String WorldFilePath 'get set' : 
+  Methods:
+    get_WorldFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_WorldFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Compression(): PrivateScope, Public, HideBySig, SpecialName
+    set_Compression(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingKML: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object[], System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Object, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingKML): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'set' : 
+    System.Object[] SourceDatas 'get set' : 
+    System.Object SourceData 'get set' : 
+  Methods:
+    get_SourceData(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_SourceData(Object): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_SourceDatas(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceDatas(Object[]): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingKMZ: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object[], System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Object, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingKMZ): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'set' : 
+    System.Object[] SourceDatas 'get set' : 
+    System.Object SourceData 'get set' : 
+  Methods:
+    get_SourceData(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_SourceData(Object): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_SourceDatas(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceDatas(Object[]): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingSIT: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingSIT): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    System.String Password 'get set' : 
+  Methods:
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingModelX: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String, SuperMap.Data.Conversion.FileType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingModelX): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+  Methods:
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingTEMSVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object[], System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Object, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingTEMSVector): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    System.Object[] SourceDatas 'get set' : 
+    System.Object SourceData 'get set' : 
+  Methods:
+    get_SourceData(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_SourceData(Object): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_SourceDatas(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceDatas(Object[]): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingTEMSBuildingVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object[], System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Object, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingTEMSBuildingVector): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+    System.Object[] SourceDatas 'get set' : 
+    System.Object SourceData 'get set' : 
+  Methods:
+    get_SourceData(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_SourceData(Object): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_SourceDatas(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceDatas(Object[]): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ExportSettingTEMSClutter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ExportSetting
+    Void .ctor(System.Object, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ExportSettingTEMSClutter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Conversion.FileType TargetFileType 'get set' : 
+  Methods:
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileType): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfo: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Properties:
+    System.String SourceFile 'get ' : 
+    SuperMap.Data.Rectangle2D Bounds 'get ' : 
+    System.String TargetName 'get set' : 
+  Methods:
+    get_TargetName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_TargetName(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Bounds(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_SourceFile(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoMIF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoTAB: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoSHP: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoCoverage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoE00: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoDWG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    System.String ElevationNameField 'get set' : 
+    System.String LayerNameField 'get set' : 
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_LayerNameField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LayerNameField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ElevationNameField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ElevationNameField(String): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    GetImportFieldState(String): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoPNG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoGRD: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoBMP: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoTIF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    Int32 BandCount 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_BandCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoDXF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    System.String ElevationNameField 'get set' : 
+    System.String LayerNameField 'get set' : 
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_LayerNameField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LayerNameField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ElevationNameField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ElevationNameField(String): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    GetImportFieldState(String): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoIMG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    Int32 BandCount 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_BandCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoGIF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoJPG: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoRAW: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoSIT: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoTEMSBuildingVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoTEMSVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoTEMSClutter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoKML: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoKMZ: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoMAPGIS: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoSCV: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoCSV: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    System.Enum DatasetType 'get set' DatasetType IsBoxed : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    set_DatasetType(Enum DatasetType IsBoxed): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    SetTargetFieldInfos(FieldInfos): PrivateScope, Public, HideBySig (Obsolete)
+    GetImportFieldState(String): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    ChangeFieldType(String, FieldType): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoGML: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoSDEVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoSDERaster: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    Int32 BandCount 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_BandCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoFileGDBVector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoFileGDBRaster: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    Int32 BandCount 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_BandCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoDGN: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    GetImportFieldState(String): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoLIDAR: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Int32 RecordCount 'get ' : 
+    SuperMap.Data.DatasetType DatasetType 'get ' : 
+  Methods:
+    get_DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    get_RecordCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetSourceFieldInfos(): PrivateScope, Public, HideBySig
+    GetTargetFieldInfos(): PrivateScope, Public, HideBySig
+    ChangeFieldName(String, String): PrivateScope, Public, HideBySig
+    SetImportFieldState(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ExchangeFieldOrder(String, String): PrivateScope, Public, HideBySig
+Class SuperMap.Data.Conversion.ImportDataInfoGBDEM: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoUSGSDEM: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoBIL: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoBIP: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoBSQ: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfoAiBinGrid: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    Double Resolution 'get ' : 
+    SuperMap.Data.PixelFormat PixelFormat 'get ' : 
+    Int32 Height 'get ' : 
+    Int32 Width 'get ' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resolution(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportDataInfos: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    SuperMap.Data.Conversion.ImportDataInfo Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    SetImportState(Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    GetImportState(Int32): PrivateScope, Public, HideBySig
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class SuperMap.Data.Conversion.ImportDataInfoWOR: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportDataInfo
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.String,System.String] MapNames 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.String,System.String] DatasetNames 'get set' : 
+    System.String TargetName 'get set' : 
+    System.String SourceFile 'get ' : 
+    SuperMap.Data.Rectangle2D Bounds 'get ' : 
+  Methods:
+    get_Bounds(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_SourceFile(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_TargetName(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetName(String): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_DatasetNames(): PrivateScope, Public, HideBySig, SpecialName
+    set_DatasetNames(Dictionary`2): PrivateScope, Public, HideBySig, SpecialName
+    get_MapNames(): PrivateScope, Public, HideBySig, SpecialName
+    set_MapNames(Dictionary`2): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingGBDEM: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingGBDEM): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+  Methods:
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingUSGSDEM: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingUSGSDEM): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+  Methods:
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Conversion.ImportSettingAiBinGrid: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Data.Conversion.ImportSetting
+    Void .ctor(System.String, SuperMap.Data.Datasource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, SuperMap.Data.DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Conversion.ImportSettingAiBinGrid): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ImportingAsGrid 'get set' : 
+    Double[] IgnoreValues 'get set' : 
+    SuperMap.Data.Conversion.IgnoreMode IgnoreMode 'get set' : 
+    Boolean IsPyramidBuilt 'get set' : 
+  Methods:
+    get_IsPyramidBuilt(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsPyramidBuilt(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreMode(IgnoreMode): PrivateScope, Public, HideBySig, SpecialName
+    get_IgnoreValues(): PrivateScope, Public, HideBySig, SpecialName
+    set_IgnoreValues(Double[]): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportingAsGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportingAsGrid(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName

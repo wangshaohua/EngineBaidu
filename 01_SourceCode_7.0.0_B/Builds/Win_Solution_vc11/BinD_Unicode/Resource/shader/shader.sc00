@@ -1,0 +1,3962 @@
+SCD‘   ”∆  ä       •Ñëïâ≤âÄÖéñåÄë≥ÑÇÑàóÑìßë–œÜçíç·ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ≠†ØØº∫¨Ñ®π˘Úƒ√ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ∫°®≠¶æÑ®π˘;
+uniform sampler2D shadowMap1;
+uniform sampler2D shadowMap2;
+
+uniform vec4 materialAmbient;
+	
+uniform float inverseShadowmapSize0;
+uniform float inverseShadowmapSize1;
+uniform float inverseShadowmapSize2;
+
+uniform vec4 pssmSplitPoints;
+
+uniform vec4 shadowColor;
+
+// Simple PCF 
+// Number of samples in one dimension (square for total samples)
+#define NUM_SHADOW_SAMPLES_1D 2.0
+#define SHADOW_FILTER_SCALE 1
+
+#define SHADOW_SAMPLES NUM_SHADOW_SAMPLES_1D*NUM_SHADOW_SAMPLES_1D
+
+vec4 offsetSample(vec4 uv, vec2 offset, float invMapSize)
+{
+	return vec4(uv.xy + offset * invMapSize * uv.w, uv.z, uv.w);
+}
+
+float calcDepthShadow(sampler2D shadowMap, vec4 uv, float invShadowMapSize)
+{
+	// ∞—shadowColorµƒ∑∂Œß¥” [0,1] ±‰ªªµΩ [0.5,1]
+	float shadowShade = shadowColor.x * 0.5 + 0.5;
+	// ºÃ–¯∞—∑∂Œß¥” [0.5,1] ±‰ªªµΩ [1,0.5]
+	shadowShade = 1.5 - shadowShade;
+
+	// 4-sample PCF
+	float shadow = 0.0;
+	float offset = (NUM_SHADOW_SAMPLES_1D/2 - 0.5) * SHADOW_FILTER_SCALE;
+	for (float y = -offset; y <= offset; y += SHADOW_FILTER_SCALE)
+	{
+		for (float x = -offset; x <= offset; x += SHADOW_FILTER_SCALE)
+		{
+			vec4 texCoord = offsetSample(uv, vec2(x, y), invShadowMapSize);
+			if (texCoord.x>0.0 && texCoord.x<1.0 && texCoord.y>0.0 && texCoord.y<1.0)
+			{
+				float depth = texture2DProj(shadowMap, texCoord).x;
+				if (depth >= 1.0 || depth >= uv.z)
+				{
+					shadow += 1.0;
+				}
+				else
+				{
+					shadow += shadowShade;
+				}
+			}
+			else
+			{
+				shadow += 1.0;
+			}
+		}
+	}
+
+	shadow /= SHADOW_SAMPLES;
+
+	return shadow;
+}
+
+float calcPSSMDepthShadow(sampler2D shadowMap0, sampler2D shadowMap1, sampler2D shadowMap2, 
+						   vec4 lsPos0, vec4 lsPos1, vec4 lsPos2,
+						   float invShadowmapSize0, float invShadowmapSize1, float invShadowmapSize2,
+						   vec4 pssmSplitPoints, float camDepth)
+{
+
+	float shadow;
+	vec4 splitColour;
+	// calculate shadow
+	if (camDepth <= pssmSplitPoints.y)
+	{
+		splitColour = vec4(0.3, 0.0, 0, 0);
+		shadow = calcDepthShadow(shadowMap0, lsPos0, invShadowmapSize0);
+	}
+	else if (camDepth <= pssmSplitPoints.z)
+	{
+		splitColour = vec4(0, 0.3, 0, 0);
+		shadow = calcDepthShadow(shadowMap1, lsPos1, invShadowmapSize1);
+	}
+	else
+	{
+		splitColour = vec4(0.0, 0.0, 0.3, 0);
+		shadow = calcDepthShadow(shadowMap2, lsPos2, invShadowmapSize2);
+	}
+
+	return shadow;
+}
+
+void main()
+{
+    // look up the diffuse map layer
+    vec4 texDiffuse = texture2D(diffuseMap0, gl_TexCoord[0].xy);
+    
+    // compute the ambient contribution (pulled from the diffuse map)
+    vec4 vAmbient = texDiffuse * materialAmbient;
+    vec3 vColor3 = texDiffuse.rgb * gl_Color.rgb;
+
+	float camDepth = gl_TexCoord[0].z;
+	float shadow = calcPSSMDepthShadow(shadowMap0, shadowMap1, shadowMap2, 
+		gl_TexCoord[2], gl_TexCoord[3], gl_TexCoord[4],
+		inverseShadowmapSize0, inverseShadowmapSize1, inverseShadowmapSize2,
+		pssmSplitPoints, camDepth);
+	vColor3 *= shadow;
+
+    gl_FragColor = vec4(vColor3, gl_Color.a * vAmbient.a);
+}
+
+
++ g2)) * (1.0 + fCos*fCos) / pow(1.0 + g2 - 2.0*g*fCos, 1.5);
+	v4ScColor.rgb = v3FrontColor * fKmESun * fMiePhase;
+	v4FtColor.rgb = v3FrontColor * (v3InvWavelength.xyz * fKrESun) * fRayleighPhase;
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+
+	gl_TexCoord[0] = gl_MultiTexCoord0;
+}◊   ®¬  ä       £Çóìè¥èÜÉàêäÜóµÇÑÇéëÇï±ó…ÄãîãÁƒ√ºß†Ø¶ª§Èø¨™˝È•†Æ°Ωô¶∫†Ω†¶ßÚƒ√ºß†Ø¶ª§Èø¨™˙È•†Æ°Ωç†ØØº∫¨Úƒ√ƒ√ÊÊÈx = min, y = max, z = range, w = 1/range
+uniform vec4 depthRange0;
+uniform vec4 depthRange1;
+uniform vec4 depthRange2;
+
+uniform mat4 texWorldViewProjMatrix0;
+uniform mat4 texWorldViewProjMatrix1;
+uniform mat4 texWorldViewProjMatrix2;
+
+void DirectionalLight(in int i, in vec3 normal
+	, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular)
+{
+	float nDotVP;			// normal . light direction
+	float nDotHV;			// normal . light half vector
+	float pf;			// √›µƒ“Ú◊”
+	
+	nDotVP = max(0.0, dot(normal, vec3(gl_LightSource[i].position)));
+	nDotHV = max(0.0, dot(normal, vec3(gl_LightSource[i].halfVector)));
+
+	if(nDotVP == 0.0)
+		pf = 0.0;
+	else
+		pf = pow(nDotHV, gl_FrontMaterial.shininess);
+
+	ambient += gl_LightSource[i].ambient;
+	diffuse += gl_LightSource[i].diffuse * nDotVP;
+	specular += gl_LightSource[i].specular * pf;
+}
+
+void main()
+{
+	vec4 amb = vec4(0.0);
+	vec4 diff = vec4(0.0);
+	vec4 spec = vec4(0.0);
+	vec3 normal = gl_NormalMatrix * gl_Normal;
+	normal = normalize(normal);
+	normal = normal * gl_NormalScale;
+	DirectionalLight(0, normal, amb, diff, spec);
+
+	vec4 color = gl_FrontLightModelProduct.sceneColor
+		+ amb * gl_FrontMaterial.ambient
+		+ diff * gl_FrontMaterial.diffuse;
+	color += spec * gl_FrontMaterial.specular;
+	gl_FrontColor = color;
+
+	// project position to the screen
+	gl_Position = ftransform();
+
+	// pass through other texcoords exactly as they were received
+	gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+	gl_TexCoord[1] = gl_TextureMatrix[1] * gl_MultiTexCoord1;
+
+	// Calculate the position of vertex in light space
+	gl_TexCoord[2] = texWorldViewProjMatrix0 * gl_Vertex;
+	gl_TexCoord[3] = texWorldViewProjMatrix1 * gl_Vertex;
+	gl_TexCoord[4] = texWorldViewProjMatrix2 * gl_Vertex;
+		
+	// make linear
+	gl_TexCoord[2].z = (gl_TexCoord[2].z - depthRange0.x) * depthRange0.w;
+	gl_TexCoord[3].z = (gl_TexCoord[3].z - depthRange1.x) * depthRange1.w;
+	gl_TexCoord[4].z = (gl_TexCoord[4].z - depthRange2.x) * depthRange2.w;
+
+	// pass cam depth
+	gl_TexCoord[0].z = gl_Position.z;
+}
+
+ange0.x) * depthRange0.w;
+	gl_TexCoord[3].z = (gl_TexCoord[3].z - depthRange1.x) * depthRange1.w;
+	gl_TexCoord[4].z = (gl_TexCoord[4].z - depthRange2.x) * depthRange2.w;
+
+	// pass cam depth
+	gl_TexCoord[0].z = gl_Position.z;
+}
+
+pute the ambient contribution (pulled from the diffuse map)
+    vec4 vAmbient = texDiffuse * materialAmbient;
+    vec3 vColor3 = texDiffuse.rgb * gl_Color.rgb;
+
+	float camDepth = gl_TexCoord[0].z;
+	float shadow = calcPSSMDepthShadow(shadowMap0, shadowMap1, shadowMap2, 
+		gl_TexCoord[2], gl_TexCoord[3], gl_TexCoord[4],
+		inverseShadowmapSize0, inverseShadowmapSize1, inverseShadowmapSize2,
+		pssmSplitPoints, camDepth);
+	vColor3 *= shadow;
+
+    gl_FragColor = vec4(vColor3, gl_Color.a * vAmbient.a);
+}
+
+
+niform float inverseShadowmapSize2;
+
+uniform vec4 pssmSplitPoints;
+
+// Simple PCF 
+// Number of samples in one dimension (square for total samples)
+#define NUM_SHADOW_SAMPLES_1D 2.0
+#define SHADOW_FILTER_SCALE 1
+
+#define SHADOW_SAMPLES NUM_SHADOW_SAMPLES_1D*NUM_SHADOW_SAMPLES_1D
+
+vec4 offsetSample(vec4 uv, vec2 offset, float invMapSize)
+{
+	return vec4(uv.xy + offset * invMapSize * uv.w, uv.z, uv.w);
+}
+
+float calcDepthShadow(sampler2D shadowMap, vec4 uv, float invShadowMapSize)
+{
+	// 4-sample PCF
+	
+	float shadow = 0.0;
+	float offset = (NUM_SHADOW_SAMPLES_1D/2 - 0.5) * SHADOW_FILTER_SCALE;
+	for (float y = -offset; y <= offset; y += SHADOW_FILTER_SCALE)
+	{
+		for (float x = -offset; x <= offset; x += SHADOW_FILTER_SCALE)
+		{
+			float depth = texture2DProj(shadowMap, offsetSample(uv, vec2(x, y), invShadowMapSize)).x;
+			if (depth >= 1 || depth >= uv.z)
+				shadow += 1.0;
+		}
+	}
+
+	shadow /= SHADOW_SAMPLES;
+
+	return shadow;
+}
+
+float calcPSSMDepthShadow(sampler2D shadowMap0, sampler2D shadowMap1, sampler2D shadowMap2, 
+						   vec4 lsPos0, vec4 lsPos1, vec4 lsPos2,
+						   float invShadowmapSize0, float invShadowmapSize1, float invShadowmapSize2,
+						   vec4 pssmSplitPoints, float camDepth)
+{
+
+	float shadow;
+	vec4 splitColour;
+	// calculate shadow
+	if (camDepth <= pssmSplitPoints.y)
+	{
+		splitColour = vec4(0.3, 0.0, 0, 0);
+		shadow = calcDepthShadow(shadowMap0, lsPos0, invShadowmapSize0);
+	}
+	else if (camDepth <= pssmSplitPoints.z)
+	{
+		splitColour = vec4(0, 0.3, 0, 0);
+		shadow = calcDepthShadow(shadowMap1, lsPos1, invShadowmapSize1);
+	}
+	else
+	{
+		splitColour = vec4(0.0, 0.0, 0.3, 0);
+		shadow = calcDepthShadow(shadowMap2, lsPos2, invShadowmapSize2);
+	}
+
+	return shadow;
+}
+
+void main()
+{
+    // look up the diffuse map layer
+    vec4 texDiffuse = texture2D(diffuseMap0, gl_TexCoord[0].xy);
+    
+    // compute the ambient contribution (pulled from the diffuse map)
+    vec4 vAmbient = texDiffuse * materialAmbient;
+    vec3 vColor3 = texDiffuse.rgb * gl_Color.rgb;
+
+	float camDepth = gl_TexCoord[0].z;
+	float shadow = calcPSSMDepthShadow(shadowMap0, shadowMap1, shadowMap2, 
+		gl_TexCoord[2], gl_TexCoord[3], gl_TexCoord[4],
+		inverseShadowmapSize0, inverseShadowmapSize1, inverseShadowmapSize2,
+		pssmSplitPoints, camDepth);
+	vColor3 *= shadow;
+
+    gl_FragColor = vec4(vColor3 + vAmbient.rgb, gl_Color.a * vAmbient.a);
+}
+
+
+◊   ˆ√  ä   »   £Çóìè¥èÜÉàêäÜóµÇÑÇéëÇï±ó…ÄãîãÁƒ√ºß†Ø¶ª§Èø¨™˝È•†Æ°Ωô¶∫†Ω†¶ßÚƒ√ºß†Ø¶ª§Èø¨™˙È•†Æ°Ωç†ØØº∫¨Úƒ√ƒ√ÊÊÈx = min, y = max, z = range, w = 1/range
+uniform vec4 depthRange0;
+uniform vec4 depthRange1;
+uniform vec4 depthRange2;
+
+uniform mat4 texWorldViewProjMatrix0;
+uniform mat4 texWorldViewProjMatrix1;
+uniform mat4 texWorldViewProjMatrix2;
+
+void DirectionalLight(in int i, in vec3 eye, in vec3 ecPosition3, in vec3 normal
+	, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular)
+{
+	float nDotVP;			// normal . light direction
+	float nDotHV;			// normal . light half vector
+	float pf;				// √›µƒ“Ú◊”
+	
+	nDotVP = max(0.0, dot(normal, vec3(gl_LightSource[i].position)));
+	nDotHV = max(0.0, dot(normal, vec3(gl_LightSource[i].halfVector)));
+
+	if(nDotVP == 0.0)
+		pf = 0.0;
+	else
+		pf = pow(nDotHV, gl_FrontMaterial.shininess);
+
+	ambient += gl_LightSource[i].ambient;
+	diffuse += gl_LightSource[i].diffuse * nDotVP;
+	specular += gl_LightSource[i].specular * pf;
+}
+
+void main()
+{
+	vec4 ecPosition = gl_ModelViewMatrix * gl_Vertex;
+	vec3 ecPosition3 = ecPosition.xyz / ecPosition.w;
+
+	vec4 amb = vec4(0.0);
+	vec4 diff = vec4(0.0);
+	vec4 spec = vec4(0.0);
+
+	vec3 eye = -normalize(ecPosition3);
+	vec3 normal = gl_NormalMatrix * gl_Normal;
+	normal = normalize(normal);
+	normal = normal * gl_NormalScale;
+
+	DirectionalLight(0, eye, ecPosition3, normal, amb, diff, spec);
+
+	vec4 color = gl_FrontLightModelProduct.sceneColor
+		+ amb * gl_FrontMaterial.ambient
+		+ diff * gl_FrontMaterial.diffuse;
+	color += spec * gl_FrontMaterial.specular;
+
+	gl_FrontColor = color;
+
+    // project position to the screen
+    gl_Position = ftransform();
+
+    // pass through other texcoords exactly as they were received
+    gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+    gl_TexCoord[1] = gl_TextureMatrix[1] * gl_MultiTexCoord1;
+
+	// Calculate the position of vertex in light space
+	gl_TexCoord[2] = texWorldViewProjMatrix0 * gl_Vertex;
+	gl_TexCoord[3] = texWorldViewProjMatrix1 * gl_Vertex;
+	gl_TexCoord[4] = texWorldViewProjMatrix2 * gl_Vertex;
+		
+	// make linear
+	gl_TexCoord[2].z = (gl_TexCoord[2].z - depthRange0.x) * depthRange0.w;
+	gl_TexCoord[3].z = (gl_TexCoord[3].z - depthRange1.x) * depthRange1.w;
+	gl_TexCoord[4].z = (gl_TexCoord[4].z - depthRange2.x) * depthRange2.w;
+
+	// pass cam depth
+	gl_TexCoord[0].z = gl_Position.z;
+}
+
+e.rgb * gl_Color.rgb;
+
+	float camDepth = gl_TexCoord[0].z;
+	float shadow = calcPSSMDepthShadow(shadowMap0, shadowMap1, shadowMap2, 
+		gl_TexCoord[2], gl_TexCoord[3], gl_TexCoord[4],
+		inverseShadowmapSize0, inverseShadowmapSize1, inverseShadowmapSize2,
+		pssmSplitPoints, camDepth);
+	vColor3 *= shadow;
+
+    gl_FragColor = vec4(vColor3 + vAmbient.rgb, gl_Color.a * vAmbient.a);
+}
+
+
+—   »  ä       :
+-	=
+8P~ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ≠†ØØº∫¨Ñ®π˘Úƒ√ºß†Ø¶ª§Èø¨™˝ÈΩ¨±Ωºª¨ö†≥¨Úƒ√ºß†form vec4 materialAmbient;
+
+void main()
+{
+	// ≈–∂œŒ∆¿Ì «∑Ò¥Ê‘⁄
+	if (textureSize.x > 1.0 && textureSize.y > 1.0)
+	{
+		// Õ∏√˜ŒÔÃÂµƒ…Ó∂»÷µ≤ª±£¥Ê
+		vec4 texDiffuse = texture2D(diffuseMap0, gl_TexCoord[0].xy);
+		if (texDiffuse.a < 0.5)
+		{
+			discard;
+			return;
+		}
+	}
+	
+	// ¥Ê‘⁄≤ƒ÷ Õ∏√˜∫Õ∂•µ„Õ∏√˜µƒ«Èøˆ£¨ƒø«∞≤ƒ÷ Õ∏√˜Œﬁ∑®π˝¬À£¨
+	// “ÚŒ™¥´»Îµƒ materialAmbient µƒ÷µ≤ª «≤ƒ÷ ±æ…Ìµƒ÷µ£¨∂¯ «Õ∂…‰“ı”∞≤ƒ÷ µƒ—’…´÷µ
+	float alpha = gl_Color.a * materialAmbient.a;
+	if (alpha < 0.5)
+	{
+		discard;
+		return;
+	}
+
+	// early-out with depth (we still include alpha for those cards that support it)
+	gl_FragColor = vec4(gl_TexCoord[2].xxx, 1.0);
+}
+oord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+    gl_TexCoord[1] = gl_TextureMatrix[1] * gl_MultiTexCoord1;
+
+	// Calculate the position of vertex in light space
+	gl_TexCoord[2] = texWorldViewProjMatrix0 * gl_Vertex;
+	gl_TexCoord[3] = texWorldViewProjMatrix1 * gl_Vertex;
+	gl_TexCoord[4] = texWorldViewProjMatrix2 * gl_Vertex;
+		
+	// make linear
+	gl_TexCoord[2].z = (gl_TexCoord[2].z - depthRange0.x) * depthRange0.w;
+	gl_TexCoord[3].z = (gl_TexCoord[3].z - depthRange1.x) * depthRange1.w;
+	gl_TexCoord[4].z = (gl_TexCoord[4].z - depthRange2.x) * depthRange2.w;
+
+	// pass cam depth
+	gl_TexCoord[0].z = gl_Position.z;
+}
+
+—   »  ä   »   :
+-	=
+8P~ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ≠†ØØº∫¨Ñ®π˘Úƒ√ºß†Ø¶ª§Èø¨™˝È§®Ω¨ª†®•à§´†¨ßΩÚƒ
+
+void main()
+{
+	// Õ∏√˜ŒÔÃÂµƒ…Ó∂»÷µ≤ª±£¥Ê£¨œ»≈–∂œŒ∆¿Ì∑¿÷π√ª”–Œ∆¿Ì«Èøˆµƒ≥ˆœ÷
+	// ¥Ê‘⁄Œ∆¿ÌÕ∏√˜µƒ«Èøˆ
+	vec4 texDiffuse = texture2D(diffuseMap0, gl_TexCoord[0].xy);	
+	if (texDiffuse.r > 0.1 && texDiffuse.g > 0.1 && texDiffuse.b > 0.1 && texDiffuse.a < 0.5)
+	{
+		discard;
+	}
+	
+	// ¥Ê‘⁄≤ƒ÷ Õ∏√˜∫Õ∂•µ„Õ∏√˜µƒ«Èøˆ£¨ƒø«∞≤ƒ÷ Õ∏√˜Œﬁ∑®π˝¬À£¨
+	// “ÚŒ™¥´»Îµƒ materialAmbient µƒ÷µ≤ª «≤ƒ÷ ±æ…Ìµƒ÷µ£¨∂¯ «Õ∂…‰“ı”∞≤ƒ÷ µƒ—’…´÷µ
+	float alpha = gl_Color.a * materialAmbient.a;
+	if (alpha < 0.5)
+	{
+		discard;
+	}
+
+	// early-out with depth (we still include alpha for those cards that support it)
+	gl_FragColor = vec4(gl_TexCoord[2].xxx, 1.0);
+}
+—   ìÀ  ä       :
+-	=
+(P~ƒ√ÊÊÈ±ÈÙÈ§†ßÂÈ∞ÈÙÈ§®±ÂÈ≥ÈÙÈª®ßÆ¨ÂÈæÈÙÈ¯Êª®ßÆ¨ƒ√ºß†Ø¶ª§Èø¨™˝È≠¨πΩhRange;
+
+#define BIAS 0
+
+void main()
+{
+	gl_FrontColor = gl_Color;
+	gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+	
+	// project position to the screen
+	gl_Position = ftransform();
+	
+	gl_TexCoord[2].x = (BIAS + gl_Position.z - depthRange.x) * depthRange.w;
+}√   †   ä       ≥∏ª£˙≤¶µ≥‘ø¶†≠È§®†ß·‡ƒ√≤ƒ√¿Æ•ñèª®Æä¶•¶ªÈÙÈø¨™˝·˘ÁˇÂ˘ÁˇÂ¯Á˘Â¯Á˘‡Úƒ√¿Æ•ñèª®ÆColor.a = pow( gl_TexCoord[0].x, 6.0 );
+}√   ¶   ä       ≥∏ª£˙¢±¶†‘ø¶†≠È§®†ß·‡ƒ√≤ƒ√¿Æ•ñô¶∫†Ω†¶ßÈÙÈÆ•ñÑ¶≠¨•ü†¨æôª¶£¨™Ω†¶ßÑ®Ωª†±È„ÈÆ•_Vertex;
+	gl_TexCoord[0].x = gl_Color.a;
+}¿   JÀ  ä       ¡¬”—◊ú‘¿”’≤ø®ª∞†ßÆÈø¨™˙Èø˙ç†ª¨™Ω†¶ßÚƒ√ƒ√ºß†Ø¶ª§Èø¨™˙Èø˙Ö†Æ°Ωô¶∫Úƒ√ºß†Ø¶ª§ÈØloat g;
+uniform float g2;
+
+void main()
+{
+	float fCos = dot(v3LightPos, v3Direction) / length(v3Direction);
+	float fMiePhase = 1.5 * ((1.0 - g2) / (2.0 + g2)) * (1.0 + fCos*fCos) / pow(1.0 + g2 - 2.0*g*fCos, 1.5);
+    gl_FragColor = gl_Color + fMiePhase * gl_SecondaryColor;
+	gl_FragColor.a = gl_FragColor.b;
+}
+daryColor;
+	gl_FragColor.a = gl_FragColor.b;
+}
+tColor.rgb,1.0) + fMiePhase * vec4(v4ScColor,1.0);
+	gl_FragColor.a = gl_FragColor.b;
+	//gl_FragColor = gl_Color;
+}
+¿   ¯¡  ä   »   ¡¬”—◊úƒ◊¿∆≤ø®ª∞†ßÆÈø¨™˙Èø˙ç†ª¨™Ω†¶ßÚƒ√ø®ª∞†ßÆÈø¨™˙Èø˝èΩä¶•¶ªÚƒ√ø®ª∞†ßÆÈø¨™˙ v4ScColor;
+
+uniform vec4 v3CameraPos;
+uniform vec4 v3LightPos;
+uniform int bSunVisible;
+uniform vec4 v3InvWavelength;
+uniform float fCameraHeight;
+uniform float fCameraHeight2;
+uniform float fOuterRadius;
+uniform float fOuterRadius2;
+uniform float fInnerRadius;
+uniform float fInnerRadius2;
+uniform float fKrESun;
+uniform float fKmESun;
+uniform float fKr4PI;
+uniform float fKm4PI;
+uniform float fScale;
+uniform float fScaleDepth;
+uniform float fScaleOverScaleDepth;
+uniform int nSamples;
+uniform float fSamples;
+uniform float g;
+uniform float g2;
+
+float scale(float fCos)
+{
+	float x = 1.0 - fCos;
+	return fScaleDepth * exp(-0.00287 + x*(0.459 + x*(3.83 + x*(-6.80 + x*5.25))));
+}
+
+void main()
+{
+	vec3 v3Center = (gl_ModelViewMatrix * vec4(0.0,0.0,0.0,1.0)).xyz;
+	//v3CameraPos.xyz = -v3Center;
+	vec3 v3Pos = (gl_ModelViewMatrix * gl_Vertex).xyz;
+	//vec3 v3Pos = gl_Vertex.xyz;
+	vec3 cameraPos = v3CameraPos.xyz;
+	//v3LightPos.xyz = cameraPos / fCameraHeight;
+
+	// º∆À„CameraµΩ∂•µ„µƒœÚ¡ø, “‘º∞≥§∂» 
+	vec3 v3Ray = v3Pos;
+	float fFar = length(v3Ray);
+	v3Ray /= fFar;
+
+	float B = 2.0 * dot(cameraPos, v3Ray);
+	float C = fCameraHeight2 - fOuterRadius2;
+	float fDet = max(0.0, B*B - 4.0 * C);
+	float fNear = 0.5 * (-B - sqrt(fDet));
+
+	// º∆À„…¢…‰∆´“∆
+	vec3 v3Start = v3Ray * fNear;
+	fFar -= fNear;
+	float fStartAngle = dot(v3Ray, v3Start - v3Center) / fOuterRadius;
+	float fStartDepth = exp(-1.0 / fScaleDepth);
+	float fStartOffset = fStartDepth*scale(fStartAngle);
+
+	float fSampleLength = fFar / fSamples;
+	float fScaledLength = fSampleLength * fScale;
+	vec3 v3SampleRay = v3Ray * fSampleLength;
+	vec3 v3SamplePoint = v3Start + v3SampleRay * 0.5;
+
+	// º∆À„—’…´÷µ£®∂‡÷ÿ≤…—˘£©
+	vec3 v3FrontColor = vec3(0.0, 0.0, 0.0);
+	for(int i=0; i<nSamples; i++)
+	{
+		float fHeight = length(v3SamplePoint - v3Center);
+		float fDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fHeight));
+		float fLightAngle = dot(v3LightPos.xyz, v3SamplePoint - v3Center) / fHeight;
+		float fCameraAngle = dot(v3Ray, v3SamplePoint - v3Center) / fHeight;
+		float fScatter = (fStartOffset + fDepth*(scale(fLightAngle) - scale(fCameraAngle)));
+		vec3 v3Attenuate = exp(-fScatter * (v3InvWavelength.xyz * fKr4PI + fKm4PI));
+		// ∂ÓÕ‚µƒπ‚’’£¨¥”œ‡ª˙Œª÷√∑¢≥ˆ
+		vec3 v3Amt = exp(-fStartOffset * (v3InvWavelength.xyz * fKr4PI + fKm4PI));
+		if(bool(bSunVisible))
+		{
+			v3FrontColor += (v3Attenuate) * (fDepth * fScaledLength);
+		}
+		else
+		{
+			v3FrontColor += (v3Attenuate + v3Amt) * (fDepth * fScaledLength);
+		}
+		v3SamplePoint += v3SampleRay;
+	}
+
+	v4ScColor.rgb = v3FrontColor * fKmESun;
+	v4FtColor.rgb = v3FrontColor * (v3InvWavelength.xyz * fKrESun);
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+	v3Direction = vec3(0.0,0.0,0.0) - v3Pos;
+}€   ;Ÿ  ä       		U	{ºß†Ø¶ª§ÈØ•¶®ΩÈù†§¨Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈû®ø¨ù¨±Ωºª¨Úƒ√ºß†Ø¶ª§È∫®§pler2D BumpMap;
+uniform sampler2D BoundaryMap;
+uniform sampler2D ChinaBoundaryMap;
+uniform sampler2D RegionBoundaryMap;
+uniform int bHasRegionBdyTexture; 
+uniform int TexWidth;
+uniform int TexHeight;
+varying vec3  ViewVec;
+varying vec4 v_color;
+varying vec2 bumpCoord0;
+varying vec2 boundaryCoord0;
+
+varying vec3 LightDir;
+varying float specPow;
+varying float factor;//∑¥π‚“Ú◊”
+
+const float PI = 3.14159;
+const int NWAVES = 4;		// ≤®µƒ ˝¡ø
+
+// ∂®“Â≤®µƒΩ·ππ
+struct Wave {
+  float freq;  // Ω«∆µ¬ =2*PI/wavelength	
+  float amp;   // ’Ò∑˘
+  float phase; // œ‡≥£ ˝=speed*2*PI/wavelength
+  vec2 dir;	   // ∑ΩœÚ
+  float q;
+};
+Wave wave[NWAVES];
+
+// ≥ı ºªØ∏˜∏ˆ≤®
+void InitWaves()
+{
+	wave[0].freq =  2.0 * PI / 0.33;
+	wave[0].amp = 0.0033;
+	wave[0].phase = 0.0002 * 2.0 * PI / 0.33;
+	wave[0].dir = vec2(0.966, -0.259);
+	wave[0].q = 0.5;
+
+	wave[1].freq =  2.0 * PI / 0.25;
+	wave[1].amp = 0.0125;
+	wave[1].phase = 0.0003 * 2.0 * PI / 0.25;
+	wave[1].dir = vec2(0.707, -0.707);
+	wave[1].q = 0.5;
+
+	wave[2].freq =  2.0 * PI / 0.1;
+	wave[2].amp = 0.005;
+	wave[2].phase = 0.0005 * 2.0 * PI / 0.1;
+	wave[2].dir = vec2(0.259, -0.966);
+	wave[2].q = 0.5;
+
+	wave[3].freq =  2.0 * PI / 0.05;
+	wave[3].amp = 0.0025;
+	wave[3].phase = 0.001 * 2.0 * PI / 0.05;
+	wave[3].dir = vec2(0.707, -0.707);
+	wave[3].q = 0.5;
+}
+
+// º∆À„≤®µƒ∏±∑®œﬂœÚ¡ø
+vec3 waveBinormal(vec2 p)
+{
+	float dx = 0.0, dy = 0.0, dz = 0.0;
+	float WA, S, C;
+
+ 	for(int i = 0; i < NWAVES; i++)
+ 	{
+ 		WA = wave[i].freq * wave[i].amp;
+ 		S = sin(wave[i].freq * dot(wave[i].dir, p) + wave[i].phase * Time);
+ 		C = cos(wave[i].freq * dot(wave[i].dir, p) + wave[i].phase * Time);
+ 
+ 		dx += wave[i].q * wave[i].dir.x * wave[i].dir.x * WA * S;
+ 		dy += wave[i].q * wave[i].dir.x * wave[i].dir.y * WA * S;
+ 		dz += wave[i].dir.x * WA * C;
+ 	}
+
+	return normalize(vec3(1.0-dx, -dy, dz));
+}
+
+// º∆À„≤®µƒ«–œﬂœÚ¡ø
+vec3 waveTangent(vec2 p)
+{
+	float dx = 0.0, dy = 0.0, dz = 0.0;
+	float WA, S, C;
+
+	for(int i = 0; i < NWAVES; i++)
+	{
+		WA = wave[i].freq * wave[i].amp;
+		S = sin(wave[i].freq * dot(wave[i].dir, p) + wave[i].phase * Time);
+		C = cos(wave[i].freq * dot(wave[i].dir, p) + wave[i].phase * Time);
+
+		dx += wave[i].q * wave[i].dir.x * wave[i].dir.y * WA * S;
+		dy += wave[i].q * wave[i].dir.y * wave[i].dir.y * WA * S;
+		dz += wave[i].dir.y * WA * C;
+	}
+
+	return normalize(vec3(-dx, 1.0-dy, dz));
+}
+ 
+void main(void)
+{
+	// ≥ı ºªØ∏˜∏ˆ≤®
+	InitWaves();
+	vec4 color = v_color;
+	vec4 boundary = texture2D( BoundaryMap, boundaryCoord0 );
+	//÷–π˙«¯”Ú±ﬂΩÁŒ∆¿Ì, ¥À¥¶º”…œ0.5/2048.0  «“ÚŒ™Œ∆¿Ì◊¯±Í∂‘”¶µƒœÒÀÿ◊¯±Í”–∆´≤Ó, œ¬Õ¨
+	vec2 chinaTexCoords = vec2(gl_TexCoord[3].s + 0.5 / 2048.0, gl_TexCoord[3].t + 0.5 /2048.0);
+	vec4 chinaBoundaryColor = texture2D( ChinaBoundaryMap, chinaTexCoords );
+
+	
+	vec2 texCoordsOffset;
+	if(TexWidth != 0 && TexHeight != 0)
+	{
+		texCoordsOffset.x = 0.5 / float(TexWidth);
+		texCoordsOffset.y = 0.5 / float(TexHeight);
+	}
+	
+	//æ÷≤ø(æ´œ∏)±ﬂΩÁŒ∆¿Ì
+	vec2 regionTexCoors = vec2(gl_TexCoord[4].s + texCoordsOffset.x, gl_TexCoord[4].t + texCoordsOffset.x);
+	vec4 regionBoundaryColor = texture2D( RegionBoundaryMap, regionTexCoors );	
+
+	
+	if(boundary.a + regionBoundaryColor.a + chinaBoundaryColor.a < 0.00001)
+	{
+		discard;
+	}
+	
+	vec4 vBaseColor = texture2D(WaveTexture, gl_TexCoord[0].st)/*vec4(0.0, 0.2, 0.4, 1.0)*/;
+ 
+	// º∆À„’˝œ“≤®µƒ∑®œﬂ∑ΩœÚ
+	vec3 B, T, N;
+	B = waveBinormal(gl_TexCoord[0].st);
+	T = waveTangent(gl_TexCoord[0].st);
+	N = cross(B, T);
+	mat3 trans = mat3(B, T, N);
+
+	vec3 vBumpColor0 = vec3(texture2D(BumpMap, bumpCoord0.st));
+	vec3 vBumpColor1 = vec3(texture2D(BumpMap, 1.8 * bumpCoord0.st));
+	vec3 vBumpColor2 = vec3(texture2D(BumpMap, 3.1 * bumpCoord0.st));
+	//vBumpColor = vBumpColor * 2 - 1;
+
+	vec3 vBumpColor = vBumpColor0 + vBumpColor1 + vBumpColor2;
+	vBumpColor.rg *= 0.5;
+	vBumpColor = normalize(vBumpColor);
+
+	vec3 vNormal = normalize(vBumpColor * trans);
+
+	// ∞ºÕπÃ˘Õºµƒº∆À„
+	color.rgb = vBaseColor.rgb * max(dot(vNormal, LightDir), 0.0);
+	vec3 reflectDir = reflect(LightDir, vNormal); 
+	float spec = max(dot(ViewVec, reflectDir), 0.0);
+	spec = pow(spec, specPow);
+	spec *= 0.5;
+	color = min(color + spec, vec4(1.0));
+	
+	 if(factor > 1.0)
+    {
+		//ƒ£∫˝¥¶¿Ì£¨∑¿÷π‘∂¥¶µƒªÿ–Œ≤®
+		color.rgb = color.rgb * (1.0 / factor) + (1 - 1.0 / factor) * vec3(0.1255, 0.1922, 0.2941);
+    }
+    
+    bool bExistRegionTex = bool(bHasRegionBdyTexture);
+    //»Áπ˚”–æ÷≤ø«ÂŒ˙Œ∆¿Ì≤¢«“µ±«∞∫£—ÛŒª”⁄∆‰∑∂Œßƒ⁄£¨‘Ú π”√∆‰alpha÷µ
+    if(bExistRegionTex && gl_TexCoord[4].s < 1.0 && gl_TexCoord[4].t < 1.0 &&
+    gl_TexCoord[4].s > 0.0 && gl_TexCoord[4].t > 0.0)
+    {
+		color.w *= regionBoundaryColor.a;
+    }
+    else
+    {
+		if(gl_TexCoord[3].s < 1.0 && gl_TexCoord[3].t < 1.0 &&
+		gl_TexCoord[3].s > 0.0 && gl_TexCoord[3].t > 0.0)
+		{
+			color.w *= chinaBoundaryColor.a;	//æ´œ∏±ﬂΩÁ∑∂Œßƒ⁄ π”√æ´œ∏±ﬂΩÁµƒalpha
+		}
+		else
+		{
+ 			color.w *= boundary.a;		// ∑«∫£—Û≤ø∑÷»´Õ∏√˜
+ 		}
+    }
+
+
+	gl_FragColor = color;
+}€   –¿  ä       		U	{ºß†Ø¶ª§ÈØ•¶®ΩÈù†§¨Úƒ√ƒ√ÊÊ)r3r
+ƒ√ºß†Ø¶ª§ÈØ•¶®ΩÈå∞¨ô¶∫±Úƒ√ºß†Ø¶rm float EyePosy;
+uniform float EyePosz;
+uniform float fVisibleDist;
+
+// ”µ„Œª÷√
+uniform float LookAtPosx;
+uniform float LookAtPosy;
+uniform float LookAtPosz;
+
+//œ‡ª˙«„–±Ω«
+uniform float CamTilt;
+
+varying vec3  ViewVec;
+varying vec4 v_color;
+varying vec2 bumpCoord0;
+varying vec2 boundaryCoord0;
+varying vec3 LightDir;
+varying float specPow;
+//∑¥π‚µ˜Ω⁄“Ú◊”
+varying float factor;
+
+const float PI = 3.14159;
+const float GLOBAL_RADIUS = 6378137.0;
+//const vec3 LightPos = vec3(0, 0, 100000);
+
+void main(void)
+{
+	// ”–“ª∂®∏ﬂ∂»µƒ ”µ„£¨≤ª‘⁄µÿ√Ê…œ
+	vec3 EyePos = vec3(EyePosx, EyePosy, EyePosz);
+	vec3 LookAtPos = vec3(LookAtPosx, LookAtPosy, LookAtPosz);
+	float fEyeHeight = length(EyePos);
+
+	vec3 pos = (GLOBAL_RADIUS * normalize(EyePos) + LookAtPos) / 2.0;
+	float len = length(EyePos - pos);
+	
+	// µÿ√Ê…œµƒ ”µ„,∑¥∂∂∂Øµƒ‘≠µ„
+	vec3 vEyePosGS = EyePos.xyz * (GLOBAL_RADIUS / fEyeHeight);
+
+	//∑¥∂∂∂Øπ˝µƒµ„
+	vec4 vAntijitter = gl_Vertex;
+	//‘≠ ºµƒµ„ ˝æ›
+	vec3 vOriginal = vAntijitter.xyz + vEyePosGS.xyz;
+	float dis = length(vOriginal - EyePos );
+	
+	factor = dis / ((fEyeHeight - GLOBAL_RADIUS) * sin(CamTilt * 0.6) + ( 1.0 - sin(CamTilt * 0.6)) * len);
+	
+	specPow = (fEyeHeight  - GLOBAL_RADIUS) / 10000.0;
+	specPow = clamp(specPow, 16.0, 60.0);
+	
+	if(factor > 1.0)
+	{
+		specPow *= factor;
+	}
+
+	vec3 LightPos = vOriginal;
+
+	v_color = vec4( 1.0, 1.0, 1.0, 0.7);	
+	// Ω•Ω•µÿµÿœ‘ æ∫£—Û±Ì√Ê
+	float dOceanClear = 1.0 - (fEyeHeight  - GLOBAL_RADIUS - fVisibleDist * 0.8) / 100000.0;
+	dOceanClear = clamp(dOceanClear, 0.0, 1.0);
+	v_color.w *= dOceanClear;
+
+	// Ω®¡¢±Ì√Ê±æµÿ◊¯±Íœµ£¨”√”⁄◊™ªªπ‚œﬂœÚ¡ø∫Õ ”œﬂœÚ¡ø
+	vec3 Tangent = vec3(-vOriginal.y, vOriginal.x, 0);	// ‘≠ ºµ„¥¶µƒ∑®œÚ¡ø
+	vec3 n = normalize(vOriginal);
+	vec3 t = normalize(Tangent);
+	vec3 b = cross(n, t);
+	
+	// ∏˘æ›’˝Ωªæÿ’ÛµƒƒÊµ»”⁄∆‰◊™÷√æÿ’Ûµƒ–‘÷ £¨ÕÍ≥…◊¯±Í◊™ªª
+	// œ¬√Êµƒº∆À„≤…”√œÚ¡ø≥À“‘æÿ’Ûµƒ–Œ Ω£¨µ»Õ¨”⁄æÿ’Ûµƒ◊™÷√≥À“‘œÚ¡ø
+	mat3 transform= mat3(t, b, n);
+	LightDir = normalize(LightPos * transform);
+	ViewVec = normalize((-EyePos) * transform);
+
+	gl_TexCoord[0] = gl_TextureMatrix[0]*gl_MultiTexCoord0;
+	boundaryCoord0 = gl_MultiTexCoord2.xy;
+	
+	gl_TexCoord[3] = gl_TextureMatrix[3] * gl_MultiTexCoord3;	
+	gl_TexCoord[4] = gl_TextureMatrix[4] * gl_MultiTexCoord4;
+	
+	// calculate texture coordinates for normal map lookup
+	vec4 vOff;
+	vOff.xy = vec2(0.707, -0.707) * Time  * 0.0001;
+	bumpCoord0.xy = (gl_TexCoord[0] - vOff).xy;
+
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+}
+≈   ‹¿  ä       ´æß•π∫¢Ø∏Ø‰ºØ∏æ ø®ª∞†ßÆÈø¨™˙Èø˙ç†ª¨™Ω†¶ßÚƒ√ƒ√ºß†Ø¶ª§Èø¨™˙Èø˙ä®§¨ª®ô¶∫Úƒ√ºß†Ø¶ª§Èvec3 v3LightPos;
+uniform int bSunVisible;
+uniform vec3 v3InvWavelength;
+uniform float fCameraHeight;
+uniform float fCameraHeight2;
+uniform float fOuterRadius;
+uniform float fOuterRadius2;
+uniform float fInnerRadius;
+uniform float fInnerRadius2;
+uniform float fKrESun;
+uniform float fKmESun;
+uniform float fKr4PI;
+uniform float fKm4PI;
+uniform float fScale;
+uniform float fScaleDepth;
+uniform float fScaleOverScaleDepth;
+uniform int nSamples;
+uniform float fSamples;
+uniform float g;
+uniform float g2;
+
+float scale(float fCos)
+{
+	float x = 1.0 - fCos;
+	return fScaleDepth * exp(-0.00287 + x*(0.459 + x*(3.83 + x*(-6.80 + x*5.25))));
+}
+
+void main(void)
+{
+	//vec3 v3Pos = (gl_ModelViewMatrix * gl_Vertex).xyz;
+	vec3 v3Pos = gl_Vertex.xyz;
+	vec3 cameraPos = v3CameraPos.xyz;
+	//v3LightPos.xyz = cameraPos / fCameraHeight;
+
+	// º∆À„CameraµΩ∂•µ„µƒœÚ¡ø, “‘º∞≥§∂» 
+	vec3 v3Ray = v3Pos - cameraPos;
+	float fFar = length(v3Ray);
+	v3Ray /= fFar;
+
+	// Calculate the ray's starting position, then calculate its scattering offset
+	vec3 v3Start = v3CameraPos;
+	float fHeight = length(v3Start);
+	float fDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fCameraHeight));
+	float fStartAngle = dot(v3Ray, v3Start) / fHeight;
+	float fStartOffset = fDepth*scale(fStartAngle);
+
+	// Initialize the scattering loop variables
+	//gl_FrontColor = vec4(0.0, 0.0, 0.0, 0.0);
+	float fSampleLength = fFar / fSamples;
+	float fScaledLength = fSampleLength * fScale;
+	vec3 v3SampleRay = v3Ray * fSampleLength;
+	vec3 v3SamplePoint = v3Start + v3SampleRay * 0.5;
+
+	// Now loop through the sample rays
+	vec3 v3FrontColor = vec3(0.0, 0.0, 0.0);
+	for(int i=0; i<nSamples; i++)
+	{
+		float fHeight = length(v3SamplePoint);
+		float fDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fHeight));
+		float fLightAngle = dot(v3LightPos, v3SamplePoint) / fHeight;
+		float fCameraAngle = dot(v3Ray, v3SamplePoint) / fHeight;
+		float fScatter = (fStartOffset + fDepth*(scale(fLightAngle) - scale(fCameraAngle)));
+		vec3 v3Attenuate = exp(-fScatter * (v3InvWavelength * fKr4PI + fKm4PI));
+		v3FrontColor += v3Attenuate * (fDepth * fScaledLength);
+		v3SamplePoint += v3SampleRay;
+	}
+
+	// Finally, scale the Mie and Rayleigh colors and set up the varying variables for the pixel shader
+	gl_FrontSecondaryColor.rgb = v3FrontColor * fKmESun;
+	gl_FrontColor.rgb = v3FrontColor * (v3InvWavelength * fKrESun);
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+	v3Direction = cameraPos - v3Pos;
+}* gl_Vertex;
+	v3Direction = cameraPos - v3Pos;
+}2)) * (1.0 + fCos*fCos) / pow(1.0 + g2 - 2.0*g*fCos, 1.5);
+	v4ScColor.rgb = v3FrontColor * fKmESun * fMiePhase;
+	v4FtColor.rgb = v3FrontColor * (v3InvWavelength.xyz * fKrESun) * fRayleighPhase;
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+
+	gl_TexCoord[0] = gl_MultiTexCoord0;
+}€   i   ä       )	>-+U{ø¶†≠È§®†ß·‡ƒ√≤ƒ√¿Æ•ñù¨±ä¶¶ª≠í˘îÈÙÈÆ•ñÑº•Ω†ù¨±ä¶¶ª≠˘Úƒ√¿Æ•ñù¨±ä¶¶rd[1] = gl_TextureMatrix[1] * gl_MultiTexCoord0;
+	// ∂•µ„◊¯±Í±‰ªª
+	gl_Position = ftransform();
+}2;
+uniform float fSkyFactor;
+void main()
+{
+	float factor = fSkyFactor;
+
+	gl_FragColor = vec4(v4FtColor,1.0) + vec4(v4ScColor,1.0);
+	gl_FragColor.a = factor;
+	vec4 skycolor = vec4(0.592, 0.8235, 1.0, 1.0);
+	
+	if (factor > 0.5)
+	{
+		factor = 0.5;
+	}
+	gl_FragColor.rgb = skycolor.rgb * factor + gl_FragColor.rgb * (1.0 - factor);
+}
+‘   b¡  ä   »   •Ñëïâ≤âÄÖéñåÄë≥ÑÇÑàóÑìßë”œÜçíç·ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ≠†ØØº∫¨Ñ®π˘Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ≠†ØØº∫¨Ñ®π¯Ú
+
+uniform sampler2D shadowMap0;
+uniform sampler2D shadowMap1;
+uniform sampler2D shadowMap2;
+
+uniform vec4 materialAmbient;
+	
+uniform float inverseShadowmapSize0;
+uniform float inverseShadowmapSize1;
+uniform float inverseShadowmapSize2;
+
+uniform vec4 pssmSplitPoints;
+
+uniform vec4 shadowColor;
+
+// Simple PCF 
+// Number of samples in one dimension (square for total samples)
+#define NUM_SHADOW_SAMPLES_1D 2.0
+#define SHADOW_FILTER_SCALE 1
+
+#define SHADOW_SAMPLES NUM_SHADOW_SAMPLES_1D*NUM_SHADOW_SAMPLES_1D
+
+vec4 offsetSample(vec4 uv, vec2 offset, float invMapSize)
+{
+	return vec4(uv.xy + offset * invMapSize * uv.w, uv.z, uv.w);
+}
+
+float calcDepthShadow(sampler2D shadowMap, vec4 uv, float invShadowMapSize)
+{
+	// ∞—shadowColorµƒ∑∂Œß¥” [0,1] ±‰ªªµΩ [0.5,1]
+	float shadowShade = shadowColor.x * 0.5 + 0.5;
+	// ºÃ–¯∞—∑∂Œß¥” [0.5,1] ±‰ªªµΩ [1,0.5]
+	shadowShade = 1.5 - shadowShade;
+
+	// 4-sample PCF
+	float shadow = 0.0;
+	float offset = (NUM_SHADOW_SAMPLES_1D/2 - 0.5) * SHADOW_FILTER_SCALE;
+	for (float y = -offset; y <= offset; y += SHADOW_FILTER_SCALE)
+	{
+		for (float x = -offset; x <= offset; x += SHADOW_FILTER_SCALE)
+		{
+			float depth = texture2DProj(shadowMap, offsetSample(uv, vec2(x, y), invShadowMapSize)).x;
+			if (depth >= 1 || depth >= uv.z)
+				shadow += 1.0;
+			else
+				shadow += shadowShade;
+		}
+	}
+
+	shadow /= SHADOW_SAMPLES;
+
+	return shadow;
+}
+
+float calcPSSMDepthShadow(sampler2D shadowMap0, sampler2D shadowMap1, sampler2D shadowMap2, 
+						   vec4 lsPos0, vec4 lsPos1, vec4 lsPos2,
+						   float invShadowmapSize0, float invShadowmapSize1, float invShadowmapSize2,
+						   vec4 pssmSplitPoints, float camDepth)
+{
+
+	float shadow;
+	vec4 splitColour;
+	// calculate shadow
+	if (camDepth <= pssmSplitPoints.y)
+	{
+		splitColour = vec4(0.3, 0.0, 0, 0);
+		shadow = calcDepthShadow(shadowMap0, lsPos0, invShadowmapSize0);
+	}
+	else if (camDepth <= pssmSplitPoints.z)
+	{
+		splitColour = vec4(0, 0.3, 0, 0);
+		shadow = calcDepthShadow(shadowMap1, lsPos1, invShadowmapSize1);
+	}
+	else
+	{
+		splitColour = vec4(0.0, 0.0, 0.3, 0);
+		shadow = calcDepthShadow(shadowMap2, lsPos2, invShadowmapSize2);
+	}
+
+	return shadow;
+}
+
+void main()
+{
+    // look up the diffuse map layer
+    vec4 texDiffuse = texture2D(diffuseMap0, gl_TexCoord[0].xy);
+			//* texture2D(diffuseMap1, gl_TexCoord[1].xy);
+    
+    // compute the ambient contribution (pulled from the diffuse map)
+    vec4 vAmbient = texDiffuse * materialAmbient;
+    vec3 vColor3 = texDiffuse.rgb * gl_Color.rgb;
+
+	float camDepth = gl_TexCoord[0].z;
+	float shadow = calcPSSMDepthShadow(shadowMap0, shadowMap1, shadowMap2, 
+		gl_TexCoord[2], gl_TexCoord[3], gl_TexCoord[4],
+		inverseShadowmapSize0, inverseShadowmapSize1, inverseShadowmapSize2,
+		pssmSplitPoints, camDepth);
+	vColor3 *= shadow;
+
+    gl_FragColor = vec4(vColor3, gl_Color.a * vAmbient.a);
+}
+
+
+ÿ   OÕ  ä       ∏ìêùûì∂íûòö©è—òìåìˇƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨˘Ñ®Ωª†±Úƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨¯Ñ®Ωª†±Úƒ√ºßiform mat4 texture2Matrix;
+uniform mat4 texture3Matrix;
+uniform mat4 texture4Matrix;
+uniform mat4 texture5Matrix;
+
+varying vec2 texCoord;
+
+void DirectionalLight(in int i, in vec3 eye, in vec3 ecPosition3, in vec3 normal
+	, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular)
+{
+	float nDotVP;			// normal . light direction
+	float nDotHV;			// normal . light half vector
+	float pf;				// √›µƒ“Ú◊”
+	
+	nDotVP = max(0.0, dot(normal, vec3(gl_LightSource[i].position)));
+	nDotHV = max(0.0, dot(normal, vec3(gl_LightSource[i].halfVector)));
+
+	if(nDotVP == 0.0)
+		pf = 0.0;
+	else
+		pf = pow(nDotHV, gl_FrontMaterial.shininess);
+
+	ambient += gl_LightSource[i].ambient;
+	diffuse += gl_LightSource[i].diffuse * nDotVP;
+	specular += gl_LightSource[i].specular * pf;
+}
+
+void main()
+{
+	// º∆À„π‚’’
+	vec4 ecPosition = gl_ModelViewMatrix * gl_Vertex;
+	vec3 ecPosition3 = ecPosition.xyz / ecPosition.w;
+
+	vec4 amb = vec4(0.0);
+	vec4 diff = vec4(0.0);
+	vec4 spec = vec4(0.0);
+
+	vec3 eye = -normalize(ecPosition3);
+	vec3 normal = gl_NormalMatrix * gl_Normal;
+	normal = normalize(normal);
+	normal = normal * gl_NormalScale;
+	DirectionalLight(0, eye, ecPosition3, normal, amb, diff, spec);
+
+	vec4 color = gl_FrontLightModelProduct.sceneColor
+		+ amb * gl_FrontMaterial.ambient
+		+ diff * gl_FrontMaterial.diffuse;
+	color += spec * gl_FrontMaterial.specular;
+	gl_FrontColor = color;
+
+	// ∂•µ„◊¯±Í±‰ªª
+	gl_Position = ftransform();
+	
+	// Œ∆¿Ì◊¯±Í±‰ªª
+	texCoord = gl_MultiTexCoord0.xy;
+	
+	gl_TexCoord[0] = texture0Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[1] = texture1Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[2] = texture2Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[3] = texture3Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[4] = texture4Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[5] = texture5Matrix * gl_MultiTexCoord0;
+
+}
+ÿ   π“  ä   »   ∏ìêùûì∂íûòöπè—òìåìˇƒ√ÊÊÈ}b"	$ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨±Ωºª¨˘Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨xture1;
+uniform sampler2D texture2;
+uniform sampler2D texture3;
+uniform sampler2D texture4;
+uniform sampler2D texture5;
+
+// ¥´»ÎŒ∆¿Ì±ﬂΩÁ
+uniform vec4 texture0Bound;
+uniform vec4 texture1Bound;
+uniform vec4 texture2Bound;
+uniform vec4 texture3Bound;
+uniform vec4 texture4Bound;
+uniform vec4 texture5Bound;
+
+uniform vec4 globalBoundary;	// »´«ÚŒ∆¿Ì±ﬂΩÁ
+uniform float transparent;		// µÿ±ÌÕ∏√˜÷µ
+
+varying vec2 texCoord;
+
+// ≈–∂œµ„ «∑Ò‘⁄æÿ–Œƒ⁄
+bool IsPointInRegion(vec2 point, vec4 region)
+{
+	return (point.x>region.x && point.x<region.z
+		&& point.y<region.y && point.y>region.w);
+}
+
+void main()
+{
+	vec4 color = vec4(0);
+	
+	// º∆À„µ±«∞Œ∆¿Ì◊¯±Í∂‘”¶µƒ»´«Ú◊¯±Í‘⁄ƒƒ∏ˆ≤„µƒ bound ƒ⁄£¨¥”◊Óæ´œ∏≤„ø™ º≈–∂œ
+	int levelIndex = 5;
+	bool hasGotTexel = false;
+	do
+	{
+		vec4 bound0 = vec4(0);
+		vec4 bound1 = vec4(0);
+
+		switch (levelIndex)
+		{
+		case 5:
+			bound0 = texture5Bound;
+			if (texture5Bound.z > globalBoundary.z)
+			{
+				float offset = texture5Bound.z - globalBoundary.z;
+				bound0 = vec4(texture5Bound.x, texture5Bound.y, globalBoundary.z, texture5Bound.w);
+				bound1 = vec4(globalBoundary.x, texture5Bound.y, globalBoundary.x+offset, texture5Bound.w);
+			}
+			else if (texture5Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture5Bound.x;
+				bound0 = vec4(globalBoundary.x, texture5Bound.y, texture5Bound.z, texture5Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture5Bound.y, globalBoundary.z, texture5Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(1, 0, 0, 1);
+				color = texture2D(texture5, gl_TexCoord[5].xy);
+				hasGotTexel = true;				
+			}
+			break;
+		case 4:
+			bound0 = texture4Bound;
+			if (texture4Bound.z > globalBoundary.z)
+			{
+				float offset = texture4Bound.z - globalBoundary.z;
+				bound0 = vec4(texture4Bound.x, texture4Bound.y, globalBoundary.z, texture4Bound.w);
+				bound1 = vec4(globalBoundary.x, texture4Bound.y, globalBoundary.x+offset, texture4Bound.w);
+			}
+			else if (texture4Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture4Bound.x;
+				bound0 = vec4(globalBoundary.x, texture4Bound.y, texture4Bound.z, texture4Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture4Bound.y, globalBoundary.z, texture4Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(0, 1, 0, 1);
+				color = texture2D(texture4, gl_TexCoord[4].xy);
+				hasGotTexel = true;				
+			}
+			break;
+		case 3:
+			bound0 = texture3Bound;
+			if (texture3Bound.z > globalBoundary.z)
+			{
+				float offset = texture3Bound.z - globalBoundary.z;
+				bound0 = vec4(texture3Bound.x, texture3Bound.y, globalBoundary.z, texture3Bound.w);
+				bound1 = vec4(globalBoundary.x, texture3Bound.y, globalBoundary.x+offset, texture3Bound.w);
+			}
+			else if (texture3Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture3Bound.x;
+				bound0 = vec4(globalBoundary.x, texture3Bound.y, texture3Bound.z, texture3Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture3Bound.y, globalBoundary.z, texture3Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(0, 0, 1, 1);
+				color = texture2D(texture3, gl_TexCoord[3].xy);
+				hasGotTexel = true;				
+			}
+			break;
+		case 2:
+			bound0 = texture2Bound;
+			if (texture2Bound.z > globalBoundary.z)
+			{
+				float offset = texture2Bound.z - globalBoundary.z;
+				bound0 = vec4(texture2Bound.x, texture2Bound.y, globalBoundary.z, texture2Bound.w);
+				bound1 = vec4(globalBoundary.x, texture2Bound.y, globalBoundary.x+offset, texture2Bound.w);
+			}
+			else if (texture2Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture2Bound.x;
+				bound0 = vec4(globalBoundary.x, texture2Bound.y, texture2Bound.z, texture2Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture2Bound.y, globalBoundary.z, texture2Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(1, 1, 0, 1);
+				color = texture2D(texture2, gl_TexCoord[2].xy);
+				hasGotTexel = true;				
+			}
+			break;
+		case 1:
+			bound0 = texture1Bound;
+			if (texture1Bound.z > globalBoundary.z)
+			{
+				float offset = texture1Bound.z - globalBoundary.z;
+				bound0 = vec4(texture1Bound.x, texture1Bound.y, globalBoundary.z, texture1Bound.w);
+				bound1 = vec4(globalBoundary.x, texture1Bound.y, globalBoundary.x+offset, texture1Bound.w);
+			}
+			else if (texture1Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture1Bound.x;
+				bound0 = vec4(globalBoundary.x, texture1Bound.y, texture1Bound.z, texture1Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture1Bound.y, globalBoundary.z, texture1Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(1, 0, 1, 1);
+				color = texture2D(texture1, gl_TexCoord[1].xy);
+				hasGotTexel = true;				
+			}
+			break;
+		case 0:
+			bound0 = texture0Bound;
+			if (texture0Bound.z > globalBoundary.z)
+			{
+				float offset = texture0Bound.z - globalBoundary.z;
+				bound0 = vec4(texture0Bound.x, texture0Bound.y, globalBoundary.z, texture0Bound.w);
+				bound1 = vec4(globalBoundary.x, texture0Bound.y, globalBoundary.x+offset, texture0Bound.w);
+			}
+			else if (texture0Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture0Bound.x;
+				bound0 = vec4(globalBoundary.x, texture0Bound.y, texture0Bound.z, texture0Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture0Bound.y, globalBoundary.z, texture0Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(0, 1, 1, 1);
+				color = texture2D(texture0, gl_TexCoord[0].xy);
+				hasGotTexel = true;				
+			}
+			break;
+		}
+
+		levelIndex--;
+			
+	} while(!hasGotTexel && levelIndex>=0);
+	
+	color *= gl_Color;
+	gl_FragColor = vec4(color.rgb, color.a*transparent);
+}≈   <À  ä       ´æß•π∫¢Ø∏Ø‰¨∏´≠ ø®ª∞†ßÆÈø¨™˙Èø˙ç†ª¨™Ω†¶ßÚƒ√ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈö¢∞ù¨±Úƒ√ºß†Ø¶ª§Èvec3 v3LightPos;
+uniform float g;
+uniform float g2;
+uniform float fSkyFactor;
+void main()
+{
+	//float fCos = dot(v3LightPos, v3Direction) / length(v3Direction);
+	float fCos = dot(normalize(v3LightPos), normalize(v3Direction));
+	float fMiePhase = 1.5 * ((1.0 - g2) / (2.0 + g2)) * (1.0 + fCos*fCos) / pow(1.0 + g2 - 2.0*g*fCos, 1.5);
+	gl_FragColor = gl_Color + fMiePhase * gl_SecondaryColor;
+	gl_FragColor.a = gl_FragColor.b;
+}
+daryColor;
+	gl_FragColor.a = gl_FragColor.b;
+}
+¿   Ó¡  ä       ¡¬”—◊úƒ◊¿∆≤ø®ª∞†ßÆÈø¨™˙Èø˙ç†ª¨™Ω†¶ßÚƒ√ƒ√ºß†Ø¶ª§Èø¨™˙Èø˙ä®§¨ª®ô¶∫Úƒ√ºß†Ø¶ª§Èvec3 v3LightPos;
+uniform int bSunVisible;
+uniform vec3 v3InvWavelength;
+uniform float fCameraHeight;
+uniform float fCameraHeight2;
+uniform float fOuterRadius;
+uniform float fOuterRadius2;
+uniform float fInnerRadius;
+uniform float fInnerRadius2;
+uniform float fKrESun;
+uniform float fKmESun;
+uniform float fKr4PI;
+uniform float fKm4PI;
+uniform float fScale;
+uniform float fScaleDepth;
+uniform float fScaleOverScaleDepth;
+uniform int nSamples;
+uniform float fSamples;
+uniform float g;
+uniform float g2;
+
+float scale(float fCos)
+{
+	float x = 1.0 - fCos;
+	return fScaleDepth * exp(-0.00287 + x*(0.459 + x*(3.83 + x*(-6.80 + x*5.25))));
+}
+
+void main()
+{
+	vec3 cameraPos = v3CameraPos.xyz;
+	// Get the ray from the camera to the vertex and its length (which is the far point of the ray passing through the atmosphere)
+	vec3 v3Pos = gl_Vertex.xyz;
+	vec3 v3Ray = v3Pos - cameraPos;
+	float fFar = length(v3Ray);
+	v3Ray /= fFar;
+
+	// Calculate the closest intersection of the ray with the outer atmosphere (which is the near point of the ray passing through the atmosphere)
+	float B = 2.0 * dot(cameraPos, v3Ray);
+	float C = fCameraHeight2 - fOuterRadius2;
+	float fDet = max(0.0, B*B - 4.0 * C);
+	float fNear = 0.5 * (-B - sqrt(fDet));
+
+	// Calculate the ray's starting position, then calculate its scattering offset
+	vec3 v3Start = cameraPos + v3Ray * fNear;
+	fFar -= fNear;
+	float fStartAngle = dot(v3Ray, v3Start) / fOuterRadius;
+	float fStartDepth = exp(-1.0 / fScaleDepth);
+	float fStartOffset = fStartDepth*scale(fStartAngle);
+
+	// Initialize the scattering loop variables
+	//gl_FrontColor = vec4(0.0, 0.0, 0.0, 0.0);
+	float fSampleLength = fFar / fSamples;
+	float fScaledLength = fSampleLength * fScale;
+	vec3 v3SampleRay = v3Ray * fSampleLength;
+	vec3 v3SamplePoint = v3Start + v3SampleRay * 0.5;
+
+	// Now loop through the sample rays
+	vec3 v3FrontColor = vec3(0.0, 0.0, 0.0);
+	for(int i=0; i<nSamples; i++)
+	{
+		float fHeight = length(v3SamplePoint);
+		float fDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fHeight));
+		float fLightAngle = dot(v3LightPos, v3SamplePoint) / fHeight;
+		float fCameraAngle = dot(v3Ray, v3SamplePoint) / fHeight;
+		float fScatter = (fStartOffset + fDepth*(scale(fLightAngle) - scale(fCameraAngle)));
+		vec3 v3Attenuate = exp(-fScatter * (v3InvWavelength * fKr4PI + fKm4PI));
+		v3FrontColor += v3Attenuate * (fDepth * fScaledLength);
+		v3SamplePoint += v3SampleRay;
+	}
+
+	// Finally, scale the Mie and Rayleigh colors and set up the varying variables for the pixel shader
+	gl_FrontSecondaryColor.rgb = v3FrontColor * fKmESun;
+	gl_FrontColor.rgb = v3FrontColor * (v3InvWavelength * fKrESun);
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+	v3Direction = cameraPos - v3Pos;
+}* gl_Vertex;
+	v3Direction = cameraPos - v3Pos;
+}ÿ    “  ä       ∏ìêùûì∂íûòöπè—òìåìˇƒ√ÊÊÈ}b"	$ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨±Ωºª¨˘Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨xture1;
+uniform sampler2D texture2;
+uniform sampler2D texture3;
+uniform sampler2D texture4;
+uniform sampler2D texture5;
+
+// ¥´»ÎŒ∆¿Ì±ﬂΩÁ
+uniform vec4 texture0Bound;
+uniform vec4 texture1Bound;
+uniform vec4 texture2Bound;
+uniform vec4 texture3Bound;
+uniform vec4 texture4Bound;
+uniform vec4 texture5Bound;
+
+uniform vec4 globalBoundary;	// »´«ÚŒ∆¿Ì±ﬂΩÁ
+uniform float transparent;		// µÿ±ÌÕ∏√˜÷µ
+
+varying vec2 texCoord;
+
+// ≈–∂œµ„ «∑Ò‘⁄æÿ–Œƒ⁄
+bool IsPointInRegion(vec2 point, vec4 region)
+{
+	return (point.x>region.x && point.x<region.z
+		&& point.y<region.y && point.y>region.w);
+}
+
+void main()
+{
+	vec4 color = vec4(0);
+	
+	// º∆À„µ±«∞Œ∆¿Ì◊¯±Í∂‘”¶µƒ»´«Ú◊¯±Í‘⁄ƒƒ∏ˆ≤„µƒ bound ƒ⁄£¨¥”◊Óæ´œ∏≤„ø™ º≈–∂œ
+	int levelIndex = 5;
+	bool hasGotTexel = false;
+	do
+	{
+		vec4 bound0 = vec4(0);
+		vec4 bound1 = vec4(0);
+
+		if (levelIndex == 5)
+		{
+			bound0 = texture5Bound;
+			if (texture5Bound.z > globalBoundary.z)
+			{
+				float offset = texture5Bound.z - globalBoundary.z;
+				bound0 = vec4(texture5Bound.x, texture5Bound.y, globalBoundary.z, texture5Bound.w);
+				bound1 = vec4(globalBoundary.x, texture5Bound.y, globalBoundary.x+offset, texture5Bound.w);
+			}
+			else if (texture5Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture5Bound.x;
+				bound0 = vec4(globalBoundary.x, texture5Bound.y, texture5Bound.z, texture5Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture5Bound.y, globalBoundary.z, texture5Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(1, 0, 0, 1);
+				color = texture2D(texture5, gl_TexCoord[5].xy);
+				hasGotTexel = true;				
+			}
+		}
+		else if (levelIndex == 4)
+		{
+			bound0 = texture4Bound;
+			if (texture4Bound.z > globalBoundary.z)
+			{
+				float offset = texture4Bound.z - globalBoundary.z;
+				bound0 = vec4(texture4Bound.x, texture4Bound.y, globalBoundary.z, texture4Bound.w);
+				bound1 = vec4(globalBoundary.x, texture4Bound.y, globalBoundary.x+offset, texture4Bound.w);
+			}
+			else if (texture4Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture4Bound.x;
+				bound0 = vec4(globalBoundary.x, texture4Bound.y, texture4Bound.z, texture4Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture4Bound.y, globalBoundary.z, texture4Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(0, 1, 0, 1);
+				color = texture2D(texture4, gl_TexCoord[4].xy);
+				hasGotTexel = true;				
+			}
+		}
+		else if (levelIndex == 3)
+		{
+			bound0 = texture3Bound;
+			if (texture3Bound.z > globalBoundary.z)
+			{
+				float offset = texture3Bound.z - globalBoundary.z;
+				bound0 = vec4(texture3Bound.x, texture3Bound.y, globalBoundary.z, texture3Bound.w);
+				bound1 = vec4(globalBoundary.x, texture3Bound.y, globalBoundary.x+offset, texture3Bound.w);
+			}
+			else if (texture3Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture3Bound.x;
+				bound0 = vec4(globalBoundary.x, texture3Bound.y, texture3Bound.z, texture3Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture3Bound.y, globalBoundary.z, texture3Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(0, 0, 1, 1);
+				color = texture2D(texture3, gl_TexCoord[3].xy);
+				hasGotTexel = true;				
+			}
+		}
+		else if (levelIndex == 2)
+		{
+			bound0 = texture2Bound;
+			if (texture2Bound.z > globalBoundary.z)
+			{
+				float offset = texture2Bound.z - globalBoundary.z;
+				bound0 = vec4(texture2Bound.x, texture2Bound.y, globalBoundary.z, texture2Bound.w);
+				bound1 = vec4(globalBoundary.x, texture2Bound.y, globalBoundary.x+offset, texture2Bound.w);
+			}
+			else if (texture2Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture2Bound.x;
+				bound0 = vec4(globalBoundary.x, texture2Bound.y, texture2Bound.z, texture2Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture2Bound.y, globalBoundary.z, texture2Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(1, 1, 0, 1);
+				color = texture2D(texture2, gl_TexCoord[2].xy);
+				hasGotTexel = true;				
+			}
+		}
+		else if (levelIndex == 1)
+		{
+			bound0 = texture1Bound;
+			if (texture1Bound.z > globalBoundary.z)
+			{
+				float offset = texture1Bound.z - globalBoundary.z;
+				bound0 = vec4(texture1Bound.x, texture1Bound.y, globalBoundary.z, texture1Bound.w);
+				bound1 = vec4(globalBoundary.x, texture1Bound.y, globalBoundary.x+offset, texture1Bound.w);
+			}
+			else if (texture1Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture1Bound.x;
+				bound0 = vec4(globalBoundary.x, texture1Bound.y, texture1Bound.z, texture1Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture1Bound.y, globalBoundary.z, texture1Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(1, 0, 1, 1);
+				color = texture2D(texture1, gl_TexCoord[1].xy);
+				hasGotTexel = true;				
+			}
+		}
+		else if (levelIndex == 0)
+		{
+			bound0 = texture0Bound;
+			if (texture0Bound.z > globalBoundary.z)
+			{
+				float offset = texture0Bound.z - globalBoundary.z;
+				bound0 = vec4(texture0Bound.x, texture0Bound.y, globalBoundary.z, texture0Bound.w);
+				bound1 = vec4(globalBoundary.x, texture0Bound.y, globalBoundary.x+offset, texture0Bound.w);
+			}
+			else if (texture0Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture0Bound.x;
+				bound0 = vec4(globalBoundary.x, texture0Bound.y, texture0Bound.z, texture0Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture0Bound.y, globalBoundary.z, texture0Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				//color = vec4(0, 1, 1, 1);
+				color = texture2D(texture0, gl_TexCoord[0].xy);
+				hasGotTexel = true;				
+			}
+		}
+		else
+		{
+			discard;
+		}
+
+		levelIndex--;
+			
+	} while(!hasGotTexel && levelIndex>=0);
+	
+	color *= gl_Color;
+	gl_FragColor = vec4(color.rgb, transparent);
+}«   P»  ä   »   ç∏•ø§Æú∫‰≠¶π¶ ƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨˘Ñ®Ωª†±Úƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨¯Ñ®Ωª†±Úƒ√ºßiform mat4 texture2Matrix;
+uniform mat4 texture3Matrix;
+uniform mat4 texture4Matrix;
+uniform mat4 texture5Matrix;
+
+varying vec2 texCoord;
+
+void main()
+{
+	// ∂•µ„◊¯±Í±‰ªª
+	gl_Position = ftransform();
+	
+	// Œ∆¿Ì◊¯±Í±‰ªª
+	texCoord = gl_MultiTexCoord0.xy;
+	
+	gl_TexCoord[0] = texture0Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[1] = texture1Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[2] = texture2Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[3] = texture3Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[4] = texture4Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[5] = texture5Matrix * gl_MultiTexCoord0;
+}
+l_TexCoord[5] = texture5Matrix * gl_MultiTexCoord0;
+}
+ÿ   ±ﬁ  ä       ∏çêäëõ∂ë¨äëπè—òìåìˇƒ√ÊÊÈ}b"	$ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨±Ωºª¨˘ÚÈÊÊ}{{*ƒ√ºß†Ø¶ª§È∫®§pler2D texture1;
+uniform sampler2D texture2;
+uniform sampler2D texture3;
+uniform sampler2D texture4;
+uniform sampler2D texture5; //æ´œ∏≤„
+
+// ¥´»ÎŒ∆¿Ì±ﬂΩÁ
+uniform vec4 texture0Bound;
+uniform vec4 texture1Bound;
+uniform vec4 texture2Bound;
+uniform vec4 texture3Bound;
+uniform vec4 texture4Bound;
+uniform vec4 texture5Bound;
+
+uniform vec4 globalBoundary;	// »´«ÚŒ∆¿Ì±ﬂΩÁ
+uniform float transparent;	// µÿ±ÌÕ∏√˜÷µ
+
+varying vec2 texCoord;
+
+
+varying vec3 vec3Rayleigh;
+
+varying vec3 vec3AdjustedMie;
+varying float fFogFactor;
+
+const float texelSize = 0.0009765625;
+
+const vec3 fogColor = vec3(1.0);
+
+// ≈–∂œµ„ «∑Ò‘⁄æÿ–Œƒ⁄
+bool isPointInRegion(vec2 point, vec4 region)
+{
+	return (point.x>region.x && point.x<region.z
+		&& point.y<region.y && point.y>region.w);
+}
+
+bool isPointInRegionExt(vec2 point, vec4 region)
+{
+	if (region.x > region.z)
+	{
+		// øÁ‘Ω»´«Ú±ﬂΩÁµƒ«Èøˆ
+		vec4 region0 = vec4(region.x, region.y, globalBoundary.z, region.w);
+		vec4 region1 = vec4(globalBoundary.x, region.y, region.z, region.w);
+
+		if (isPointInRegion(point, region0) || isPointInRegion(point, region1))
+		{
+			return true;
+		}
+	}
+	else if (isPointInRegion(point, region))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void main()
+{
+	vec4 heightColor = vec4(0.0);
+	float height = 0.0;
+
+	vec4 color = vec4(0.0);
+	// º∆À„ Mipmap Õº≤„
+	vec2 dx = dFdx(texCoord * 1024.0);
+	vec2 dy = dFdy(texCoord * 1024.0);
+	float d = max(length(dx), length(dy));
+	float mipLevel = log2(d);
+
+	// ∏˘æ› Mipmap Õº≤„∫Õ bound »°Œ∆¿Ì
+	if (mipLevel < 5.0)
+	{
+		if (isPointInRegionExt(texCoord, texture5Bound))
+		{
+			color = texture2D(texture5, gl_TexCoord[5].xy);
+			if (isPointInRegionExt(texCoord, texture4Bound))
+			{
+				vec4 color2 = texture2D(texture4, gl_TexCoord[4].xy);
+				float deg = clamp(mipLevel - 4.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture4Bound))
+		{
+			color = texture2D(texture4, gl_TexCoord[4].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 6.0)
+	{
+		if (isPointInRegionExt(texCoord, texture4Bound))
+		{
+			color = texture2D(texture4, gl_TexCoord[4].xy);
+			if (isPointInRegionExt(texCoord, texture3Bound))
+			{
+				vec4 color2 = texture2D(texture3, gl_TexCoord[3].xy);
+				float deg = clamp(mipLevel - 5.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 7.0)
+	{
+		if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+			if (isPointInRegionExt(texCoord, texture2Bound))
+			{
+				vec4 color2 = texture2D(texture2, gl_TexCoord[2].xy);
+				float deg = clamp(mipLevel - 6.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 8.0)
+	{
+		if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+			if (isPointInRegionExt(texCoord, texture1Bound))
+			{
+				vec4 color2 = texture2D(texture1, gl_TexCoord[1].xy);
+				float deg = clamp(mipLevel - 7.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 10.0)
+	{
+		if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			vec4 color1 = texture2D(texture1, gl_TexCoord[1].xy);
+			vec4 color2 = texture2D(texture0, gl_TexCoord[0].xy);
+			float deg = clamp(mipLevel - 8.0, 0.0, 2.0) * 0.5;
+			color = color1 * (1.0 - deg) + color2 * deg;
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else
+	{
+		color = texture2D(texture0, gl_TexCoord[0].xy);
+	}
+	
+	vec3 scatteredColor = vec3Rayleigh + color.rgb * vec3AdjustedMie;
+	color.rgb = mix(fogColor, scatteredColor, fFogFactor);
+	color.rgb = vec3(1.0) - exp(color.rgb * -2);
+		
+	color.a = transparent;
+	gl_FragColor = color;
+}loat offset = texture0Bound.z - globalBoundary.z;
+				bound0 = vec4(texture0Bound.x, texture0Bound.y, globalBoundary.z, texture0Bound.w);
+				bound1 = vec4(globalBoundary.x, texture0Bound.y, globalBoundary.x+offset, texture0Bound.w);
+			}
+			else if (texture0Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture0Bound.x;
+				bound0 = vec4(globalBoundary.x, texture0Bound.y, texture0Bound.z, texture0Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture0Bound.y, globalBoundary.z, texture0Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				color = texture2D(texture0, gl_TexCoord[0].xy);
+				hasGotTexel = true;				
+			}
+		}
+		else
+		{
+			discard;
+		}
+
+		levelIndex--;
+		
+	} while(!hasGotTexel && levelIndex>=0);
+	
+	color.a = transparent;
+	gl_FragColor = color;
+}«   √Ÿ  ä       ç∏•ø§Æå∫‰≠¶π¶ ƒ√ÊÊÈ}b"	$ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨±Ωºª¨˘Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨xture1;
+uniform sampler2D texture2;
+uniform sampler2D texture3;
+uniform sampler2D texture4;
+uniform sampler2D texture5;
+
+// ¥´»ÎŒ∆¿Ì±ﬂΩÁ
+uniform vec4 texture0Bound;
+uniform vec4 texture1Bound;
+uniform vec4 texture2Bound;
+uniform vec4 texture3Bound;
+uniform vec4 texture4Bound;
+uniform vec4 texture5Bound;
+
+uniform vec4 globalBoundary;	// »´«ÚŒ∆¿Ì±ﬂΩÁ
+uniform float transparent;	// µÿ±ÌÕ∏√˜÷µ
+
+varying vec2 texCoord;
+
+const float texelSize = 0.0009765625;
+
+// ≈–∂œµ„ «∑Ò‘⁄æÿ–Œƒ⁄
+bool isPointInRegion(vec2 point, vec4 region)
+{
+	return (point.x>region.x && point.x<region.z
+		&& point.y<region.y && point.y>region.w);
+}
+
+bool isPointInRegionExt(vec2 point, vec4 region)
+{
+	if (region.x > region.z)
+	{
+		// øÁ‘Ω»´«Ú±ﬂΩÁµƒ«Èøˆ
+		vec4 region0 = vec4(region.x, region.y, globalBoundary.z, region.w);
+		vec4 region1 = vec4(globalBoundary.x, region.y, region.z, region.w);
+
+		if (isPointInRegion(point, region0) || isPointInRegion(point, region1))
+		{
+			return true;
+		}
+	}
+	else if (isPointInRegion(point, region))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void main()
+{
+	vec4 color = vec4(0.0);
+	
+	// º∆À„ Mipmap Õº≤„
+	vec2 dx = dFdx(texCoord * 1024.0);
+	vec2 dy = dFdy(texCoord * 1024.0);
+	float d = max(length(dx), length(dy));
+	float mipLevel = log2(d);
+	
+	// ∏˘æ› Mipmap Õº≤„∫Õ bound »°Œ∆¿Ì
+	if (mipLevel < 5.0)
+	{
+		if (isPointInRegionExt(texCoord, texture5Bound))
+		{
+			color = texture2D(texture5, gl_TexCoord[5].xy);
+			if (isPointInRegionExt(texCoord, texture4Bound))
+			{
+				vec4 color2 = texture2D(texture4, gl_TexCoord[4].xy);
+				float deg = clamp(mipLevel - 4.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture4Bound))
+		{
+			color = texture2D(texture4, gl_TexCoord[4].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 6.0)
+	{
+		if (isPointInRegionExt(texCoord, texture4Bound))
+		{
+			color = texture2D(texture4, gl_TexCoord[4].xy);
+			if (isPointInRegionExt(texCoord, texture3Bound))
+			{
+				vec4 color2 = texture2D(texture3, gl_TexCoord[3].xy);
+				float deg = clamp(mipLevel - 5.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 7.0)
+	{
+		if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+			if (isPointInRegionExt(texCoord, texture2Bound))
+			{
+				vec4 color2 = texture2D(texture2, gl_TexCoord[2].xy);
+				float deg = clamp(mipLevel - 6.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 8.0)
+	{
+		if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+			if (isPointInRegionExt(texCoord, texture1Bound))
+			{
+				vec4 color2 = texture2D(texture1, gl_TexCoord[1].xy);
+				float deg = clamp(mipLevel - 7.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 10.0)
+	{
+		if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			vec4 color1 = texture2D(texture1, gl_TexCoord[1].xy);
+			vec4 color2 = texture2D(texture0, gl_TexCoord[0].xy);
+			float deg = clamp(mipLevel - 8.0, 0.0, 2.0) * 0.5;
+			color = color1 * (1.0 - deg) + color2 * deg;
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else
+	{
+		color = texture2D(texture0, gl_TexCoord[0].xy);
+	}
+
+	color.a = transparent;
+	gl_FragColor = color;
+}
+ure0, gl_TexCoord[0].xy);
+	}
+	
+	vec3 scatteredColor = vec3Rayleigh + color.rgb * vec3AdjustedMie;
+	color.rgb = mix(fogColor, scatteredColor, fFogFactor);
+	//color.rgb = vec3(1.0) - exp(color.rgb * -2);
+	color.a = transparent;
+	gl_FragColor = color;
+}or = color;
+}◊¯±Í±‰ªª
+	gl_Position = ftransform();
+	
+	// Œ∆¿Ì◊¯±Í±‰ªª
+	gl_TexCoord[0] = texture0Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[1] = texture1Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[2] = texture2Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[3] = texture3Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[4] = texture4Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[5] = texture5Matrix * gl_MultiTexCoord0;
+	
+	texCoord = gl_MultiTexCoord0.xy;
+}
+ÿ   ¥¬  ä   »   ∏çêäëõ∂ë¨äëπè—òìåìˇƒ√ÊÊÈ}b"	$ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨±Ωºª¨˘Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨xture1;
+uniform sampler2D texture2;
+uniform sampler2D texture3;
+uniform sampler2D texture4;
+uniform sampler2D texture5;
+
+// ¥´»ÎŒ∆¿Ì±ﬂΩÁ
+uniform vec4 texture0Bound;
+uniform vec4 texture1Bound;
+uniform vec4 texture2Bound;
+uniform vec4 texture3Bound;
+uniform vec4 texture4Bound;
+uniform vec4 texture5Bound;
+
+uniform vec4 globalBoundary;	// »´«ÚŒ∆¿Ì±ﬂΩÁ
+uniform float transparent;		// µÿ±ÌÕ∏√˜÷µ
+
+varying vec2 texCoord;
+
+varying vec3 vec3Rayleigh;
+varying vec3 vec3AdjustedMie;
+varying float fFogFactor;
+
+const vec3 fogColor = vec3(1.0);
+
+// ≈–∂œµ„ «∑Ò‘⁄æÿ–Œƒ⁄
+bool isPointInRegion(vec2 point, vec4 region)
+{
+	return (point.x>region.x && point.x<region.z
+		&& point.y<region.y && point.y>region.w);
+}
+
+bool isPointInRegionExt(vec2 point, vec4 region)
+{
+	if (region.x > region.z)
+	{
+		// øÁ‘Ω»´«Ú±ﬂΩÁµƒ«Èøˆ
+		vec4 region0 = vec4(region.x, region.y, globalBoundary.z, region.w);
+		vec4 region1 = vec4(globalBoundary.x, region.y, region.z, region.w);
+
+		if (isPointInRegion(point, region0) || isPointInRegion(point, region1))
+		{
+			return true;
+		}
+	}
+	else if (isPointInRegion(point, region))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void main()
+{
+	vec4 color = vec4(0.0);
+
+	// ∏˘æ› bound »°Œ∆¿Ì
+	if (isPointInRegionExt(texCoord, texture5Bound))
+	{
+		color = texture2D(texture5, gl_TexCoord[5].xy);
+	}
+	else if (isPointInRegionExt(texCoord, texture4Bound))
+	{
+		color = texture2D(texture4, gl_TexCoord[4].xy);
+	}
+	else if (isPointInRegionExt(texCoord, texture3Bound))
+	{
+		color = texture2D(texture3, gl_TexCoord[3].xy);
+	}
+	else if (isPointInRegionExt(texCoord, texture2Bound))
+	{
+		color = texture2D(texture2, gl_TexCoord[2].xy);
+	}
+	else if (isPointInRegionExt(texCoord, texture1Bound))
+	{
+		color = texture2D(texture1, gl_TexCoord[1].xy);
+	}
+	else
+	{
+		color = texture2D(texture0, gl_TexCoord[0].xy);
+	}
+
+	vec3 scatteredColor = vec3Rayleigh + color.rgb * vec3AdjustedMie;
+	color.rgb = mix(fogColor, scatteredColor, fFogFactor);
+	//color.rgb = vec3(1.0) - exp(color.rgb * -2);
+	color.a = transparent;
+	gl_FragColor = color;
+}
+		}
+	}
+	else if (mipLevel < 5.0)
+	{
+		if (isPointInRegionExt(texCoord, texture4Bound))
+		{
+			color = texture2D(texture4, gl_TexCoord[4].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 6.0)
+	{
+		if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 7.0)
+	{
+		if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 8.0)
+	{
+		if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else
+	{
+		color = texture2D(texture0, gl_TexCoord[0].xy);
+	}
+	
+	vec3 scatteredColor = vec3Rayleigh + color.rgb * vec3AdjustedMie;
+	color.rgb = mix(fogColor, scatteredColor, fFogFactor);
+	//color.rgb = vec3(1.0) - exp(color.rgb * -2);
+	color.a = transparent;
+	gl_FragColor = color;
+});
+		}
+		else if (isPointInRegionExt(texCoord, texture0Bound))
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+		else
+		{
+			discard;
+			return;
+		}
+	}
+	else
+	{
+		if (isPointInRegionExt(texCoord, texture0Bound))
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+		else
+		{
+			discard;
+			return;
+		}
+	}
+	
+	vec3 scatteredColor = vec3Rayleigh + color.rgb * vec3AdjustedMie;
+	color.rgb = mix(fogColor, scatteredColor, fFogFactor);
+	//color.rgb = vec3(1.0) - exp(color.rgb * -2);
+	color.a = transparent;
+	gl_FragColor = color;
+}alBoundary.z, texture1Bound.w);
+				bound1 = vec4(globalBoundary.x, texture1Bound.y, globalBoundary.x+offset, texture1Bound.w);
+			}
+			else if (texture1Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture1Bound.x;
+				bound0 = vec4(globalBoundary.x, texture1Bound.y, texture1Bound.z, texture1Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture1Bound.y, globalBoundary.z, texture1Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				color = texture2D(texture1, gl_TexCoord[1].xy);
+				hasGotTexel = true;				
+			}
+		}
+		else if (levelIndex == 0)
+		{
+			bound0 = texture0Bound;
+			if (texture0Bound.z > globalBoundary.z)
+			{
+				float offset = texture0Bound.z - globalBoundary.z;
+				bound0 = vec4(texture0Bound.x, texture0Bound.y, globalBoundary.z, texture0Bound.w);
+				bound1 = vec4(globalBoundary.x, texture0Bound.y, globalBoundary.x+offset, texture0Bound.w);
+			}
+			else if (texture0Bound.x < globalBoundary.x)
+			{
+				float offset = globalBoundary.x - texture0Bound.x;
+				bound0 = vec4(globalBoundary.x, texture0Bound.y, texture0Bound.z, texture0Bound.w);
+				bound1 = vec4(globalBoundary.z-offset, texture0Bound.y, globalBoundary.z, texture0Bound.w);
+			}
+			
+			if (IsPointInRegion(texCoord, bound0) || IsPointInRegion(texCoord, bound1))
+			{
+				color = texture2D(texture0, gl_TexCoord[0].xy);
+				hasGotTexel = true;				
+			}
+		}
+		else
+		{
+			discard;
+		}
+
+		levelIndex--;
+		
+	} while(!hasGotTexel && levelIndex>=0);
+	
+	vec3 scatteredColor = vec3Rayleigh + color.rgb * vec3AdjustedMie;
+	color.rgb = mix(fogColor, scatteredColor, fFogFactor);
+	//color.rgb = vec3(1.0) - exp(color.rgb * -2);
+	color.a = transparent;
+	gl_FragColor = color;
+}¿   ‰«  ä       ·ŸÀ‰¬ú’ﬁ¡ﬁ≤ƒ√ºß†Ø¶ª§Èø¨™˙Èø˙ä®§¨ª®ô¶∫Úƒ√ºß†Ø¶ª§Èø¨™˙Èø˙Ö†Æ°Ωô¶∫Úƒ√ºß†Ø¶ª§Èøec3 v3InvWavelength;
+uniform float fCameraHeight;
+uniform float fCameraHeight2;
+uniform float fOuterRadius;
+uniform float fOuterRadius2;
+uniform float fInnerRadius;
+uniform float fInnerRadius2;
+uniform float fKrESun;
+uniform float fKmESun;
+uniform float fKr4PI;
+uniform float fKm4PI;
+uniform float fScale;
+uniform float fScaleDepth;
+uniform float fScaleOverScaleDepth;
+
+varying vec3 v3Direction;
+
+const float fPlanetRadius = 6378137.0;	// µÿ«Ú∞Îæ∂
+const int nSamples = 4;					// ≤…—˘ ˝
+
+// The scale equation calculated by Vernier's Graphical Analysis.
+float scale(float fCos)
+{
+	float x = 1.0 - fCos;
+	return fScaleDepth * exp(-0.00287 + x*(0.459 + x*(3.83 + x*(-6.80 + x*5.25))));
+}
+
+// Returns the near intersection point of a line and a sphere
+float getNearIntersection(vec3 v3Pos, vec3 v3Ray, float fDistance2, float fRadius2)
+{
+	float B = 2.0 * dot(v3Pos, v3Ray);
+	float C = fDistance2 - fRadius2;
+	float fDet = max(0.0, B*B - 4.0 * C);
+	return 0.5 * (-B - sqrt(fDet));
+}
+
+void main(void)
+{
+	// Get the ray from the camera to the vertex and its length (which is the far point of the ray passing through the atmosphere)
+	vec3 v3Pos = gl_Vertex.xyz / fPlanetRadius;
+	vec3 v3Ray = v3Pos - v3CameraPos;
+	float fFar = length(v3Ray);
+	v3Ray /= fFar;
+
+	// Calculate the ray's starting position, then calculate its scattering offset
+	vec3 v3Start = v3CameraPos;
+	float fStartOffset = 0.0;
+	if (fCameraHeight < fOuterRadius)
+	{
+		float fStartHeight = length(v3Start);
+		float fStartDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fCameraHeight));
+		float fStartAngle = dot(v3Ray, v3Start) / fStartHeight;
+		fStartOffset = fStartDepth*scale(fStartAngle);		
+	}
+	else
+	{
+		float fNear = getNearIntersection(v3CameraPos, v3Ray, fCameraHeight2, fOuterRadius2);
+		v3Start += v3Ray * fNear;
+		fFar -= fNear;
+		
+		float fStartAngle = dot(v3Ray, v3Start) / fOuterRadius;
+		float fStartDepth = exp(-1.0 / fScaleDepth);
+		fStartOffset = fStartDepth*scale(fStartAngle);		
+	}
+
+	// Initialize the scattering loop variables
+	float fSampleLength = fFar / float(nSamples);
+	float fScaledLength = fSampleLength * fScale;
+	vec3 v3SampleRay = v3Ray * fSampleLength;
+	vec3 v3SamplePoint = v3Start + v3SampleRay * 0.5;
+
+	// Now loop through the sample rays
+	vec3 v3FrontColor = vec3(0.0);
+	for(int i=0; i<nSamples; i++)
+	{
+		float fSampleHeight = length(v3SamplePoint);
+		float fSampleDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fSampleHeight));
+		float fLightAngle = dot(v3LightPos, v3SamplePoint) / fSampleHeight;
+		float fCameraAngle = dot(v3Ray, v3SamplePoint) / fSampleHeight;
+		float fSampleScatter = (fStartOffset + fSampleDepth*(scale(fLightAngle) - scale(fCameraAngle)));
+		vec3 v3Attenuate = exp(-fSampleScatter * (v3InvWavelength * fKr4PI + fKm4PI));
+		v3FrontColor += v3Attenuate * (fSampleDepth * fScaledLength);
+		v3SamplePoint += v3SampleRay;
+	}
+
+	// Finally, scale the Mie and Rayleigh colors and set up the varying variables for the pixel shader
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+	gl_Position.z = min(gl_Position.z, gl_Position.w * 0.99999);
+	
+	gl_FrontColor.rgb = v3FrontColor * (v3InvWavelength * fKrESun);
+	gl_FrontSecondaryColor.rgb = v3FrontColor * fKmESun;
+	v3Direction = v3CameraPos - v3Pos;
+}3Pos;
+}€   ‡»  ä       )	>=+U{ºß†Ø¶ª§È∫®§π•¨ª˚çÈ¨•ø¨ù†•¨ù¨±Ωºª¨Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈÑ¶≠†Ø∞å•¨øTexture;
+uniform float fBottomDistance;
+
+void main()
+{	
+	vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
+
+	float height = texture2D(elveTileTexture, gl_TexCoord[0].xy).r;
+	float featureBottomHeight = texture2D(ModifyElevTexture, gl_TexCoord[1].xy).r;
+	if(featureBottomHeight != 0.0 )
+	{
+		height = (featureBottomHeight) * 10000 - fBottomDistance;
+	}
+	if(height > 0.00000001 || height < -0.00000001)
+	{
+		//”√RÕ®µ¿¥Ê∏ﬂ≥Ã
+		color.r = height / 10000.0;
+	}	
+
+	gl_FragColor = color;
+}e = vec3(0.3, 0.59, 0.11);
+	return dot(luminance, color);
+}
+
+void main()
+{
+	float fCosAngle = dot(v3LightPos, v3Direction) / length(v3Direction);
+	float fCosAngle2 = fCosAngle*fCosAngle;
+	
+	vec4 color;
+	color.rgb = /*getRayleighPhase(fCosAngle2) * */gl_Color.rgb
+		+ getMiePhase(fCosAngle, fCosAngle2) * gl_SecondaryColor.rgb;
+	
+	color.rgb = vec3(1.0) - exp(color.rgb * -2.0);
+	
+	float luminanceAlphaComponent = 2.0 * getLuminance(color.rgb);
+	color.a = luminanceAlphaComponent + color.b;
+	
+	gl_FragColor = color;
+}
+ÿ    ﬂ  ä   »   ∏çêäëõ∂ë¨äë©è—òìåìˇƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨˘Ñ®Ωª†±Úƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨¯Ñ®Ωª†±Úƒ√ºßiform mat4 texture2Matrix;
+uniform mat4 texture3Matrix;
+uniform mat4 texture4Matrix;
+uniform mat4 texture5Matrix;
+
+uniform mat4 modelMatrix;
+uniform vec3 v3CameraPos;
+uniform vec3 v3LightPos;
+uniform vec3 v3InvWavelength;
+uniform float fCameraHeight;
+uniform float fCameraHeight2;
+uniform float fOuterRadius;
+uniform float fOuterRadius2;
+uniform float fInnerRadius;
+uniform float fInnerRadius2;
+uniform float fKrESun;
+uniform float fKmESun;
+uniform float fKr4PI;
+uniform float fKm4PI;
+uniform float fScale;
+uniform float fScaleDepth;
+uniform float fScaleOverScaleDepth;
+
+varying vec2 texCoord;
+
+varying vec3 vec3Rayleigh;		// Rayleigh …¢…‰—’…´
+varying vec3 vec3AdjustedMie;	// Mie …¢…‰—’…´
+varying float fFogFactor;		// ŒÌ“Ú◊”£¨÷µµƒ∑∂Œß£®0£¨1£©
+
+const int nSamples = 2;					// ≤…—˘ ˝
+const float fPlanetRadius = 6378137.0;	// µÿ«Ú∞Îæ∂
+const float fKSunColor = 3.0;
+const vec4 v4SunsetAmbientAndFogDensity = vec4(0.1, 0.1, 0.1, 0.1);
+//const vec4 v4StartupConsts = vec4(0.0, 4.0, 1.0, 0.0);
+
+// The scale equation calculated by Vernier's Graphical Analysis.
+float scale(float fCos)
+{
+	float x = 1.0 - fCos;
+	return fScaleDepth * exp(-0.00287 + x*(0.459 + x*(3.83 + x*(-6.80 + x*5.25))));
+}
+
+// Returns the near intersection point of a line and a sphere
+float getNearIntersection(vec3 v3Pos, vec3 v3Ray, float fDistance2, float fRadius2)
+{
+	float B = 2.0 * dot(v3Pos, v3Ray);
+	float C = fDistance2 - fRadius2;
+	float fDet = max(0.0, B*B - 4.0 * C);
+	return 0.5 * (-B - sqrt(fDet));
+}
+
+// Returns the luminance of an RGB color.
+float getLuminance(vec3 color)
+{
+  const vec3 luminance = vec3(0.3, 0.59, 0.11);
+  return dot(luminance, color);
+}
+
+void main()
+{
+	// Get the ray from the camera to the vertex and its length (which is the far point of the ray passing through the atmosphere)
+	vec3 v3Pos = vec3(modelMatrix * gl_Vertex / fPlanetRadius);
+	vec3 vertNorm = normalize(gl_Normal.xyz);
+	vec3 v3Ray = v3Pos - v3CameraPos;
+	float fFar = length(v3Ray);
+	v3Ray /= fFar;
+	
+	float nDotL = dot(vertNorm, v3LightPos);
+	nDotL = clamp(fKSunColor * nDotL, 0.0, 1.0);
+	
+	// Calculate the ray's starting position
+	vec3 v3Start = v3CameraPos;
+	if (fCameraHeight >= fOuterRadius)
+	{
+		float fNear = getNearIntersection(v3CameraPos, v3Ray, fCameraHeight2, fOuterRadius2);
+		v3Start += v3Ray * fNear;
+		fFar -= fNear;
+	}
+
+	// Calculate its scattering offset
+	float fDepth = exp((fInnerRadius - fCameraHeight) / fScaleDepth);
+	float fCameraAngle = max(0.0, dot(-v3Ray, vertNorm));
+	float fLightAngle = dot(v3LightPos, vertNorm);
+	float fCameraScale = scale(fCameraAngle);
+	float fLightScale = scale(fLightAngle);
+	float fCameraOffset = fDepth*fCameraScale;
+	float fScaleSum = (fLightScale + fCameraScale);
+
+	// Initialize the scattering loop variables
+	float fSampleLength = fFar / float(nSamples);
+	float fScaledLength = fSampleLength * fScale;
+	vec3 v3SampleRay = v3Ray * fSampleLength;
+	vec3 v3SamplePoint = v3Start + v3SampleRay * 0.5;
+
+	// Now loop through the sample rays
+	vec3 v3FrontColor = vec3(0.0);
+	vec3 v3Attenuate;
+	for(int i=0; i<nSamples; i++)
+	{
+		float fSampleHeight = length(v3SamplePoint);
+		float fSampleDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fSampleHeight));
+		float fSampleScatter = fSampleDepth*fScaleSum - fCameraOffset;
+		v3Attenuate = exp(-fSampleScatter * (v3InvWavelength * fKr4PI + fKm4PI));
+		v3FrontColor += v3Attenuate * (fSampleDepth * fScaledLength);
+		v3SamplePoint += v3SampleRay;
+	}
+	
+	//float horizonExp = v4StartupConsts.y;
+	//float rayleighToneDownScale = v4StartupConsts.z;
+	float closeToHorizon = 1.0 - fCameraAngle;
+	float closeToCamera = 1.0 - closeToHorizon*closeToHorizon;
+	// Compute rayleigh scale factor. Higher closer to horizon and at higher altitudes.
+	//float scaledRayleighFactor = rayleighToneDownScale * pow(closeToHorizon, horizonExp);
+
+	vec3 kBaseAmbientColor = vec3(0.12, 0.12, 0.15);
+	float darkShadedAmbientFactor = 1.0 - nDotL;
+	float nightAmbientTemp = getLuminance(v3Attenuate);
+	float nightAmbientFactor = 1.0 - nightAmbientTemp * nightAmbientTemp;
+	float ambientFactor = closeToCamera * (darkShadedAmbientFactor + nightAmbientFactor);
+	vec3 headlampAmbientContribution = kBaseAmbientColor * ambientFactor;
+	vec3 sunsetAmbient = v4SunsetAmbientAndFogDensity.xyz;
+	vec3 ambientContribution = headlampAmbientContribution + sunsetAmbient;
+
+	float closeToNoon = dot(v3CameraPos, v3LightPos) / length(v3CameraPos);
+	float closeToNoonFactor = closeToCamera * closeToNoon;
+
+	float fogDensity = v4SunsetAmbientAndFogDensity.w;
+	float fogTemp = fogDensity * fFar;
+	fFogFactor = exp(-(fogTemp * fogTemp));
+
+	const vec3 kMaxRayleighContribution = vec3(0.5, 0.5, 0.8);
+	vec3Rayleigh = min(kMaxRayleighContribution,
+		v3FrontColor * (v3InvWavelength * fKrESun + fKmESun)/* * scaledRayleighFactor*/);
+	// Compute Mie color.
+	vec3 mieColor = v3Attenuate;
+	vec3 adjustedMieColor = clamp(
+		(mieColor + vec3(closeToNoonFactor)) * nDotL + ambientContribution, 0.0, 1.0);
+	vec3AdjustedMie = adjustedMieColor;	
+	
+	// ∂•µ„◊¯±Í±‰ªª
+	gl_Position = ftransform();
+	
+	// Œ∆¿Ì◊¯±Í±‰ªª
+	gl_TexCoord[0] = texture0Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[1] = texture1Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[2] = texture2Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[3] = texture3Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[4] = texture4Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[5] = texture5Matrix * gl_MultiTexCoord0;
+	
+	texCoord = gl_MultiTexCoord0.xy;
+}
+—   ¶…  ä       9-	,(P~ƒ√ÊÊÈ±ÈÙÈ§†ßÂÈ∞ÈÙÈ§®±ÂÈ≥ÈÙÈª®ßÆ¨ÂÈæÈÙÈ¯Êª®ßÆ¨ƒ√ºß†Ø¶ª§Èø¨™˝È≠¨πΩhRange0;
+uniform vec4 depthRange1;
+uniform vec4 depthRange2;
+
+uniform mat4 texWorldViewProjMatrix0;
+uniform mat4 texWorldViewProjMatrix1;
+uniform mat4 texWorldViewProjMatrix2;
+
+varying float camDepth;
+
+void main()
+{
+	// project position to the screen
+	gl_Position = ftransform();
+
+	// Calculate the position of vertex in light space
+	gl_TexCoord[0] = texWorldViewProjMatrix0 * gl_Vertex;
+	gl_TexCoord[1] = texWorldViewProjMatrix1 * gl_Vertex;
+	gl_TexCoord[2] = texWorldViewProjMatrix2 * gl_Vertex;
+		
+	// make linear
+	gl_TexCoord[0].z = (gl_TexCoord[0].z - depthRange0.x) * depthRange0.w;
+	gl_TexCoord[1].z = (gl_TexCoord[1].z - depthRange1.x) * depthRange1.w;
+	gl_TexCoord[2].z = (gl_TexCoord[2].z - depthRange2.x) * depthRange2.w;
+
+	// pass cam depth
+	camDepth = gl_Position.z;
+}
+
+«   ≥¬  ä       ç∏•ø§Æú∫‰≠¶π¶ ƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨˘Ñ®Ωª†±Úƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨¯Ñ®Ωª†±Úƒ√ºßiform mat4 texture2Matrix;
+uniform mat4 texture3Matrix;
+uniform mat4 texture4Matrix;
+uniform mat4 texture5Matrix;
+uniform sampler2D elevationTexture;
+
+// ¥´»ÎŒ∆¿Ì±ﬂΩÁ
+uniform vec4 texture1Bound;
+uniform vec4 globalBoundary;	// »´«ÚŒ∆¿Ì±ﬂΩÁ
+
+uniform vec3 IntEyePos;
+uniform vec3 FloatEyePos;
+
+varying vec2 texCoord;
+
+
+const float GLOBAL_RADIUS = 6378137.0;
+
+// ≈–∂œµ„ «∑Ò‘⁄æÿ–Œƒ⁄
+bool isPointInRegion(vec2 point, vec4 region)
+{
+	return (point.x>region.x && point.x<region.z
+		&& point.y<region.y && point.y>region.w);
+}
+
+bool isPointInRegionExt(vec2 point, vec4 region)
+{
+	if (region.x > region.z)
+	{
+		// øÁ‘Ω»´«Ú±ﬂΩÁµƒ«Èøˆ
+		vec4 region0 = vec4(region.x, region.y, globalBoundary.z, region.w);
+		vec4 region1 = vec4(globalBoundary.x, region.y, region.z, region.w);
+
+		if (isPointInRegion(point, region0) || isPointInRegion(point, region1))
+		{
+			return true;
+		}
+	}
+	else if (isPointInRegion(point, region))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void main()
+{
+	// Œ∆¿Ì◊¯±Í±‰ªª
+	texCoord = gl_MultiTexCoord0.xy;
+	
+	gl_TexCoord[0] = texture0Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[1] = texture1Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[2] = texture2Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[3] = texture3Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[4] = texture4Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[5] = texture5Matrix * gl_MultiTexCoord0;
+
+	vec4 pos = gl_Vertex;
+
+	vec4 heightColor = texture2DLod(elevationTexture,gl_TexCoord[1].xy, 0.0);
+	float vertexHeight = heightColor.r * 10000;
+	
+	if (isPointInRegionExt(texCoord, texture1Bound))
+	{
+	
+		float heightScale = (GLOBAL_RADIUS + vertexHeight) / GLOBAL_RADIUS;
+		//∫œ≤¢pos + eysPos, pos * heightScale, pos - eysPos, “‘±‹√‚÷–º‰±‰¡ø“˝∆µƒæ´∂»ŒÛ≤Ó
+		pos.x = pos.x * heightScale + (IntEyePos.x + FloatEyePos.x) * (heightScale - 1.0);
+		pos.y = pos.y * heightScale + (IntEyePos.y + FloatEyePos.y) * (heightScale - 1.0);
+		pos.z = pos.z * heightScale + (IntEyePos.z + FloatEyePos.z) * (heightScale - 1.0);
+	}
+
+
+	// ∂•µ„◊¯±Í±‰ªª
+	gl_Position = gl_ModelViewProjectionMatrix * pos;	
+}
+
+
+	return shadow;
+}
+
+void main()
+{
+	float shadow = calcPSSMDepthShadow(shadowMap0, shadowMap1, shadowMap2, 
+		gl_TexCoord[0], gl_TexCoord[1], gl_TexCoord[2],
+		inverseShadowmapSize0, inverseShadowmapSize1, inverseShadowmapSize2,
+		pssmSplitPoints, camDepth);
+
+	gl_FragColor = vec4(vec3(shadow), 1.0);
+}
+
+
+«   +ÿ  ä   »   ç∏•ø§Æå∫‰≠¶π¶ ƒ√ÊÊÈ}b"	$ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨±Ωºª¨˘Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈΩ¨xture1;
+uniform sampler2D texture2;
+uniform sampler2D texture3;
+uniform sampler2D texture4;
+uniform sampler2D texture5;
+
+// ¥´»ÎŒ∆¿Ì±ﬂΩÁ
+uniform vec4 texture0Bound;
+uniform vec4 texture1Bound;
+uniform vec4 texture2Bound;
+uniform vec4 texture3Bound;
+uniform vec4 texture4Bound;
+uniform vec4 texture5Bound;
+
+uniform vec4 globalBoundary;	// »´«ÚŒ∆¿Ì±ﬂΩÁ
+uniform float transparent;		// µÿ±ÌÕ∏√˜÷µ
+
+varying vec2 texCoord;
+
+// ≈–∂œµ„ «∑Ò‘⁄æÿ–Œƒ⁄
+bool isPointInRegion(vec2 point, vec4 region)
+{
+	return (point.x>region.x && point.x<region.z
+		&& point.y<region.y && point.y>region.w);
+}
+
+bool isPointInRegionExt(vec2 point, vec4 region)
+{
+	if (region.x > region.z)
+	{
+		// øÁ‘Ω»´«Ú±ﬂΩÁµƒ«Èøˆ
+		vec4 region0 = vec4(region.x, region.y, globalBoundary.z, region.w);
+		vec4 region1 = vec4(globalBoundary.x, region.y, region.z, region.w);
+
+		if (isPointInRegion(point, region0) || isPointInRegion(point, region1))
+		{
+			return true;
+		}
+	}
+	else if (isPointInRegion(point, region))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void main()
+{
+	vec4 color = vec4(0.0);
+	
+	// º∆À„ Mipmap Õº≤„
+	vec2 dx = dFdx(texCoord * 1024.0);
+	vec2 dy = dFdy(texCoord * 1024.0);
+	float d = max(length(dx), length(dy));
+	float mipLevel = log2(d);
+	
+	// ∏˘æ› Mipmap Õº≤„∫Õ bound »°Œ∆¿Ì
+	if (mipLevel < 5.0)
+	{
+		if (isPointInRegionExt(texCoord, texture5Bound))
+		{
+			color = texture2D(texture5, gl_TexCoord[5].xy);
+			if (isPointInRegionExt(texCoord, texture4Bound))
+			{
+				vec4 color2 = texture2D(texture4, gl_TexCoord[4].xy);
+				float deg = clamp(mipLevel - 4.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture4Bound))
+		{
+			color = texture2D(texture4, gl_TexCoord[4].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 6.0)
+	{
+		if (isPointInRegionExt(texCoord, texture4Bound))
+		{
+			color = texture2D(texture4, gl_TexCoord[4].xy);
+			if (isPointInRegionExt(texCoord, texture3Bound))
+			{
+				vec4 color2 = texture2D(texture3, gl_TexCoord[3].xy);
+				float deg = clamp(mipLevel - 5.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 7.0)
+	{
+		if (isPointInRegionExt(texCoord, texture3Bound))
+		{
+			color = texture2D(texture3, gl_TexCoord[3].xy);
+			if (isPointInRegionExt(texCoord, texture2Bound))
+			{
+				vec4 color2 = texture2D(texture2, gl_TexCoord[2].xy);
+				float deg = clamp(mipLevel - 6.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 8.0)
+	{
+		if (isPointInRegionExt(texCoord, texture2Bound))
+		{
+			color = texture2D(texture2, gl_TexCoord[2].xy);
+			if (isPointInRegionExt(texCoord, texture1Bound))
+			{
+				vec4 color2 = texture2D(texture1, gl_TexCoord[1].xy);
+				float deg = clamp(mipLevel - 7.0, 0.0, 1.0);
+				color = color * (1.0 - deg) + color2 * deg;
+			}
+		}
+		else if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			color = texture2D(texture1, gl_TexCoord[1].xy);
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else if (mipLevel < 10.0)
+	{
+		if (isPointInRegionExt(texCoord, texture1Bound))
+		{
+			vec4 color1 = texture2D(texture1, gl_TexCoord[1].xy);
+			vec4 color2 = texture2D(texture0, gl_TexCoord[0].xy);
+			float deg = clamp(mipLevel - 8.0, 0.0, 2.0) * 0.5;
+			color = color1 * (1.0 - deg) + color2 * deg;
+		}
+		else
+		{
+			color = texture2D(texture0, gl_TexCoord[0].xy);
+		}
+	}
+	else
+	{
+		color = texture2D(texture0, gl_TexCoord[0].xy);
+	}
+
+	color.a = transparent;
+	gl_FragColor = color;
+}
+= color;
+}
+—   •¿  ä       9-	,8P~ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ∫°®≠¶æÑ®π˘Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ∫°®≠¶æÑ®π¯Úƒ√uniform sampler2D shadowMap2;
+	
+uniform float inverseShadowmapSize0;
+uniform float inverseShadowmapSize1;
+uniform float inverseShadowmapSize2;
+
+uniform vec4 pssmSplitPoints;
+
+uniform vec4 shadowColor;
+
+varying float camDepth;
+
+// Simple PCF 
+// Number of samples in one dimension (square for total samples)
+#define NUM_SHADOW_SAMPLES_1D 2.0
+#define SHADOW_FILTER_SCALE 1
+
+#define SHADOW_SAMPLES NUM_SHADOW_SAMPLES_1D*NUM_SHADOW_SAMPLES_1D
+
+vec4 offsetSample(vec4 uv, vec2 offset, float invMapSize)
+{
+	return vec4(uv.xy + offset * invMapSize * uv.w, uv.z, uv.w);
+}
+
+float calcDepthShadow(sampler2D shadowMap, vec4 uv, float invShadowMapSize)
+{
+	// ∞—shadowColorµƒ∑∂Œß¥” [0,1] ±‰ªªµΩ [0.5,1]
+	float shadowShade = shadowColor.x * 0.5 + 0.5;
+	// ºÃ–¯∞—∑∂Œß¥” [0.5,1] ±‰ªªµΩ [1,0.5]
+	shadowShade = 1.5 - shadowShade;
+
+	// 4-sample PCF
+	float shadow = 0.0;
+	float offset = (NUM_SHADOW_SAMPLES_1D/2 - 0.5) * SHADOW_FILTER_SCALE;
+	for (float y = -offset; y <= offset; y += SHADOW_FILTER_SCALE)
+	{
+		for (float x = -offset; x <= offset; x += SHADOW_FILTER_SCALE)
+		{
+			vec4 texCoord = offsetSample(uv, vec2(x, y), invShadowMapSize);
+			if (texCoord.x>0.0 && texCoord.x<1.0 && texCoord.y>0.0 && texCoord.y<1.0)
+			{
+				float depth = texture2DProj(shadowMap, texCoord).x;
+				if (depth >= 1.0 || depth >= uv.z)
+				{
+					shadow += 1.0;
+				}
+				else
+				{
+					shadow += shadowShade;
+				}
+			}
+			else
+			{
+				shadow += 1.0;
+			}
+		}
+	}
+
+	shadow /= SHADOW_SAMPLES;
+
+	return shadow;
+}
+
+float calcPSSMDepthShadow(sampler2D shadowMap0, sampler2D shadowMap1, sampler2D shadowMap2,
+	vec4 lsPos0, vec4 lsPos1, vec4 lsPos2,
+	float invShadowmapSize0, float invShadowmapSize1, float invShadowmapSize2,
+	vec4 pssmSplitPoints, float camDepth)
+{
+
+	float shadow;
+	vec4 splitColour;
+	// calculate shadow
+	if (camDepth <= pssmSplitPoints.y)
+	{
+		splitColour = vec4(0.3, 0.0, 0, 0);
+		shadow = calcDepthShadow(shadowMap0, lsPos0, invShadowmapSize0);
+	}
+	else if (camDepth <= pssmSplitPoints.z)
+	{
+		splitColour = vec4(0, 0.3, 0, 0);
+		shadow = calcDepthShadow(shadowMap1, lsPos1, invShadowmapSize1);
+	}
+	else
+	{
+		splitColour = vec4(0.0, 0.0, 0.3, 0);
+		shadow = calcDepthShadow(shadowMap2, lsPos2, invShadowmapSize2);
+	}
+
+	return shadow;
+}
+
+void main()
+{
+	float shadow = calcPSSMDepthShadow(shadowMap0, shadowMap1, shadowMap2, 
+		gl_TexCoord[0], gl_TexCoord[1], gl_TexCoord[2],
+		inverseShadowmapSize0, inverseShadowmapSize1, inverseShadowmapSize2,
+		pssmSplitPoints, camDepth);
+
+	gl_FragColor = vec4(vec3(shadow), 1.0);
+}
+
+
+‘   ¡  ä       •Ñëïâ≤âÄÖéñåÄë≥ÑÇÑàóÑìßë—œÜçíç·ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ∫°®≠¶æÑ®π˘Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ∫°®≠¶æÑ®π¯Úƒ√uniform sampler2D shadowMap2;
+
+uniform vec4 materialAmbient;
+	
+uniform float inverseShadowmapSize0;
+uniform float inverseShadowmapSize1;
+uniform float inverseShadowmapSize2;
+
+uniform vec4 pssmSplitPoints;
+
+uniform vec4 shadowColor;
+
+// Simple PCF 
+// Number of samples in one dimension (square for total samples)
+#define NUM_SHADOW_SAMPLES_1D 2.0
+#define SHADOW_FILTER_SCALE 1
+
+#define SHADOW_SAMPLES NUM_SHADOW_SAMPLES_1D*NUM_SHADOW_SAMPLES_1D
+
+vec4 offsetSample(vec4 uv, vec2 offset, float invMapSize)
+{
+	return vec4(uv.xy + offset * invMapSize * uv.w, uv.z, uv.w);
+}
+
+float calcDepthShadow(sampler2D shadowMap, vec4 uv, float invShadowMapSize)
+{
+	// ∞—shadowColorµƒ∑∂Œß¥” [0,1] ±‰ªªµΩ [0.5,1]
+	float shadowShade = shadowColor.x * 0.5 + 0.5;
+	// ºÃ–¯∞—∑∂Œß¥” [0.5,1] ±‰ªªµΩ [1,0.5]
+	shadowShade = 1.5 - shadowShade;
+
+	// 4-sample PCF
+	float shadow = 0.0;
+	float offset = (NUM_SHADOW_SAMPLES_1D/2 - 0.5) * SHADOW_FILTER_SCALE;
+	for (float y = -offset; y <= offset; y += SHADOW_FILTER_SCALE)
+	{
+		for (float x = -offset; x <= offset; x += SHADOW_FILTER_SCALE)
+		{
+			vec4 texCoord = offsetSample(uv, vec2(x, y), invShadowMapSize);
+			if (texCoord.x>0.0 && texCoord.x<1.0 && texCoord.y>0.0 && texCoord.y<1.0)
+			{
+				float depth = texture2DProj(shadowMap, texCoord).x;
+				if (depth >= 1.0 || depth >= uv.z)
+				{
+					shadow += 1.0;
+				}
+				else
+				{
+					shadow += shadowShade;
+				}
+			}
+			else
+			{
+				shadow += 1.0;
+			}
+		}
+	}
+
+	shadow /= SHADOW_SAMPLES;
+
+	return shadow;
+}
+
+float calcPSSMDepthShadow(sampler2D shadowMap0, sampler2D shadowMap1, sampler2D shadowMap2, 
+						   vec4 lsPos0, vec4 lsPos1, vec4 lsPos2,
+						   float invShadowmapSize0, float invShadowmapSize1, float invShadowmapSize2,
+						   vec4 pssmSplitPoints, float camDepth)
+{
+
+	float shadow;
+	vec4 splitColour;
+	// calculate shadow
+	if (camDepth <= pssmSplitPoints.y)
+	{
+		splitColour = vec4(0.3, 0.0, 0, 0);
+		shadow = calcDepthShadow(shadowMap0, lsPos0, invShadowmapSize0);
+	}
+	else if (camDepth <= pssmSplitPoints.z)
+	{
+		splitColour = vec4(0, 0.3, 0, 0);
+		shadow = calcDepthShadow(shadowMap1, lsPos1, invShadowmapSize1);
+	}
+	else
+	{
+		splitColour = vec4(0.0, 0.0, 0.3, 0);
+		shadow = calcDepthShadow(shadowMap2, lsPos2, invShadowmapSize2);
+	}
+
+	return shadow;
+}
+
+void main()
+{
+    // look up the diffuse map layer
+    vec4 texDiffuse = vec4(1.0);
+    
+    // compute the ambient contribution (pulled from the diffuse map)
+    vec4 vAmbient = texDiffuse * materialAmbient;
+    vec3 vColor3 = texDiffuse.rgb * gl_Color.rgb;
+
+	float camDepth = gl_TexCoord[0].z;
+	float shadow = calcPSSMDepthShadow(shadowMap0, shadowMap1, shadowMap2, 
+		gl_TexCoord[2], gl_TexCoord[3], gl_TexCoord[4],
+		inverseShadowmapSize0, inverseShadowmapSize1, inverseShadowmapSize2,
+		pssmSplitPoints, camDepth);
+	vColor3 *= shadow;
+
+    gl_FragColor = vec4(vColor3, gl_Color.a * vAmbient.a);
+}
+
+
+‘   ¶∆  ä       •Ñëïâ≤âÄÖéñåÄë≥ÑÇÑàóÑìßë”œÜçíç·ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ≠†ØØº∫¨Ñ®π˘Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈ≠†ØØº∫¨Ñ®π¯Ú
+
+uniform sampler2D shadowMap0;
+uniform sampler2D shadowMap1;
+uniform sampler2D shadowMap2;
+
+uniform vec4 materialAmbient;
+	
+uniform float inverseShadowmapSize0;
+uniform float inverseShadowmapSize1;
+uniform float inverseShadowmapSize2;
+
+uniform vec4 pssmSplitPoints;
+
+uniform vec4 shadowColor;
+
+// Simple PCF 
+// Number of samples in one dimension (square for total samples)
+#define NUM_SHADOW_SAMPLES_1D 2.0
+#define SHADOW_FILTER_SCALE 1
+
+#define SHADOW_SAMPLES NUM_SHADOW_SAMPLES_1D*NUM_SHADOW_SAMPLES_1D
+
+vec4 offsetSample(vec4 uv, vec2 offset, float invMapSize)
+{
+	return vec4(uv.xy + offset * invMapSize * uv.w, uv.z, uv.w);
+}
+
+float calcDepthShadow(sampler2D shadowMap, vec4 uv, float invShadowMapSize)
+{
+	// ∞—shadowColorµƒ∑∂Œß¥” [0,1] ±‰ªªµΩ [0.5,1]
+	float shadowShade = shadowColor.x * 0.5 + 0.5;
+	// ºÃ–¯∞—∑∂Œß¥” [0.5,1] ±‰ªªµΩ [1,0.5]
+	shadowShade = 1.5 - shadowShade;
+
+	// 4-sample PCF
+	float shadow = 0.0;
+	float offset = (NUM_SHADOW_SAMPLES_1D/2 - 0.5) * SHADOW_FILTER_SCALE;
+	for (float y = -offset; y <= offset; y += SHADOW_FILTER_SCALE)
+	{
+		for (float x = -offset; x <= offset; x += SHADOW_FILTER_SCALE)
+		{
+			vec4 texCoord = offsetSample(uv, vec2(x, y), invShadowMapSize);
+			if (texCoord.x>0.0 && texCoord.x<1.0 && texCoord.y>0.0 && texCoord.y<1.0)
+			{
+				float depth = texture2DProj(shadowMap, texCoord).x;
+				if (depth >= 1.0 || depth >= uv.z)
+				{
+					shadow += 1.0;
+				}
+				else
+				{
+					shadow += shadowShade;
+				}
+			}
+			else
+			{
+				shadow += 1.0;
+			}
+		}
+	}
+
+	shadow /= SHADOW_SAMPLES;
+
+	return shadow;
+}
+
+float calcPSSMDepthShadow(sampler2D shadowMap0, sampler2D shadowMap1, sampler2D shadowMap2, 
+						   vec4 lsPos0, vec4 lsPos1, vec4 lsPos2,
+						   float invShadowmapSize0, float invShadowmapSize1, float invShadowmapSize2,
+						   vec4 pssmSplitPoints, float camDepth)
+{
+
+	float shadow;
+	vec4 splitColour;
+	// calculate shadow
+	if (camDepth <= pssmSplitPoints.y)
+	{
+		splitColour = vec4(0.3, 0.0, 0, 0);
+		shadow = calcDepthShadow(shadowMap0, lsPos0, invShadowmapSize0);
+	}
+	else if (camDepth <= pssmSplitPoints.z)
+	{
+		splitColour = vec4(0, 0.3, 0, 0);
+		shadow = calcDepthShadow(shadowMap1, lsPos1, invShadowmapSize1);
+	}
+	else
+	{
+		splitColour = vec4(0.0, 0.0, 0.3, 0);
+		shadow = calcDepthShadow(shadowMap2, lsPos2, invShadowmapSize2);
+	}
+
+	return shadow;
+}
+
+void main()
+{
+    // look up the diffuse map layer
+    vec4 texDiffuse = texture2D(diffuseMap0, gl_TexCoord[0].xy);
+			//* texture2D(diffuseMap1, gl_TexCoord[1].xy);
+    
+    // compute the ambient contribution (pulled from the diffuse map)
+    vec4 vAmbient = texDiffuse * materialAmbient;
+    vec3 vColor3 = texDiffuse.rgb * gl_Color.rgb;
+
+	float camDepth = gl_TexCoord[0].z;
+	float shadow = calcPSSMDepthShadow(shadowMap0, shadowMap1, shadowMap2, 
+		gl_TexCoord[2], gl_TexCoord[3], gl_TexCoord[4],
+		inverseShadowmapSize0, inverseShadowmapSize1, inverseShadowmapSize2,
+		pssmSplitPoints, camDepth);
+	vColor3 *= shadow;
+
+    gl_FragColor = vec4(vColor3, gl_Color.a * vAmbient.a);
+}
+
+
+’    Œ  ä       é≥™¶ªßÆîÜæø¢üÆ≥øæπÆäππ™≤çõÂ¨ß∏ßÀƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈù¨±Ωºª¨àªª®∞ù¨±¯Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈù¨±Ωºª¨ArrayTex2;
+uniform sampler2D TextureArrayTex3;
+uniform sampler2D TextureArrayTex4;
+uniform sampler2D TextureArrayTex5;
+uniform sampler2D TextureArrayTex6;
+uniform sampler2D TextureArrayTex7;
+uniform sampler2D TextureArrayTex8;
+
+varying vec3 oUv[8];
+varying vec2 index;
+
+void main(void)
+{
+	vec4 FColor, SColor;
+if(index.x < 1.9)
+	{
+		FColor = texture2D(TextureArrayTex1, oUv[0].xy);
+		SColor = texture2D(TextureArrayTex2, oUv[1].xy);		
+	}
+	else if(index.x < 3.9)
+	{
+		FColor = texture2D(TextureArrayTex3, oUv[2].xy);
+		SColor = texture2D(TextureArrayTex4, oUv[3].xy);
+	}
+	else if(index.x < 5.9)
+	{
+		FColor = texture2D(TextureArrayTex5, oUv[4].xy);
+		SColor = texture2D(TextureArrayTex6, oUv[5].xy);
+	}
+	else if(index.x < 7.9)
+	{
+		FColor = texture2D(TextureArrayTex7, oUv[6].xy);
+		SColor = texture2D(TextureArrayTex8, oUv[7].xy);
+	}
+	
+	gl_FragColor = FColor * SColor;
+	gl_FragColor.rgb = gl_FragColor.rgb * gl_Color;
+}
+
+’   É¬  ä       é≥™¶ªßÆîÜæø¢üÆ≥øæπÆäππ™≤ùõÂ¨ß∏ßÀÍø¨ª∫†¶ßÈ¯˚˘ƒ√ƒ√ø®ª∞†ßÆÈø¨™˙È¶úøíÒîÚƒ√ø®ª∞†ßÆÈø¨™˚È†ß≠¨±Úƒ√ƒ√ºß†form mat4 worldViewProj;
+uniform mat4 textureMatrix0;
+uniform mat4 textureMatrix1;
+uniform mat4 textureMatrix2;
+uniform mat4 textureMatrix3;
+uniform mat4 textureMatrix4;
+uniform mat4 textureMatrix5;
+uniform mat4 textureMatrix6;
+uniform mat4 textureMatrix7;
+
+uniform vec4 lightPosition;
+uniform vec3 lightDiffuse;
+
+void DirectionalLight(in vec3 ecPosition3, in vec3 normal
+	, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular)
+{
+	float nDotVP;			// normal . light direction
+	float nDotHV;			// normal . light half vector
+	float pf;				// √›µƒ“Ú◊”
+	
+	nDotVP = max(0.0, dot(normal, vec3(gl_LightSource[0].position)));
+	nDotHV = max(0.0, dot(normal, vec3(gl_LightSource[0].halfVector)));
+
+	if(nDotVP == 0.0)
+		pf = 0.0;
+	else
+		pf = pow(nDotHV, gl_FrontMaterial.shininess);
+
+	ambient += gl_LightSource[0].ambient;
+	diffuse += gl_LightSource[0].diffuse * nDotVP;
+	specular += gl_LightSource[0].specular * pf;
+}
+
+void main(void)
+{
+	vec4 ecPosition = gl_ModelViewMatrix * gl_Vertex;
+	vec3 ecPosition3 = ecPosition.xyz / ecPosition.w;
+
+	vec4 amb = vec4(0.0);
+	vec4 diff = vec4(0.0);
+	vec4 spec = vec4(0.0);
+
+	vec3 normal = gl_NormalMatrix * gl_Normal;
+	normal = normalize(normal);
+	normal = normal * gl_NormalScale;
+	
+	DirectionalLight(ecPosition3, normal, amb, diff, spec);
+	
+	vec4 color = gl_FrontLightModelProduct.sceneColor
+		+ amb * gl_FrontMaterial.ambient
+		+ diff * gl_FrontMaterial.diffuse;
+	color += spec * gl_FrontMaterial.specular;
+
+	gl_FrontColor = clamp(color, 0.0, 1.0);
+	
+	gl_Position = worldViewProj * gl_Vertex;
+	
+	oUv[0] = vec3(textureMatrix0 * gl_MultiTexCoord0);
+	oUv[1] = vec3(textureMatrix1 * gl_MultiTexCoord1);
+	oUv[2] = vec3(textureMatrix2 * gl_MultiTexCoord0);
+	oUv[3] = vec3(textureMatrix3 * gl_MultiTexCoord1);
+	
+	oUv[4] = vec3(textureMatrix4 * gl_MultiTexCoord0);
+	oUv[5] = vec3(textureMatrix5 * gl_MultiTexCoord1);
+	oUv[6] = vec3(textureMatrix6 * gl_MultiTexCoord0);
+	oUv[7] = vec3(textureMatrix7 * gl_MultiTexCoord1);
+	
+	index.x = gl_MultiTexCoord0.z;
+}
+—   jŒ  ä       ;!*
+?8.P~ƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈù¨±Ωºª¨àªª®∞ù¨±¯Úƒ√ºß†Ø¶ª§È∫®§π•¨ª˚çÈù¨±Ωºª¨ArrayTex2;
+uniform sampler2D TextureArrayTex3;
+uniform sampler2D TextureArrayTex4;
+uniform sampler2D TextureArrayTex5;
+uniform sampler2D TextureArrayTex6;
+uniform sampler2D TextureArrayTex7;
+uniform sampler2D TextureArrayTex8;
+
+varying vec3 oUv[8];
+varying vec2 index;
+
+void main(void)
+{
+	if(index.x < 0.9)
+	{
+		gl_FragColor = texture2D(TextureArrayTex1, oUv[0].xy);
+	}
+	else if(index.x < 1.9)
+	{
+		gl_FragColor = texture2D(TextureArrayTex2, oUv[1].xy);
+	}
+	else if(index.x < 2.9)
+	{
+		gl_FragColor = texture2D(TextureArrayTex3, oUv[2].xy);
+	}
+	else if(index.x < 3.9)
+	{
+		gl_FragColor = texture2D(TextureArrayTex4, oUv[3].xy);
+	}
+	else if(index.x < 4.9)
+	{
+		gl_FragColor = texture2D(TextureArrayTex5, oUv[4].xy);
+	}
+	else if(index.x < 5.9)
+	{
+		gl_FragColor = texture2D(TextureArrayTex6, oUv[5].xy);
+	}
+	else if(index.x < 6.9)
+	{
+		gl_FragColor = texture2D(TextureArrayTex7, oUv[6].xy);
+	}
+	else if(index.x < 7.9)
+	{
+		gl_FragColor = texture2D(TextureArrayTex8, oUv[7].xy);
+	}
+	else
+	{
+		gl_FragColor = vec4(1,0,0,1);
+	}
+	
+	gl_FragColor = gl_FragColor * gl_Color;
+}
+—   è¬  ä       ;!*
+?(.P~Íø¨ª∫†¶ßÈ¯˚˘ƒ√ƒ√ø®ª∞†ßÆÈø¨™˙È¶úøíÒîÚƒ√ø®ª∞†ßÆÈø¨™˚È†ß≠¨±Úƒ√ƒ√ºß†form mat4 worldViewProj;
+uniform mat4 textureMatrix0;
+uniform mat4 textureMatrix1;
+uniform mat4 textureMatrix2;
+uniform mat4 textureMatrix3;
+uniform mat4 textureMatrix4;
+uniform mat4 textureMatrix5;
+uniform mat4 textureMatrix6;
+uniform mat4 textureMatrix7;
+
+uniform vec4 lightPosition;
+uniform vec3 lightDiffuse;
+
+void DirectionalLight(in vec3 ecPosition3, in vec3 normal
+	, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular)
+{
+	float nDotVP;			// normal . light direction
+	float nDotHV;			// normal . light half vector
+	float pf;				// √›µƒ“Ú◊”
+	
+	nDotVP = max(0.0, dot(normal, vec3(gl_LightSource[0].position)));
+	nDotHV = max(0.0, dot(normal, vec3(gl_LightSource[0].halfVector)));
+
+	if(nDotVP == 0.0)
+		pf = 0.0;
+	else
+		pf = pow(nDotHV, gl_FrontMaterial.shininess);
+
+	ambient += gl_LightSource[0].ambient;
+	diffuse += gl_LightSource[0].diffuse * nDotVP;
+	specular += gl_LightSource[0].specular * pf;
+}
+
+void main(void)
+{
+	vec4 ecPosition = gl_ModelViewMatrix * gl_Vertex;
+	vec3 ecPosition3 = ecPosition.xyz / ecPosition.w;
+
+	vec4 amb = vec4(0.0);
+	vec4 diff = vec4(0.0);
+	vec4 spec = vec4(0.0);
+
+	vec3 normal = gl_NormalMatrix * gl_Normal;
+	normal = normalize(normal);
+	normal = normal * gl_NormalScale;
+	
+	DirectionalLight(ecPosition3, normal, amb, diff, spec);
+	
+	vec4 color = gl_FrontLightModelProduct.sceneColor
+		+ amb * gl_FrontMaterial.ambient
+		+ diff * gl_FrontMaterial.diffuse;
+	color += spec * gl_FrontMaterial.specular;
+	
+	gl_FrontColor = clamp(color, 0.0, 1.0);
+	
+	gl_Position = worldViewProj * gl_Vertex;
+
+	oUv[0] = vec3(textureMatrix0 * gl_MultiTexCoord0);
+	oUv[1] = vec3(textureMatrix1 * gl_MultiTexCoord0);
+	oUv[2] = vec3(textureMatrix2 * gl_MultiTexCoord0);
+	oUv[3] = vec3(textureMatrix3 * gl_MultiTexCoord0);
+	oUv[4] = vec3(textureMatrix4 * gl_MultiTexCoord0);
+	oUv[5] = vec3(textureMatrix5 * gl_MultiTexCoord0);
+	oUv[6] = vec3(textureMatrix6 * gl_MultiTexCoord0);
+	oUv[7] = vec3(textureMatrix7 * gl_MultiTexCoord0);
+
+	index.x = gl_MultiTexCoord0.z;
+}
+ÿ   ﬂ  ä   »   ∏çêäëõ∂ë¨äë©è—òìåìˇƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨˘Ñ®Ωª†±Úƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨¯Ñ®Ωª†±Úƒ√ºßiform mat4 texture2Matrix;
+uniform mat4 texture3Matrix;
+uniform mat4 texture4Matrix;
+uniform mat4 texture5Matrix;
+
+uniform mat4 modelMatrix;
+uniform vec3 v3CameraPos;
+uniform vec3 v3LightPos;
+uniform vec3 v3InvWavelength;
+uniform float fCameraHeight;
+uniform float fCameraHeight2;
+uniform float fOuterRadius;
+uniform float fOuterRadius2;
+uniform float fInnerRadius;
+uniform float fInnerRadius2;
+uniform float fKrESun;
+uniform float fKmESun;
+uniform float fKr4PI;
+uniform float fKm4PI;
+uniform float fScale;
+uniform float fScaleDepth;
+uniform float fScaleOverScaleDepth;
+uniform vec3 v3StartupConsts;
+
+varying vec2 texCoord;
+
+varying vec3 vec3Rayleigh;		// Rayleigh …¢…‰—’…´
+
+varying vec3 vec3AdjustedMie;		// Mie …¢…‰—’…´
+varying float fFogFactor;		// ŒÌ“Ú◊”£¨÷µµƒ∑∂Œß£®0£¨1£©
+
+const int nSamples = 2;			// ≤…—˘ ˝
+const float fPlanetRadius = 6378137.0;	// µÿ«Ú∞Îæ∂
+const float fKSunColor = 3.0;
+const vec4 v4SunsetAmbientAndFogDensity = vec4(0.1, 0.1, 0.1, 0.1);
+
+// The scale equation calculated by Vernier's Graphical Analysis.
+float scale(float fCos)
+{
+	float x = 1.0 - fCos;
+	return fScaleDepth * exp(-0.00287 + x*(0.459 + x*(3.83 + x*(-6.80 + x*5.25))));
+}
+
+// Returns the near intersection point of a line and a sphere
+float getNearIntersection(vec3 v3Pos, vec3 v3Ray, float fDistance2, float fRadius2)
+{
+	float B = 2.0 * dot(v3Pos, v3Ray);
+	float C = fDistance2 - fRadius2;
+	float fDet = max(0.0, B*B - 4.0 * C);
+	return 0.5 * (-B - sqrt(fDet));
+}
+
+// Returns the luminance of an RGB color.
+
+float getLuminance(vec3 color)
+
+{
+	const vec3 luminance = vec3(0.3, 0.59, 0.11);
+
+	return dot(luminance, color);
+
+}
+
+void main()
+{
+	// Get the ray from the camera to the vertex and its length
+	// (which is the far point of the ray passing through the atmosphere)
+	vec3 v3Pos = vec3(modelMatrix * gl_Vertex / fPlanetRadius);
+	vec3 vertNorm = normalize(gl_Normal.xyz);
+	vec3 v3Ray = v3Pos - v3CameraPos;
+	float fFar = length(v3Ray);
+	v3Ray /= fFar;
+	
+	float nDotL = dot(vertNorm, v3LightPos);
+
+	nDotL = clamp(fKSunColor * nDotL, 0.0, 1.0);
+	
+	// Calculate the ray's starting position
+	vec3 v3Start = v3CameraPos;
+	if (fCameraHeight >= fOuterRadius)
+
+	{
+
+		float fNear = getNearIntersection(v3CameraPos, v3Ray, fCameraHeight2, fOuterRadius2);
+
+		v3Start += v3Ray * fNear;
+		fFar -= fNear;
+	}
+
+	// Initial scattering offset.
+	float fStartDepth = v3StartupConsts.x;
+	// Calculate its scattering offset
+	float fCameraAngle = max(0.0, dot(-v3Ray, vertNorm));
+	float fLightAngle = dot(v3LightPos, vertNorm);
+	float fCameraScale = scale(fCameraAngle);
+	float fLightScale = scale(fLightAngle);
+	float fCameraOffset = fStartDepth*fCameraScale;
+	float fScaleSum = (fLightScale + fCameraScale);
+
+	// Initialize the scattering loop variables
+	float fSampleLength = fFar / float(nSamples);
+	float fScaledLength = fSampleLength * fScale;
+	vec3 v3SampleRay = v3Ray * fSampleLength;
+	vec3 v3SamplePoint = v3Start + v3SampleRay * 0.5;
+
+	// Now loop through the sample rays
+	vec3 v3FrontColor = vec3(0.0);
+	vec3 v3Attenuate;
+	for(int i=0; i<nSamples; i++)
+	{
+		float fSampleHeight = length(v3SamplePoint);
+		float fSampleDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fSampleHeight));
+		float fSampleScatter = fSampleDepth*fScaleSum - fCameraOffset;
+		v3Attenuate = exp(-fSampleScatter * (v3InvWavelength * fKr4PI + fKm4PI));
+		v3FrontColor += v3Attenuate * (fSampleDepth * fScaledLength);
+		v3SamplePoint += v3SampleRay;
+	}
+	
+	float horizonExp = v3StartupConsts.y;
+	float rayleighToneDownScale = v3StartupConsts.z;
+	float closeToHorizon = 1.0 - fCameraAngle;
+
+	float closeToCamera = 1.0 - closeToHorizon*closeToHorizon;
+	// Compute rayleigh scale factor. Higher closer to horizon and at higher altitudes.
+	float scaledRayleighFactor = rayleighToneDownScale * pow(closeToHorizon, horizonExp);
+	
+	vec3 kBaseAmbientColor = vec3(0.12, 0.12, 0.15);
+	float darkShadedAmbientFactor = 1.0 - nDotL;
+	float nightAmbientTemp = getLuminance(v3Attenuate);
+	float nightAmbientFactor = 1.0 - nightAmbientTemp * nightAmbientTemp;
+	float ambientFactor = closeToCamera * (darkShadedAmbientFactor + nightAmbientFactor);
+	vec3 headlampAmbientContribution = kBaseAmbientColor * ambientFactor;
+	vec3 sunsetAmbient = v4SunsetAmbientAndFogDensity.xyz;
+	vec3 ambientContribution = headlampAmbientContribution + sunsetAmbient;
+
+	float closeToNoon = dot(v3CameraPos, v3LightPos) / length(v3CameraPos);
+	float closeToNoonFactor = closeToCamera * closeToNoon;
+
+	float fogDensity = v4SunsetAmbientAndFogDensity.w;
+	float fogTemp = fogDensity * fFar;
+	fFogFactor = exp(-(fogTemp * fogTemp));
+
+	const vec3 kMaxRayleighContribution = vec3(0.5, 0.5, 0.8);
+	vec3Rayleigh = min(kMaxRayleighContribution,
+		v3FrontColor * (v3InvWavelength * fKrESun + fKmESun) * scaledRayleighFactor);
+	// Compute Mie color.
+	vec3 mieColor = v3Attenuate;
+	vec3 adjustedMieColor = clamp(
+		(mieColor + vec3(closeToNoonFactor)) * nDotL + ambientContribution, 0.0, 1.0);
+	vec3AdjustedMie = adjustedMieColor;
+	
+	// ∂•µ„◊¯±Í±‰ªª
+	gl_Position = ftransform();
+	
+	// Œ∆¿Ì◊¯±Í±‰ªª
+	gl_TexCoord[0] = texture0Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[1] = texture1Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[2] = texture2Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[3] = texture3Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[4] = texture4Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[5] = texture5Matrix * gl_MultiTexCoord0;
+	
+	texCoord = gl_MultiTexCoord0.xy;
+}
+¿   ™Œ  ä       ·ŸÀÙ¬ú’ﬁ¡ﬁ≤ƒ√ºß†Ø¶ª§Èø¨™˙Èø˙Ö†Æ°Ωô¶∫Úƒ√ºß†Ø¶ª§ÈØ•¶®ΩÈÆÑ†¨ä¶ß∫ΩÚƒ√ºß†Ø¶ª§ÈØ•oat gMieConst2;
+
+varying vec3 v3Direction;
+
+// Calculates the Rayleigh phase function.
+
+float getRayleighPhase(float cosAngle2)
+
+{
+
+	return 0.75 + 0.75 * cosAngle2;
+
+}
+
+
+
+// Calculates the Mie phase function.
+
+float getMiePhase(float cosAngle, float cosAngle2)
+
+{
+
+	return 1.5 * ((1.0 - gMieConst2) / (2.0 + gMieConst2)) * (1.0 + cosAngle2) /
+		pow(1.0 + gMieConst2 - 2.0 * gMieConst * cosAngle, 1.5);
+}
+
+// Returns the luminance of an RGB color.
+
+float getLuminance(vec3 color)
+
+{
+	const vec3 luminance = vec3(0.3, 0.59, 0.11);
+
+	return dot(luminance, color);
+
+}
+
+void main()
+{
+	float fCosAngle = dot(v3LightPos, v3Direction) / length(v3Direction);
+	float fCosAngle2 = fCosAngle*fCosAngle;
+	
+	vec4 color;
+	color.rgb = getRayleighPhase(fCosAngle2) * gl_Color.rgb
+		+ getMiePhase(fCosAngle, fCosAngle2) * gl_SecondaryColor.rgb;
+	
+	color.rgb = vec3(1.0) - exp(color.rgb * -3.0);
+	
+	float luminanceAlphaComponent = 2.0 * getLuminance(color.rgb);
+	color.a = luminanceAlphaComponent + color.b;
+	
+	gl_FragColor = color;
+}
+ÿ   Ó  ä       ∏çêäëõ∂ë¨äë©è—òìåìˇƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨˘Ñ®Ωª†±Úƒ√ºß†Ø¶ª§È§®Ω˝ÈΩ¨±Ωºª¨¯Ñ®Ωª†±Úƒ√ºßiform mat4 texture2Matrix;
+uniform mat4 texture3Matrix;
+uniform mat4 texture4Matrix;
+uniform mat4 texture5Matrix;
+
+// ¥´»ÎŒ∆¿Ì±ﬂΩÁ
+uniform vec4 texture1Bound;
+uniform vec4 globalBoundary;	// »´«ÚŒ∆¿Ì±ﬂΩÁ
+
+
+uniform sampler2D elevationTexture;
+uniform vec3 IntEyePos;
+uniform vec3 FloatEyePos;
+
+uniform mat4 modelMatrix;
+uniform vec3 v3CameraPos;
+uniform vec3 v3LightPos;
+uniform vec3 v3InvWavelength;
+uniform float fCameraHeight;
+uniform float fCameraHeight2;
+uniform float fOuterRadius;
+uniform float fOuterRadius2;
+uniform float fInnerRadius;
+uniform float fInnerRadius2;
+uniform float fKrESun;
+uniform float fKmESun;
+uniform float fKr4PI;
+uniform float fKm4PI;
+uniform float fScale;
+uniform float fScaleDepth;
+uniform float fScaleOverScaleDepth;
+uniform vec3 v3StartupConsts;
+
+varying vec2 texCoord;
+varying vec3 vec3Rayleigh;		// Rayleigh …¢…‰—’…´
+
+varying vec3 vec3AdjustedMie;		// Mie …¢…‰—’…´
+varying float fFogFactor;		// ŒÌ“Ú◊”£¨÷µµƒ∑∂Œß£®0£¨1£©
+
+const int nSamples = 2;			// ≤…—˘ ˝
+const float fPlanetRadius = 6378137.0;	// µÿ«Ú∞Îæ∂
+const float fKSunColor = 3.0;
+const vec4 v4SunsetAmbientAndFogDensity = vec4(0.1, 0.1, 0.1, 0.1);
+const float GLOBAL_RADIUS = 6378137.0;
+const float PI = 3.14159265358;
+
+// The scale equation calculated by Vernier's Graphical Analysis.
+float scale(float fCos)
+{
+	float x = 1.0 - fCos;
+	return fScaleDepth * exp(-0.00287 + x*(0.459 + x*(3.83 + x*(-6.80 + x*5.25))));
+}
+
+// Returns the near intersection point of a line and a sphere
+float getNearIntersection(vec3 v3Pos, vec3 v3Ray, float fDistance2, float fRadius2)
+{
+	float B = 2.0 * dot(v3Pos, v3Ray);
+	float C = fDistance2 - fRadius2;
+	float fDet = max(0.0, B*B - 4.0 * C);
+	return 0.5 * (-B - sqrt(fDet));
+}
+
+// Returns the luminance of an RGB color.
+
+float getLuminance(vec3 color)
+
+{
+	const vec3 luminance = vec3(0.3, 0.59, 0.11);
+
+	return dot(luminance, color);
+
+}
+
+// ≈–∂œµ„ «∑Ò‘⁄æÿ–Œƒ⁄
+bool isPointInRegion(vec2 point, vec4 region)
+{
+	return (point.x>region.x && point.x<region.z
+		&& point.y<region.y && point.y>region.w);
+}
+
+bool isPointInRegionExt(vec2 point, vec4 region)
+{
+	if (region.x > region.z)
+	{
+		// øÁ‘Ω»´«Ú±ﬂΩÁµƒ«Èøˆ
+		vec4 region0 = vec4(region.x, region.y, globalBoundary.z, region.w);
+		vec4 region1 = vec4(globalBoundary.x, region.y, region.z, region.w);
+
+		if (isPointInRegion(point, region0) || isPointInRegion(point, region1))
+		{
+			return true;
+		}
+	}
+	else if (isPointInRegion(point, region))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+vec3 ComputeNormal(bool hasTerrain)
+{
+	vec3 vecNormal = vec3(0.0);
+	float cosLon = cos(gl_Normal.x);
+	float sinLon = sin(gl_Normal.x);
+	float cosLat = cos(gl_Normal.y);
+	float sinLat = sin(gl_Normal.y);
+
+	if(hasTerrain)
+	{
+		float xStep = 0.002;
+		float yStep = 0.002;
+		//µ±«∞∂•µ„µƒ∂´ƒœŒ˜±±≤øµƒ∏ﬂ≥Ã
+		float westHeight = texture2DLod(elevationTexture,vec2(gl_TexCoord[1].x + xStep, gl_TexCoord[1].y), 0.0).r * 10000;
+		float eastHeight = texture2DLod(elevationTexture,vec2(gl_TexCoord[1].x - xStep, gl_TexCoord[1].y), 0.0).r * 10000;
+		float northHeight = texture2DLod(elevationTexture,vec2(gl_TexCoord[1].x, gl_TexCoord[1].y + yStep), 0.0).r * 10000;
+		float southHeight = texture2DLod(elevationTexture,vec2(gl_TexCoord[1].x, gl_TexCoord[1].y - yStep), 0.0).r * 10000;
+	
+		//µ±«∞∂•µ„µƒæ≠Œ≥œÚÃ›∂»
+		float dLatSlope = westHeight - eastHeight;
+		float dLonSlope = northHeight - southHeight ;
+		
+		vecNormal.x = dLatSlope;
+		vecNormal.y = dLonSlope;
+
+		float dNormalDeg = sqrt(dLatSlope * dLatSlope + dLonSlope * dLonSlope);
+		if(dNormalDeg == 0.0)
+		{
+			vecNormal.x = 0.0;
+			vecNormal.y = 0.0;
+		}
+		else
+		{
+			vecNormal.x /= dNormalDeg;
+			vecNormal.y /= dNormalDeg;
+		}
+
+		//∑¢œ÷µƒz∑÷¡ø‘Ω–°£¨∑®œﬂ–ßπ˚‘Ω√˜œ‘
+		vecNormal.z = 800.0  / (gl_Normal.z * gl_Normal.z);
+
+		mat4 matrix1 = mat4(cosLon, 0.0, sinLon, 0.0,
+			0.0, 1.0, 0.0, 0.0,
+			-sinLon, 0.0, cosLon, 0.0,
+			0.0, 0.0, 0.0, 1.0);
+
+		mat4 matrix2 = mat4(0.0, 1.0, 0.0, 0.0,
+			cosLat, 0.0, sinLat, 0.0,
+			-sinLat, 0.0, cosLat, 0.0,
+			0.0, 0.0, 0.0, 1.0);
+
+		mat4 matrix3 = mat4(0.0,1.0,0.0,0.0,
+			-1.0,0.0,0.0,0.0,
+			0.0,0.0,1.0,0.0,
+			0.0,0.0,0.0,1.0);
+
+		vec4 vec4Normal = vec4(vecNormal.xyz, 1.0);
+		vec4Normal = transpose(matrix1) * transpose(matrix2) * transpose(matrix3) * vec4Normal;
+		
+		vecNormal = vec4Normal.xyz;
+	}
+	else
+	{
+		vecNormal.x = cosLat * sinLon;
+		vecNormal.y = sinLat;
+		vecNormal.z = cosLat * cosLon;
+	}
+	vecNormal = normalize(vecNormal);
+	return vecNormal;
+}
+
+void main()
+{
+	// Œ∆¿Ì◊¯±Í±‰ªª
+	gl_TexCoord[0] = texture0Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[1] = texture1Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[2] = texture2Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[3] = texture3Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[4] = texture4Matrix * gl_MultiTexCoord0;
+	gl_TexCoord[5] = texture5Matrix * gl_MultiTexCoord0;
+	
+	vec4 heightColor = texture2DLod(elevationTexture,gl_TexCoord[1].xy, 0.0);
+	float vertexHeight = heightColor.r * 10000;
+	vec3 normal = vec3(0.0);
+	if(vertexHeight != 0.0)
+	{
+		normal = ComputeNormal(true);
+	}
+	else
+	{
+		normal = ComputeNormal(false);
+	}
+
+	// Get the ray from the camera to the vertex and its length
+	// (which is the far point of the ray passing through the atmosphere)
+	vec3 v3Pos = vec3(modelMatrix * gl_Vertex / fPlanetRadius);
+	vec3 vertNorm = normal;
+	vec3 v3Ray = v3Pos - v3CameraPos;
+	float fFar = length(v3Ray);
+	v3Ray /= fFar;
+	
+	float nDotL = dot(vertNorm, v3LightPos);
+
+	nDotL = clamp(fKSunColor * nDotL, 0.0, 1.0);
+	
+	// Calculate the ray's starting position
+	vec3 v3Start = v3CameraPos;
+	if (fCameraHeight >= fOuterRadius)
+	{
+		float fNear = getNearIntersection(v3CameraPos, v3Ray, fCameraHeight2, fOuterRadius2);
+		v3Start += v3Ray * fNear;
+		fFar -= fNear;
+	}
+
+	// Initial scattering offset.
+	float fStartDepth = v3StartupConsts.x;
+	// Calculate its scattering offset
+	float fCameraAngle = max(0.0, dot(-v3Ray, vertNorm));
+	float fLightAngle = dot(v3LightPos, vertNorm);
+	float fCameraScale = scale(fCameraAngle);
+	float fLightScale = scale(fLightAngle);
+	float fCameraOffset = fStartDepth*fCameraScale;
+	float fScaleSum = (fLightScale + fCameraScale);
+
+	// Initialize the scattering loop variables
+	float fSampleLength = fFar / float(nSamples);
+	float fScaledLength = fSampleLength * fScale;
+	vec3 v3SampleRay = v3Ray * fSampleLength;
+	vec3 v3SamplePoint = v3Start + v3SampleRay * 0.5;
+
+	// Now loop through the sample rays
+	vec3 v3FrontColor = vec3(0.0);
+	vec3 v3Attenuate;
+	for(int i=0; i<nSamples; i++)
+	{
+		float fSampleHeight = length(v3SamplePoint);
+		float fSampleDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fSampleHeight));
+		float fSampleScatter = fSampleDepth*fScaleSum - fCameraOffset;
+		v3Attenuate = exp(-fSampleScatter * (v3InvWavelength * fKr4PI + fKm4PI));
+		v3FrontColor += v3Attenuate * (fSampleDepth * fScaledLength);
+		v3SamplePoint += v3SampleRay;
+	}
+	
+	float horizonExp = v3StartupConsts.y;
+	float rayleighToneDownScale = v3StartupConsts.z;
+	float closeToHorizon = 1.0 - fCameraAngle;
+
+	float closeToCamera = 1.0 - closeToHorizon*closeToHorizon;
+	// Compute rayleigh scale factor. Higher closer to horizon and at higher altitudes.
+	float scaledRayleighFactor = rayleighToneDownScale * pow(closeToHorizon, horizonExp);
+	
+	vec3 kBaseAmbientColor = vec3(0.12, 0.12, 0.15);
+	float darkShadedAmbientFactor = 1.0 - nDotL;
+	float nightAmbientTemp = getLuminance(v3Attenuate);
+	float nightAmbientFactor = 1.0 - nightAmbientTemp * nightAmbientTemp;
+	float ambientFactor = closeToCamera * (darkShadedAmbientFactor + nightAmbientFactor);
+	vec3 headlampAmbientContribution = kBaseAmbientColor * ambientFactor;
+	vec3 sunsetAmbient = v4SunsetAmbientAndFogDensity.xyz;
+	vec3 ambientContribution = headlampAmbientContribution + sunsetAmbient;
+
+	float closeToNoon = dot(v3CameraPos, v3LightPos) / length(v3CameraPos);
+	float closeToNoonFactor = closeToCamera * closeToNoon;
+
+	float fogDensity = v4SunsetAmbientAndFogDensity.w;
+	float fogTemp = fogDensity * fFar;
+	fFogFactor = exp(-(fogTemp * fogTemp));
+
+	const vec3 kMaxRayleighContribution = vec3(0.5, 0.5, 0.8);
+	vec3Rayleigh = min(kMaxRayleighContribution,
+		v3FrontColor * (v3InvWavelength * fKrESun + fKmESun) * scaledRayleighFactor);
+	// Compute Mie color.
+	vec3 mieColor = v3Attenuate;
+	vec3 adjustedMieColor = clamp(
+		(mieColor + vec3(closeToNoonFactor)) * nDotL + ambientContribution, 0.0, 1.0);
+	vec3AdjustedMie = adjustedMieColor;
+			
+	vec3 camaraWorldPos = vec3(0.0);
+	camaraWorldPos.x = IntEyePos.x + FloatEyePos.x;
+	camaraWorldPos.y = IntEyePos.y + FloatEyePos.y;
+	camaraWorldPos.z = IntEyePos.z + FloatEyePos.z;
+	
+	texCoord = gl_MultiTexCoord0.xy;
+	
+	vec4 pos = gl_Vertex;
+	if (isPointInRegionExt(texCoord, texture1Bound))
+	{
+		float heightScale = (GLOBAL_RADIUS + vertexHeight) / GLOBAL_RADIUS;
+		//∫œ≤¢pos + eysPos, pos * heightScale, pos - eysPos, “‘±‹√‚÷–º‰±‰¡ø“˝∆µƒæ´∂»ŒÛ≤Ó
+		pos.x = pos.x * heightScale + (IntEyePos.x + FloatEyePos.x) * (heightScale - 1.0);
+		pos.y = pos.y * heightScale + (IntEyePos.y + FloatEyePos.y) * (heightScale - 1.0);
+		pos.z = pos.z * heightScale + (IntEyePos.z + FloatEyePos.z) * (heightScale - 1.0);
+	}
+
+	gl_Position = gl_ModelViewProjectionMatrix * pos;
+}
+›   Â   Â       °ñîöúùæúóöïä∂üñÖµ£›îüÄüÛ|ecn*gkcd"# q  mfULxkmIefex*7*mfUIefex1 w›   ß   ä       °ñîöúùæúóöïä∂üñÖ•£›îüÄüÛø¶†≠È§®†ß·‡ƒ√≤ƒ√¿Æ•ñèª¶ßΩä¶•¶ªÈÙÈÆ•ñèª¶ßΩÑ®Ω¨ª†®•Á≠†ØØº∫¨Úƒ√¿ÊÊÈ∂•µ„◊¯±Í±‰ªª
+	gl_Position = ftransform();
+}ﬂ   ï   ä       ´éâÇ™àÉéÅû¢ãÇë°∑…ÄãîãÁø®ª∞†ßÆÈØ•¶®ΩÈ°¨†Æ°ΩÚƒ√ø¶†≠È§®†ß·‡ƒ√≤¿ƒ√¿Æ•ñèª®Æä¶•¶ªÈÙÈø¨™˝·°¨†ght / 10000, 0.0, 0.0, 1.0);
+}ﬂ   d   ä       ´éâÇ™àÉéÅû¢ãÇë±∑…ÄãîãÁø®ª∞†ßÆÈØ•¶®ΩÈ°¨†Æ°ΩÚƒ√ø¶†≠È§®†ß·‡ƒ√≤ƒ√¿ø¨™˝Èπ¶∫ÈÙÈÆ•ñü¨ªΩ¨±Úƒ√¿pos.z = 0.0; 
+	height = gl_Vertex.z;
+	// ∂•µ„◊¯±Í±‰ªª
+	gl_Position = gl_ModelViewProjectionMatrix * pos;
+}

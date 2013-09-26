@@ -1,0 +1,943 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Data.Processing, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Assembly SuperMap.Mapping, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Assembly SuperMap.Realspace, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Struct SuperMap.Data.Processing.CacheImageType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.CacheImageType PNG = 123 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheImageType GIF = 124 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheImageType JPG = 122 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheImageType JPG_PNG = 147 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Processing.CacheStrategy: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit (Obsolete)
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.CacheStrategy None = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheStrategy ISDOTNET = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheStrategy UGC = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheStrategy iServer20 = 3 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Processing.StorageType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.StorageType Original = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.StorageType Compact = 1 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Processing.CacheImageSize: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.CacheImageSize Size64 = 64 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheImageSize Size128 = 128 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheImageSize Size256 = 256 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheImageSize Size512 = 512 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheImageSize Size1024 = 1024 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CacheImageSize Size2048 = 2048 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Processing.MapTilingMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.MapTilingMode Global = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapTilingMode Local = 1 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Processing.TileFormat: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.TileFormat PNG = 123 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.TileFormat GIF = 124 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.TileFormat JPG = 122 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.TileFormat JPG_PNG = 147 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.TileFormat PNG8 = 8888 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Processing.TileSize: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.TileSize Size64 = 64 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.TileSize Size128 = 128 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.TileSize Size256 = 256 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.TileSize Size512 = 512 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.TileSize Size1024 = 1024 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Processing.CompressType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit (Obsolete)
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.CompressType NONE = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.CompressType ZIP = 11 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Processing.MapCacheVersion: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.MapCacheVersion Version_UNKNOWN = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapCacheVersion Version_10 = 10 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapCacheVersion Version_20 = 20 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapCacheVersion Version_21 = 21 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapCacheVersion Version_30 = 30 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapCacheVersion Version_31 = 31 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapCacheVersion Version_40 = 40 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapCacheVersion Version_50 = 50 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapCacheVersion Version_70 = 70 : Public, Static, Literal, HasDefault
+Struct SuperMap.Data.Processing.MapTileType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Data.Processing.MapTileType Global = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Data.Processing.MapTileType Local = 1 : Public, Static, Literal, HasDefault
+Class SuperMap.Data.Processing.BuildResultInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 IOTime 'get ' : 
+    Int32 DrawTime 'get ' : 
+    Int32 QueryTime 'get ' : 
+    Int32 BuildTime 'get ' : 
+    Int32 TileCount 'get ' : 
+  Methods:
+    get_TileCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_BuildTime(): PrivateScope, Public, HideBySig, SpecialName
+    get_QueryTime(): PrivateScope, Public, HideBySig, SpecialName
+    get_DrawTime(): PrivateScope, Public, HideBySig, SpecialName
+    get_IOTime(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.CacheBuilderSCI3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+    Void .ctor(SuperMap.Data.DatasetImage, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.DatasetImage, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 SampleSize 'get set' : 
+    Int32 EndLevel 'get set' : 
+    Int32 BeginLevel 'get set' : 
+    SuperMap.Data.GeoRegion ClipRegion 'get set' : 
+    System.String CacheName 'get set' : 
+    System.String OutputFolder 'get set' : 
+    SuperMap.Data.DatasetImage Dataset 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetImage): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ClipRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_ClipRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_BeginLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_BeginLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_EndLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SampleSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_SampleSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    ComputeLevel(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.CacheBuilderSCM: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+    Void .ctor(SuperMap.Data.DatasetVector, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Boolean IsCompressModel 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    System.String RotateZField 'get set' : 
+    System.String RotateYField 'get set' : 
+    System.String RotateXField 'get set' : 
+    System.String ScaleZField 'get set' : 
+    System.String ScaleYField 'get set' : 
+    System.String ScaleXField 'get set' : 
+    System.String AltitudeField 'get set' : 
+    System.String LongitudeField 'get set' : 
+    System.String LatitudeField 'get set' : 
+    Int32 UpdateSize 'get set' : 
+    System.String ModelPathField 'get set' : 
+    Int32 Level 'get set' : 
+    System.String CacheName 'get set' : 
+    System.String OutputFolder 'get set' : 
+    SuperMap.Data.DatasetVector Dataset 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Level(): PrivateScope, Public, HideBySig, SpecialName
+    set_Level(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ModelPathField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ModelPathField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_LatitudeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LatitudeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LongitudeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LongitudeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AltitudeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_AltitudeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ScaleXField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleXField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ScaleYField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleYField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ScaleZField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleZField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RotateXField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RotateXField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RotateYField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RotateYField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RotateZField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RotateZField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_IsCompressModel(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsCompressModel(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.CacheBuilderSCT: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+    Void .ctor(SuperMap.Data.DatasetGrid, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.DatasetGrid, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 SampleSize 'get set' : 
+    Int32 EndLevel 'get set' : 
+    Int32 BeginLevel 'get set' : 
+    SuperMap.Data.GeoRegion ClipRegion 'get set' : 
+    System.String CacheName 'get set' : 
+    System.String OutputFolder 'get set' : 
+    SuperMap.Data.DatasetGrid Dataset 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetGrid): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ClipRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_ClipRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_BeginLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_BeginLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_EndLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SampleSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_SampleSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    ComputeLevel(): PrivateScope, Public, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.ImageCacheBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.DatasetImage, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.DatasetImage, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Boolean IsSpecialValueTransparent 'get set' : 
+    Double SpecialValue 'get set' : 
+    System.Collections.Generic.List`1[System.Double] GridValueTable 'get set' : 
+    System.Drawing.Color SpecialValueColor 'get set' : 
+    SuperMap.Data.Colors ColorTable 'get set' : 
+    System.String Password 'get set' : 
+    SuperMap.Data.Processing.CacheImageType ImageType 'get set' : 
+    System.String ImageFileName 'get set' : 
+    SuperMap.Data.Processing.StorageType StorageType 'get set' : 
+    Int32 SampleSize 'get set' : 
+    Int32 EndLevel 'get set' : 
+    Int32 BeginLevel 'get set' : 
+    SuperMap.Data.GeoRegion ClipRegion 'get set' : 
+    System.String CacheName 'get set' : 
+    System.String OutputFolder 'get set' : 
+    SuperMap.Data.DatasetGrid DatasetGrid 'get set' : 
+    SuperMap.Data.DatasetImage Dataset 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetImage): PrivateScope, Public, HideBySig, SpecialName
+    get_DatasetGrid(): PrivateScope, Public, HideBySig, SpecialName
+    set_DatasetGrid(DatasetGrid): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ClipRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_ClipRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_BeginLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_BeginLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_EndLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SampleSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_SampleSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_StorageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_StorageType(StorageType): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageFileName(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageFileName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageType(CacheImageType): PrivateScope, Public, HideBySig, SpecialName
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ColorTable(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColorTable(Colors): PrivateScope, Public, HideBySig, SpecialName
+    get_SpecialValueColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpecialValueColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_GridValueTable(): PrivateScope, Public, HideBySig, SpecialName
+    set_GridValueTable(List`1): PrivateScope, Public, HideBySig, SpecialName
+    get_SpecialValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpecialValue(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_IsSpecialValueTransparent(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsSpecialValueTransparent(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    BuildWithoutConfigFile(): PrivateScope, Public, HideBySig
+    ComputeLevel(): PrivateScope, Public, HideBySig
+    ComputeImageFileName(Int32): PrivateScope, Public, HideBySig
+    ComputeImageFileName(): PrivateScope, Public, HideBySig
+    ToConfigFile(String): PrivateScope, Public, HideBySig
+    FromConfigFile(String): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.MapCache3DBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Mapping.Map, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Mapping.Map, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    System.String Password 'get set' : 
+    Int32 EndLevel 'get set' : 
+    Int32 BeginLevel 'get set' : 
+    SuperMap.Data.Processing.StorageType StorageType 'get set' : 
+    SuperMap.Data.Processing.CacheImageType ImageType 'get set' : 
+    Boolean IsFillMargin 'get set' : 
+    Boolean IsTransparent 'get set' : 
+    System.String OutputFolder 'get set' : 
+    Int32 ImageCompress 'get set' : 
+    SuperMap.Data.Processing.CacheImageSize ImageSize 'get set' : 
+    System.String CacheName 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    SuperMap.Data.GeoRegion ClipRegion 'get set' : 
+    SuperMap.Mapping.Map Map 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_Map(): PrivateScope, Public, HideBySig, SpecialName
+    set_Map(Map): PrivateScope, Public, HideBySig, SpecialName
+    get_ClipRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_ClipRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageSize(CacheImageSize): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageCompress(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageCompress(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsTransparent(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsTransparent(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsFillMargin(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsFillMargin(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageType(CacheImageType): PrivateScope, Public, HideBySig, SpecialName
+    get_StorageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_StorageType(StorageType): PrivateScope, Public, HideBySig, SpecialName
+    get_BeginLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_BeginLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_EndLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    BuildWithoutConfigFile(): PrivateScope, Public, HideBySig
+    ComputeLevel(): PrivateScope, Public, HideBySig
+    ComputeImageFileName(Int32): PrivateScope, Public, HideBySig
+    ComputeImageFileName(): PrivateScope, Public, HideBySig
+    ToConfigFile(String): PrivateScope, Public, HideBySig
+    FromConfigFile(String): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.MapCacheBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Mapping.Map, System.String, Double[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Boolean IsAppendHashCode 'get set' : 
+    Int32 BuildThreadCount 'get set' : 
+    Int32 MaxRevisionNumber 'get ' : 
+    Int32 RevisionNumber 'get set' : 
+    Boolean IsTaskOverRecord 'get set' : 
+    Boolean IsScaleOverRecord 'get set' : 
+    Boolean IsBlockOverRecord 'get set' : 
+    Boolean IsDeleteLogFile 'get set' : 
+    SuperMap.Data.Processing.BuildResultInfo BuildResult 'get ' : 
+    Boolean IsAppending 'get set' : 
+    Double DPI 'get set' : 
+    SuperMap.Data.Processing.TileFormat TileFormat 'get set' : 
+    SuperMap.Data.Processing.TileSize TileSize 'get set' : 
+    SuperMap.Data.Processing.MapTilingMode TilingMode 'get set' : 
+    SuperMap.Data.Processing.MapTileType TileType 'get set' :  (Obsolete)
+    SuperMap.Data.Processing.MapCacheVersion Version 'get set' : 
+    System.String Password 'get set' : 
+    SuperMap.Data.Rectangle2D IndexBounds 'get set' : 
+    SuperMap.Data.Processing.CacheStrategy CacheStrategy 'get set' :  (Obsolete)
+    SuperMap.Data.Processing.StorageType StorageType 'get set' : 
+    System.String HashCode 'get ' : 
+    SuperMap.Data.Processing.CacheImageType ImageType 'get set' :  (Obsolete)
+    Boolean IsFillMargin 'get set' : 
+    Boolean IsTransparent 'get set' : 
+    System.String OutputFolder 'get set' : 
+    Int32 ImageCompress 'get set' : 
+    SuperMap.Data.Processing.CacheImageSize ImageSize 'get set' :  (Obsolete)
+    Double[] OutputScales 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Double,System.String] OutputScaleCaptions 'get set' : 
+    System.String CacheName 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    SuperMap.Data.GeoRegion ClipRegion 'get set' : 
+    SuperMap.Data.Dataset Dataset 'get set' : 
+    SuperMap.Mapping.Map Map 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    set_BuildThreadCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAppendHashCode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAppendHashCode(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_Map(): PrivateScope, Public, HideBySig, SpecialName
+    set_Map(Map): PrivateScope, Public, HideBySig, SpecialName
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_ClipRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_ClipRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputScaleCaptions(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputScaleCaptions(Dictionary`2): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputScales(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputScales(Double[]): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageSize(CacheImageSize): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageCompress(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageCompress(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsTransparent(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsTransparent(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsFillMargin(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsFillMargin(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageType(CacheImageType): PrivateScope, Public, HideBySig, SpecialName
+    get_HashCode(): PrivateScope, Public, HideBySig, SpecialName
+    get_StorageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_StorageType(StorageType): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheStrategy(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheStrategy(CacheStrategy): PrivateScope, Public, HideBySig, SpecialName
+    get_IndexBounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_IndexBounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Version(): PrivateScope, Public, HideBySig, SpecialName
+    set_Version(MapCacheVersion): PrivateScope, Public, HideBySig, SpecialName
+    get_TileType(): PrivateScope, Public, HideBySig, SpecialName
+    set_TileType(MapTileType): PrivateScope, Public, HideBySig, SpecialName
+    get_TilingMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_TilingMode(MapTilingMode): PrivateScope, Public, HideBySig, SpecialName
+    get_TileSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_TileSize(TileSize): PrivateScope, Public, HideBySig, SpecialName
+    get_TileFormat(): PrivateScope, Public, HideBySig, SpecialName
+    set_TileFormat(TileFormat): PrivateScope, Public, HideBySig, SpecialName
+    get_DPI(): PrivateScope, Public, HideBySig, SpecialName
+    set_DPI(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_IsAppending(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsAppending(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_BuildResult(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsDeleteLogFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsDeleteLogFile(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsBlockOverRecord(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsBlockOverRecord(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsScaleOverRecord(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsScaleOverRecord(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsTaskOverRecord(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsTaskOverRecord(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    AppendBuild(): PrivateScope, Public, HideBySig (Obsolete)
+    BuildWithoutConfigFile(): PrivateScope, Public, HideBySig
+    ToConfigFile(String): PrivateScope, Public, HideBySig
+    FromConfigFile(String): PrivateScope, Public, HideBySig
+    ComputeImageFileName(Rectangle2D, Double): PrivateScope, Public, HideBySig
+    ComputeImageFileName(Point2D, Double): PrivateScope, Public, HideBySig
+    ComputeOutputScales(): PrivateScope, Public, HideBySig
+    GetDefultOutputScales(): PrivateScope, Public, HideBySig
+    GetImageBounds(String): PrivateScope, Public, HideBySig
+    OriginalToCompact(String, String, String): PrivateScope, Public, HideBySig
+    GlobalLevelToScale(Int32[]): PrivateScope, Public, HideBySig
+    GlobalLevelToScale(Int32[], PrjCoordSys, CacheImageSize): PrivateScope, Public, Static, HideBySig
+    get_RevisionNumber(): PrivateScope, Public, HideBySig, SpecialName
+    set_RevisionNumber(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxRevisionNumber(): PrivateScope, Public, HideBySig, SpecialName
+    get_BuildThreadCount(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Data.Processing.Tile: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Byte[] Data 'get ' : 
+    SuperMap.Data.Processing.TileFormat Type 'get ' : 
+    Double Scale 'get ' : 
+    SuperMap.Data.Processing.TileSize TileSize 'get ' : 
+    SuperMap.Data.Rectangle2D Bounds 'get ' : 
+    Int32 Column 'get ' : 
+    Int32 Row  'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Column(): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    get_TileSize(): PrivateScope, Public, HideBySig, SpecialName
+    get_Scale(): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, HideBySig, SpecialName
+    get_Data(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.MapCacheFile: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Data.PrjCoordSys PrjCoordSys 'get ' : 
+    Double DPI 'get ' : 
+    System.Collections.Generic.Dictionary`2[System.Double,System.String] OutputScaleCaptions 'get ' : 
+    Double[] OutputScales 'get ' : 
+    Boolean IsFillMargin 'get ' : 
+    SuperMap.Data.Processing.MapTilingMode TilingMode 'get ' : 
+    SuperMap.Data.Processing.StorageType StorageType 'get ' : 
+    SuperMap.Data.Processing.TileFormat TileFormat 'get ' : 
+    Boolean IsTransparent 'get ' : 
+    SuperMap.Data.Processing.TileSize TileSize 'get ' : 
+    SuperMap.Data.GeoRegion ClipRegion 'get ' : 
+    System.String CacheName 'get ' : 
+    SuperMap.Data.Rectangle2D IndexBounds 'get ' : 
+    SuperMap.Data.Rectangle2D Bounds 'get ' : 
+    SuperMap.Data.Processing.MapCacheVersion Version 'get ' : 
+  Methods:
+    get_Version(): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    get_IndexBounds(): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    get_ClipRegion(): PrivateScope, Public, HideBySig, SpecialName
+    get_TileSize(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsTransparent(): PrivateScope, Public, HideBySig, SpecialName
+    get_TileFormat(): PrivateScope, Public, HideBySig, SpecialName
+    get_StorageType(): PrivateScope, Public, HideBySig, SpecialName
+    get_TilingMode(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsFillMargin(): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputScales(): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputScaleCaptions(): PrivateScope, Public, HideBySig, SpecialName
+    get_DPI(): PrivateScope, Public, HideBySig, SpecialName
+    get_PrjCoordSys(): PrivateScope, Public, HideBySig, SpecialName
+    Clear(GeoRegion): PrivateScope, Public, HideBySig
+    Clear(Double[], GeoRegion): PrivateScope, Public, HideBySig
+    Clear(Double, Rectangle2D): PrivateScope, Public, HideBySig
+    GetTiles(Rectangle2D, Double): PrivateScope, Public, HideBySig
+    HitTest(Point2D, Double): PrivateScope, Public, HideBySig
+    GetValidRegion(Rectangle2D, Double): PrivateScope, Public, HideBySig
+    CheckTileBoundsValid(Rectangle2D, Double): PrivateScope, Public, HideBySig
+    Open(String, String): PrivateScope, Public, HideBySig
+    Open(String): PrivateScope, Public, HideBySig
+    Merge(String, String): PrivateScope, Public, HideBySig
+    Merge(String): PrivateScope, Public, HideBySig
+    Reload(): PrivateScope, Public, HideBySig
+    Convert(StorageType, String, String): PrivateScope, Public, HideBySig
+    Extract(GeoRegion, String): PrivateScope, Public, HideBySig
+    Extract(Double[], GeoRegion, StorageType, String): PrivateScope, Public, HideBySig
+    DeleteRevisionNumber(Int32): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.MapCacheProvider: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Data.Processing.StorageType StorageType 'get set' : 
+    SuperMap.Data.Rectangle2D IndexBounds 'get set' : 
+    System.String OutputFolder 'get set' : 
+    System.String Name 'get set' : 
+    SuperMap.Mapping.Map Map 'get set' : 
+  Methods:
+    get_Map(): PrivateScope, Public, HideBySig, SpecialName
+    set_Map(Map): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    set_Name(String): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IndexBounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_IndexBounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_StorageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_StorageType(StorageType): PrivateScope, Public, HideBySig, SpecialName
+    ToConfigFile(): PrivateScope, Public, HideBySig
+    FromConfigFile(String): PrivateScope, Public, HideBySig
+    AddMapCache(String, String): PrivateScope, Public, HideBySig
+    RemoveMapCache(String): PrivateScope, Public, HideBySig
+    GetTiles(Rectangle2D, Double, Boolean(HasFieldMarshal), TileSize, TileFormat): PrivateScope, Public, HideBySig
+    GetCacheFiles(): PrivateScope, Public, HideBySig
+    Clear(Rectangle2D, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.ModelCacheBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+    Void .ctor(SuperMap.Data.DatasetVector, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Boolean IsCompressModel 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    System.String RotateZField 'get set' : 
+    System.String RotateYField 'get set' : 
+    System.String RotateXField 'get set' : 
+    System.String ScaleZField 'get set' : 
+    System.String ScaleYField 'get set' : 
+    System.String ScaleXField 'get set' : 
+    System.String AltitudeField 'get set' : 
+    System.String LongitudeField 'get set' : 
+    System.String LatitudeField 'get set' : 
+    Int32 UpdateSize 'get set' : 
+    System.String ModelPathField 'get set' : 
+    Int32 Level 'get set' : 
+    System.String CacheName 'get set' : 
+    System.String OutputFolder 'get set' : 
+    SuperMap.Data.DatasetVector Dataset 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Level(): PrivateScope, Public, HideBySig, SpecialName
+    set_Level(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ModelPathField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ModelPathField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_LatitudeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LatitudeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LongitudeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LongitudeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AltitudeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_AltitudeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ScaleXField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleXField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ScaleYField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleYField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ScaleZField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleZField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RotateXField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RotateXField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RotateYField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RotateYField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RotateZField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RotateZField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_IsCompressModel(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsCompressModel(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    ToConfigFile(String): PrivateScope, Public, HideBySig
+    FromConfigFile(String): PrivateScope, Public, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.SceneCacheBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Realspace.Scene, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Boolean IsBoundsCeiled 'get set' : 
+    System.String Password 'get set' : 
+    System.String[] OutputTerrainLayerNames 'get set' : 
+    System.String[] OutputLayerNames 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    SuperMap.Data.WorkspaceConnectionInfo OutputWorkspaceConnectionInfo 'get set' : 
+    Int32 UpdateSize 'get set' : 
+    SuperMap.Data.CompressedTextureType CompressedTextureType 'get set' : 
+    SuperMap.Data.Processing.StorageType StorageType 'get set' : 
+    System.String OutputFolder 'get set' : 
+    System.String OutputSceneName 'get set' : 
+    SuperMap.Data.Processing.CacheImageSize ImageSize 'get set' : 
+    SuperMap.Realspace.Scene Scene 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_Scene(): PrivateScope, Public, HideBySig, SpecialName
+    set_Scene(Scene): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageSize(CacheImageSize): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputSceneName(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputSceneName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_StorageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_StorageType(StorageType): PrivateScope, Public, HideBySig, SpecialName
+    get_CompressedTextureType(): PrivateScope, Public, HideBySig, SpecialName
+    set_CompressedTextureType(CompressedTextureType): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputWorkspaceConnectionInfo(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputWorkspaceConnectionInfo(WorkspaceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputLayerNames(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputLayerNames(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputTerrainLayerNames(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputTerrainLayerNames(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsBoundsCeiled(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsBoundsCeiled(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    BuildOfflinePackage(String, String): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.TerrainCacheBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.DatasetGrid, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.DatasetGrid, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 MaxRevisionNumber 'get ' : 
+    Int32 RevisionNumber 'get set' : 
+    System.String Password 'get set' : 
+    SuperMap.Data.EncodeType EncodeType 'get set' : 
+    SuperMap.Data.Processing.CompressType CompressType 'get set' :  (Obsolete)
+    SuperMap.Data.Rectangle2D IndexBounds 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Double,System.String] OutputScaleCaptions 'get set' : 
+    Double[] OutputScales 'get set' : 
+    SuperMap.Data.Processing.MapTilingMode TilingMode 'get set' : 
+    SuperMap.Data.Processing.StorageType StorageType 'get set' : 
+    Int32 SampleSize 'get set' : 
+    Int32 EndLevel 'get set' : 
+    Int32 BeginLevel 'get set' : 
+    SuperMap.Data.GeoRegion ClipRegion 'get set' : 
+    System.String CacheName 'get set' : 
+    System.String OutputFolder 'get set' : 
+    SuperMap.Data.DatasetGrid Dataset 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetGrid): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ClipRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_ClipRegion(GeoRegion): PrivateScope, Public, HideBySig, SpecialName
+    get_BeginLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_BeginLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_EndLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SampleSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_SampleSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_StorageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_StorageType(StorageType): PrivateScope, Public, HideBySig, SpecialName
+    get_TilingMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_TilingMode(MapTilingMode): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputScales(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputScales(Double[]): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputScaleCaptions(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputScaleCaptions(Dictionary`2): PrivateScope, Public, HideBySig, SpecialName
+    get_IndexBounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_IndexBounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_CompressType(): PrivateScope, Public, HideBySig, SpecialName
+    set_CompressType(CompressType): PrivateScope, Public, HideBySig, SpecialName
+    get_EncodeType(): PrivateScope, Public, HideBySig, SpecialName
+    set_EncodeType(EncodeType): PrivateScope, Public, HideBySig, SpecialName
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RevisionNumber(): PrivateScope, Public, HideBySig, SpecialName
+    set_RevisionNumber(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxRevisionNumber(): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    BuildWithoutConfigFile(): PrivateScope, Public, HideBySig
+    ComputeLevel(): PrivateScope, Public, HideBySig
+    ComputeTerrainFileName(Int32): PrivateScope, Public, HideBySig
+    ComputeTerrainFileName(): PrivateScope, Public, HideBySig
+    ToConfigFile(String): PrivateScope, Public, HideBySig
+    FromConfigFile(String): PrivateScope, Public, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    GetDefultOutputScales(): PrivateScope, Public, HideBySig
+    GlobalLevelToScale(Int32[]): PrivateScope, Public, HideBySig
+    GlobalLevelToScale(Int32[], PrjCoordSys, Int32): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.VectorCacheBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.DatasetVector, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Recordset, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Data.Recordset, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Data.Point2D Origin 'get set' : 
+    SuperMap.Data.CompressedTextureType CompressedTextureType 'get set' : 
+    SuperMap.Data.EncodeType EncodeType 'get set' : 
+    System.String Password 'get set' : 
+    Int32 UpdateSize 'get set' : 
+    Int32 Level 'get set' : 
+    SuperMap.Data.Processing.StorageType StorageType 'get set' : 
+    System.String OutputFolder 'get set' : 
+    System.String CacheName 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    System.String[] FieldNames 'get set' : 
+    SuperMap.Data.DatasetVector Dataset 'get set' : 
+    SuperMap.Data.Recordset Recordset 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_Recordset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Recordset(Recordset): PrivateScope, Public, HideBySig, SpecialName
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_FieldNames(): PrivateScope, Public, HideBySig, SpecialName
+    set_FieldNames(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_StorageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_StorageType(StorageType): PrivateScope, Public, HideBySig, SpecialName
+    get_Level(): PrivateScope, Public, HideBySig, SpecialName
+    set_Level(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_EncodeType(): PrivateScope, Public, HideBySig, SpecialName
+    set_EncodeType(EncodeType): PrivateScope, Public, HideBySig, SpecialName
+    get_CompressedTextureType(): PrivateScope, Public, HideBySig, SpecialName
+    set_CompressedTextureType(CompressedTextureType): PrivateScope, Public, HideBySig, SpecialName
+    get_Origin(): PrivateScope, Public, HideBySig, SpecialName
+    set_Origin(Point2D): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    BuildWithoutConfigFile(): PrivateScope, Public, HideBySig
+    BuildTexture(String, Int32): PrivateScope, Public, HideBySig
+    ComputeFileName(): PrivateScope, Public, HideBySig
+    ComputeLevel(): PrivateScope, Public, HideBySig
+    ToConfigFile(String): PrivateScope, Public, HideBySig
+    FromConfigFile(String): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Data.Processing.VectorModelCacheBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+    Void .ctor(SuperMap.Data.DatasetVector, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Data.Processing.CompressType CompressType 'get set' : 
+    Int32 TextureMaxLevel 'get set' : 
+    System.String[] FieldNames 'get set' : 
+    System.String Password 'get set' : 
+    SuperMap.Data.Processing.StorageType StorageType 'get set' : 
+    SuperMap.Data.Rectangle2D Bounds 'get set' : 
+    System.String RotateZField 'get set' : 
+    System.String RotateYField 'get set' : 
+    System.String RotateXField 'get set' : 
+    System.String ScaleZField 'get set' : 
+    System.String ScaleYField 'get set' : 
+    System.String ScaleXField 'get set' : 
+    System.String AltitudeField 'get set' : 
+    System.String LongitudeField 'get set' : 
+    System.String LatitudeField 'get set' : 
+    Int32 UpdateSize 'get set' : 
+    System.String ModelPathField 'get set' : 
+    Int32 Level 'get set' : 
+    System.String CacheName 'get set' : 
+    System.String OutputFolder 'get set' : 
+    SuperMap.Data.DatasetVector Dataset 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_OutputFolder(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutputFolder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_CacheName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CacheName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Level(): PrivateScope, Public, HideBySig, SpecialName
+    set_Level(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ModelPathField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ModelPathField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_LatitudeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LatitudeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LongitudeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LongitudeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AltitudeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_AltitudeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ScaleXField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleXField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ScaleYField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleYField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ScaleZField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScaleZField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RotateXField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RotateXField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RotateYField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RotateYField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_RotateZField(): PrivateScope, Public, HideBySig, SpecialName
+    set_RotateZField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bounds(Rectangle2D): PrivateScope, Public, HideBySig, SpecialName
+    get_StorageType(): PrivateScope, Public, HideBySig, SpecialName
+    set_StorageType(StorageType): PrivateScope, Public, HideBySig, SpecialName
+    get_Password(): PrivateScope, Public, HideBySig, SpecialName
+    set_Password(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FieldNames(): PrivateScope, Public, HideBySig, SpecialName
+    set_FieldNames(String[]): PrivateScope, Public, HideBySig, SpecialName
+    get_TextureMaxLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_TextureMaxLevel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_CompressType(): PrivateScope, Public, HideBySig, SpecialName
+    set_CompressType(CompressType): PrivateScope, Public, HideBySig, SpecialName
+    Build(): PrivateScope, Public, HideBySig
+    BuildWithoutConfigFile(): PrivateScope, Public, HideBySig
+    ToConfigFile(String): PrivateScope, Public, HideBySig
+    FromConfigFile(String): PrivateScope, Public, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

@@ -1,0 +1,404 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Analyst.TrafficAnalyst, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Class SuperMap.Analyst.TrafficAnalyst.FareFieldInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.TrafficAnalyst.FareFieldInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String FareStepRangeField 'get set' : 
+    System.String FareStepField 'get set' : 
+    System.String StartFareField 'get set' : 
+    System.String StartFareRangeField 'get set' : 
+    System.String FareTypeField 'get set' : 
+  Methods:
+    get_FareTypeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_FareTypeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_StartFareRangeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartFareRangeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_StartFareField(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartFareField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FareStepField(): PrivateScope, Public, HideBySig, SpecialName
+    set_FareStepField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FareStepRangeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_FareStepRangeField(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.FareInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Double FareStepRange 'get ' : 
+    Double FareStep 'get ' : 
+    Double StartFare 'get ' : 
+    Double StartFareRange 'get ' : 
+    Int32 Type 'get ' : 
+  Methods:
+    get_Type(): PrivateScope, Public, HideBySig, SpecialName
+    get_StartFareRange(): PrivateScope, Public, HideBySig, SpecialName
+    get_StartFare(): PrivateScope, Public, HideBySig, SpecialName
+    get_FareStep(): PrivateScope, Public, HideBySig, SpecialName
+    get_FareStepRange(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.LineInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    System.String TerminalTime 'get ' : 
+    System.String StartTime 'get ' : 
+    SuperMap.Data.GeoLine TotalLine 'get ' : 
+    Int32 LineType 'get ' : 
+    Int32 StopCount 'get ' : 
+    Double TotalTime 'get ' : 
+    Double TotalFare 'get ' : 
+    Double TotalDistance 'get ' : 
+    SuperMap.Analyst.TrafficAnalyst.FareInfo FareInfo 'get ' : 
+    Double Speed 'get ' : 
+    Double Interval 'get ' : 
+    System.String Alias 'get ' : 
+    System.String Name 'get ' : 
+    Int64 LineID 'get ' : 
+    Int32 ID   'get ' : 
+  Methods:
+    get_ID(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineID(): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_Alias(): PrivateScope, Public, HideBySig, SpecialName
+    get_Interval(): PrivateScope, Public, HideBySig, SpecialName
+    get_Speed(): PrivateScope, Public, HideBySig, SpecialName
+    get_FareInfo(): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalDistance(): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalFare(): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalTime(): PrivateScope, Public, HideBySig, SpecialName
+    get_StopCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineType(): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalLine(): PrivateScope, Public, HideBySig, SpecialName
+    get_StartTime(): PrivateScope, Public, HideBySig, SpecialName
+    get_TerminalTime(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.LineSetting: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.TrafficAnalyst.LineSetting): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String LengthField 'get set' : 
+    System.String LineIDField 'get set' : 
+    System.String LineTypeField 'get set' : 
+    SuperMap.Analyst.TrafficAnalyst.FareFieldInfo FareFieldInfo 'get set' : 
+    System.String SpeedField 'get set' : 
+    System.String IntervalField 'get set' : 
+    System.String LastTimeField 'get set' : 
+    System.String FirstTimeField 'get set' : 
+    System.String AliasField 'get set' : 
+    System.String NameField 'get set' : 
+    SuperMap.Data.DatasetVector Dataset 'get set' : 
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_NameField(): PrivateScope, Public, HideBySig, SpecialName
+    set_NameField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AliasField(): PrivateScope, Public, HideBySig, SpecialName
+    set_AliasField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FirstTimeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_FirstTimeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LastTimeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LastTimeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IntervalField(): PrivateScope, Public, HideBySig, SpecialName
+    set_IntervalField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SpeedField(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpeedField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FareFieldInfo(): PrivateScope, Public, HideBySig, SpecialName
+    set_FareFieldInfo(FareFieldInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_LineTypeField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineTypeField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LineIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LengthField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LengthField(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.RelationSetting: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.TrafficAnalyst.RelationSetting): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String TNodeIDField 'get set' : 
+    System.String FNodeIDField 'get set' : 
+    System.String EdgeIDField 'get set' : 
+    System.String NodeIDField 'get set' : 
+    SuperMap.Data.DatasetVector DatasetNetwork 'get set' : 
+    SuperMap.Data.DatasetVector DatasetPath 'get set' : 
+    System.String ExitNamePYField 'get set' : 
+    System.String ExitNameCField 'get set' : 
+    System.String StationIDField 'get set' : 
+    System.String ExitIDField 'get set' : 
+    System.String SerialNumField 'get set' : 
+    System.String StopIDField 'get set' : 
+    System.String LineIDField 'get set' : 
+    SuperMap.Data.DatasetVector Dataset 'get set' : 
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_LineIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_StopIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_StopIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SerialNumField(): PrivateScope, Public, HideBySig, SpecialName
+    set_SerialNumField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ExitIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExitIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_StationIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_StationIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ExitNameCField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExitNameCField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ExitNamePYField(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExitNamePYField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_DatasetPath(): PrivateScope, Public, HideBySig, SpecialName
+    set_DatasetPath(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_DatasetNetwork(): PrivateScope, Public, HideBySig, SpecialName
+    set_DatasetNetwork(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_NodeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_NodeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_EdgeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_EdgeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FNodeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_FNodeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TNodeIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_TNodeIDField(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.StopInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.Point2D Position 'get ' : 
+    System.String Alias 'get ' : 
+    System.String Name 'get ' : 
+    Int64 StopID 'get ' : 
+    Int32 ID   'get ' : 
+  Methods:
+    get_ID(): PrivateScope, Public, HideBySig, SpecialName
+    get_StopID(): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_Alias(): PrivateScope, Public, HideBySig, SpecialName
+    get_Position(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.StopSetting: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.TrafficAnalyst.StopSetting): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String StopIDField 'get set' : 
+    System.String AliasField 'get set' : 
+    System.String NameField 'get set' : 
+    SuperMap.Data.DatasetVector Dataset 'get set' : 
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(DatasetVector): PrivateScope, Public, HideBySig, SpecialName
+    get_NameField(): PrivateScope, Public, HideBySig, SpecialName
+    set_NameField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AliasField(): PrivateScope, Public, HideBySig, SpecialName
+    set_AliasField(String): PrivateScope, Public, HideBySig, SpecialName
+    get_StopIDField(): PrivateScope, Public, HideBySig, SpecialName
+    set_StopIDField(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.TransferAnalyst: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Load(TransferAnalystSetting): PrivateScope, Public, HideBySig
+    Load(LineSetting, StopSetting, RelationSetting): PrivateScope, Public, HideBySig
+    FindTransferLines(TransferAnalystParameter): PrivateScope, Public, HideBySig
+    FindLinesByStop(Int64): PrivateScope, Public, HideBySig
+    FindStopsByLine(Int64): PrivateScope, Public, HideBySig
+    FindTransferSolutions(TransferAnalystParameter): PrivateScope, Public, HideBySig
+    GetDetailInfo(Int64, Int64, TransferLine[]): PrivateScope, Public, HideBySig
+    GetDetailInfo(Point2D, Point2D, TransferLine[]): PrivateScope, Public, HideBySig
+    Check(TransferAnalystSetting): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Analyst.TrafficAnalyst.TransferAnalystParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.TrafficAnalyst.TransferAnalystParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Analyst.TrafficAnalyst.TransferPreference Preference 'get set' : 
+    Int64[] PriorStops 'get set' : 
+    Int64[] PriorLines 'get set' : 
+    Int64[] EvadeStops 'get set' : 
+    Int64[] EvadeLines 'get set' : 
+    SuperMap.Analyst.TrafficAnalyst.TransferSearchMode SearchMode 'get set' : 
+    SuperMap.Analyst.TrafficAnalyst.TransferTactic Tactic 'get set' : 
+    Double WalkingRatio 'get set' : 
+    Int32 SolutionCount 'get set' : 
+    SuperMap.Data.Point2D EndPosition 'get set' : 
+    SuperMap.Data.Point2D StartPosition 'get set' : 
+    Int64 EndStopID 'get set' : 
+    Int64 StartStopID 'get set' : 
+  Methods:
+    get_StartStopID(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartStopID(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_EndStopID(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndStopID(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_StartPosition(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartPosition(Point2D): PrivateScope, Public, HideBySig, SpecialName
+    get_EndPosition(): PrivateScope, Public, HideBySig, SpecialName
+    set_EndPosition(Point2D): PrivateScope, Public, HideBySig, SpecialName
+    get_SolutionCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_SolutionCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_WalkingRatio(): PrivateScope, Public, HideBySig, SpecialName
+    set_WalkingRatio(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Tactic(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tactic(TransferTactic): PrivateScope, Public, HideBySig, SpecialName
+    get_SearchMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_SearchMode(TransferSearchMode): PrivateScope, Public, HideBySig, SpecialName
+    get_EvadeLines(): PrivateScope, Public, HideBySig, SpecialName
+    set_EvadeLines(Int64[]): PrivateScope, Public, HideBySig, SpecialName
+    get_EvadeStops(): PrivateScope, Public, HideBySig, SpecialName
+    set_EvadeStops(Int64[]): PrivateScope, Public, HideBySig, SpecialName
+    get_PriorLines(): PrivateScope, Public, HideBySig, SpecialName
+    set_PriorLines(Int64[]): PrivateScope, Public, HideBySig, SpecialName
+    get_PriorStops(): PrivateScope, Public, HideBySig, SpecialName
+    set_PriorStops(Int64[]): PrivateScope, Public, HideBySig, SpecialName
+    get_Preference(): PrivateScope, Public, HideBySig, SpecialName
+    set_Preference(TransferPreference): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Analyst.TrafficAnalyst.TransferAnalystResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Analyst.TrafficAnalyst.TransferGuide[] TransferGuides 'get ' : 
+  Methods:
+    get_TransferGuides(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Analyst.TrafficAnalyst.TransferAnalystSetting: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Analyst.TrafficAnalyst.TransferAnalystSetting): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.Unit Unit 'get set' : 
+    Double WalkingTolerance 'get set' : 
+    Double MergeTolerance 'get set' : 
+    Double SnapTolerance 'get set' : 
+    SuperMap.Analyst.TrafficAnalyst.RelationSetting RelationSetting 'get set' : 
+    SuperMap.Analyst.TrafficAnalyst.StopSetting StopSetting 'get set' : 
+    SuperMap.Analyst.TrafficAnalyst.LineSetting LineSetting 'get set' : 
+  Methods:
+    get_LineSetting(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineSetting(LineSetting): PrivateScope, Public, HideBySig, SpecialName
+    get_StopSetting(): PrivateScope, Public, HideBySig, SpecialName
+    set_StopSetting(StopSetting): PrivateScope, Public, HideBySig, SpecialName
+    get_RelationSetting(): PrivateScope, Public, HideBySig, SpecialName
+    set_RelationSetting(RelationSetting): PrivateScope, Public, HideBySig, SpecialName
+    get_SnapTolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_SnapTolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MergeTolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_MergeTolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_WalkingTolerance(): PrivateScope, Public, HideBySig, SpecialName
+    set_WalkingTolerance(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Unit(): PrivateScope, Public, HideBySig, SpecialName
+    set_Unit(Unit): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.TransferGuide: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Int32 TransferCount 'get ' : 
+    Double TotalTime 'get ' : 
+    Double TotalFare 'get ' : 
+    Double TotalDistance 'get ' : 
+    SuperMap.Analyst.TrafficAnalyst.TransferGuideItem Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalDistance(): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalFare(): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalTime(): PrivateScope, Public, HideBySig, SpecialName
+    get_TransferCount(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.TransferGuideItem: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Int32 LineType 'get ' : 
+    System.String EndName 'get ' : 
+    System.String StartName 'get ' : 
+    System.String LineName 'get ' : 
+    SuperMap.Data.GeoLine Route 'get ' : 
+    Boolean IsWalking 'get ' : 
+    Double Time 'get ' : 
+    Double Fare 'get ' : 
+    Double Distance 'get ' : 
+    SuperMap.Data.Point2D EndPosition 'get ' : 
+    SuperMap.Data.Point2D StartPosition 'get ' : 
+    Int32 PassStopCount 'get ' : 
+    Int32 EndIndex 'get ' : 
+    Int32 StartIndex 'get ' : 
+  Methods:
+    get_StartIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_EndIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_PassStopCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_StartPosition(): PrivateScope, Public, HideBySig, SpecialName
+    get_EndPosition(): PrivateScope, Public, HideBySig, SpecialName
+    get_Distance(): PrivateScope, Public, HideBySig, SpecialName
+    get_Fare(): PrivateScope, Public, HideBySig, SpecialName
+    get_Time(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsWalking(): PrivateScope, Public, HideBySig, SpecialName
+    get_Route(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineName(): PrivateScope, Public, HideBySig, SpecialName
+    get_StartName(): PrivateScope, Public, HideBySig, SpecialName
+    get_EndName(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineType(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Analyst.TrafficAnalyst.TransferSolutions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    SuperMap.Analyst.TrafficAnalyst.TransferSolution Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class SuperMap.Analyst.TrafficAnalyst.TransferLine: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int64, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 EndIndex 'get ' : 
+    Int32 StartIndex 'get ' : 
+    Int64 LineID 'get ' : 
+    System.String LineName 'get ' : 
+    System.String DownName 'get ' : 
+    System.String OnName 'get ' : 
+  Methods:
+    get_OnName(): PrivateScope, Public, HideBySig, SpecialName
+    get_DownName(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineName(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineID(): PrivateScope, Public, HideBySig, SpecialName
+    get_StartIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_EndIndex(): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Analyst.TrafficAnalyst.TransferTactic: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.TrafficAnalyst.TransferTactic LessTransfer = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.TrafficAnalyst.TransferTactic MinDistance = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.TrafficAnalyst.TransferTactic LessWalk = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.TrafficAnalyst.TransferTactic LessTime = 3 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.TrafficAnalyst.TransferSearchMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.TrafficAnalyst.TransferSearchMode ID = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.TrafficAnalyst.TransferSearchMode Point = 1 : Public, Static, Literal, HasDefault
+Struct SuperMap.Analyst.TrafficAnalyst.TransferPreference: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Analyst.TrafficAnalyst.TransferPreference None = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.TrafficAnalyst.TransferPreference Bus = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.TrafficAnalyst.TransferPreference Subway = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Analyst.TrafficAnalyst.TransferPreference NoSubway = 4 : Public, Static, Literal, HasDefault
+Class SuperMap.Analyst.TrafficAnalyst.TransferLines: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    SuperMap.Analyst.TrafficAnalyst.TransferLine Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class SuperMap.Analyst.TrafficAnalyst.TransferSolution: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    SuperMap.Analyst.TrafficAnalyst.TransferLines Item [Int32] 'get ' : 
+    Int32 TransferTime 'get ' : 
+  Methods:
+    get_TransferTime(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask

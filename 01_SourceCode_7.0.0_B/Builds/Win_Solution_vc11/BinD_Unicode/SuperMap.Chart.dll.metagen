@@ -1,0 +1,790 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Chart, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Class SuperMap.Chart.AgencyS57: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    System.String AgencyName 'get set' : 
+    Int32 Code 'get set' : 
+    System.String Token 'get set' : 
+  Methods:
+    get_Token(): PrivateScope, Public, HideBySig, SpecialName
+    get_Code(): PrivateScope, Public, HideBySig, SpecialName
+    get_AgencyName(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.AttributeExpectedInputsS57: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    System.String References 'get set' : 
+    System.String Definition 'get set' : 
+    System.String Meaning 'get set' : 
+    Int32 ID   'get set' : 
+  Methods:
+    get_ID(): PrivateScope, Public, HideBySig, SpecialName
+    get_Meaning(): PrivateScope, Public, HideBySig, SpecialName
+    get_Definition(): PrivateScope, Public, HideBySig, SpecialName
+    get_References(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.AttributeS57: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    System.String Condition 'get set' : 
+    System.String Indication 'get set' : 
+    System.String Format 'get set' : 
+    SuperMap.Chart.AttributeExpectedInputsS57[] AttributeExpectedInputs 'get set' : 
+    System.String SubSet 'get set' : 
+    Int32 Code 'get set' : 
+    SuperMap.Chart.AttributeTypeChart AttributeType 'get set' : 
+    System.String Remarks 'get set' : 
+    System.String References 'get set' : 
+    System.String Definition 'get set' : 
+    System.String LocalName 'get set' : 
+    System.String Name 'get set' : 
+    System.String Acronym 'get set' : 
+  Methods:
+    get_Acronym(): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_LocalName(): PrivateScope, Public, HideBySig, SpecialName
+    get_Definition(): PrivateScope, Public, HideBySig, SpecialName
+    get_References(): PrivateScope, Public, HideBySig, SpecialName
+    get_Remarks(): PrivateScope, Public, HideBySig, SpecialName
+    get_AttributeType(): PrivateScope, Public, HideBySig, SpecialName
+    get_Code(): PrivateScope, Public, HideBySig, SpecialName
+    get_SubSet(): PrivateScope, Public, HideBySig, SpecialName
+    get_AttributeExpectedInputs(): PrivateScope, Public, HideBySig, SpecialName
+    get_Format(): PrivateScope, Public, HideBySig, SpecialName
+    get_Indication(): PrivateScope, Public, HideBySig, SpecialName
+    get_Condition(): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Chart.AttributeTypeChart: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.AttributeTypeChart None = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.AttributeTypeChart Enumerated = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.AttributeTypeChart List = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.AttributeTypeChart Float = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.AttributeTypeChart Integer = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.AttributeTypeChart CodedString = 5 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.AttributeTypeChart FreeText = 6 : Public, Static, Literal, HasDefault
+Class SuperMap.Chart.AttributeSpec: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Int32 Required 'get set' : 
+    Int32 Code 'get set' : 
+  Methods:
+    get_Code(): PrivateScope, Public, HideBySig, SpecialName
+    get_Required(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.AttributeSpecs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+  Properties:
+    Int32 Required 'get set' : 
+    Int32 Code 'get set' : 
+  Methods:
+    get_Code(): PrivateScope, Public, HideBySig, SpecialName
+    get_Required(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.ChartAttributeInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    System.Object Value 'get ' : 
+    Int32 Code 'get ' : 
+    System.String Name 'get ' : 
+    System.String Acronym 'get ' : 
+  Methods:
+    get_Acronym(): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_Code(): PrivateScope, Public, HideBySig, SpecialName
+    get_Value(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Chart.ChartDatasetGroup: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Chart.ChartDatasetGroupType Type 'get ' : 
+    Int64 CompilationScale 'get ' : 
+    System.String CellName 'get ' : 
+    SuperMap.Data.DatasetGroup DatasetGroup 'get ' : 
+  Methods:
+    CreateInstance(DatasetGroup): PrivateScope, Public, Static, HideBySig
+    GetChartDatasetGroupType(DatasetGroup): PrivateScope, Public, Static, HideBySig
+    get_DatasetGroup(): PrivateScope, Public, HideBySig, SpecialName
+    get_CellName(): PrivateScope, Public, HideBySig, SpecialName
+    get_CompilationScale(): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, HideBySig, SpecialName
+    GetFeatureDataset(String, DatasetType): PrivateScope, Public, HideBySig
+    GetFeatureDataset(Int32, DatasetType): PrivateScope, Public, HideBySig
+    GetFeatureDatasets(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Chart.ChartValidateResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    System.String ErrorMessage 'get set' : 
+    Int32 CheckID 'get set' : 
+  Methods:
+    get_CheckID(): PrivateScope, Public, HideBySig, SpecialName
+    get_ErrorMessage(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.ChartValidateParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean AreCheckSpatialAttributes 'get set' : 
+    Boolean AreCheckFeatureObjects 'get set' : 
+    Boolean AreCheckSoundings 'get set' : 
+    Boolean AreCheckFeatureRelationships 'get set' : 
+    Boolean IsCheckChainNodeTopology 'get set' : 
+    Boolean AreCheckMandatoryS57Fields 'get set' : 
+  Methods:
+    get_AreCheckMandatoryS57Fields(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreCheckMandatoryS57Fields(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsCheckChainNodeTopology(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsCheckChainNodeTopology(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreCheckFeatureRelationships(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreCheckFeatureRelationships(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreCheckSoundings(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreCheckSoundings(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreCheckFeatureObjects(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreCheckFeatureObjects(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AreCheckSpatialAttributes(): PrivateScope, Public, HideBySig, SpecialName
+    set_AreCheckSpatialAttributes(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.S57FeatureToSpatialPointer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Chart.ChartAttributeInfo[] SpatialAttributes 'get ' : 
+    SuperMap.Data.Geometry Geometry 'get ' : 
+    SuperMap.Chart.S57MaskingIndicator MaskingIndicator 'get ' : 
+    Int32 UsageIndicator 'get ' : 
+    Int32 Orientation 'get ' : 
+    System.String SpatialObjectID 'get ' : 
+  Methods:
+    get_SpatialObjectID(): PrivateScope, Public, HideBySig, SpecialName
+    get_Orientation(): PrivateScope, Public, HideBySig, SpecialName
+    get_UsageIndicator(): PrivateScope, Public, HideBySig, SpecialName
+    get_MaskingIndicator(): PrivateScope, Public, HideBySig, SpecialName
+    get_Geometry(): PrivateScope, Public, HideBySig, SpecialName
+    get_SpatialAttributes(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Chart.S57EditDatasetGroup: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Chart.ChartDatasetGroup
+  Properties:
+    SuperMap.Chart.S57CellInformation CellInformation 'get set' : 
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    get_CellInformation(): PrivateScope, Public, HideBySig, SpecialName
+    set_CellInformation(S57CellInformation): PrivateScope, Public, HideBySig, SpecialName
+    CreateFeatureDataset(String, DatasetType): PrivateScope, Public, HideBySig
+    CreateFeatureDataset(Int32, DatasetType): PrivateScope, Public, HideBySig
+    AppendFeatureDataset(String, Recordset, String[], String[], Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    AppendFeatureDataset(Int32, Recordset, String[], String[], Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    RemoveFeatureDataset(String, DatasetType): PrivateScope, Public, HideBySig
+    RemoveFeatureDataset(Int32, DatasetType): PrivateScope, Public, HideBySig
+    BuildFOIDs(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    GetFIDNSequenceName(): PrivateScope, Public, HideBySig
+    GetFIDS(): PrivateScope, Public, HideBySig
+    BuildS57TopologyRelation(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    Validate(ChartValidateParameter, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    GetFeatureToSpatialPointers(Int64, GeometryType, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    SetMaskingIndicator(Int64, String, S57MaskingIndicator): PrivateScope, Public, HideBySig
+    GetMaskingIndicator(Int64, String): PrivateScope, Public, HideBySig
+    SetSpatialAttribute(String, String, Object): PrivateScope, Public, HideBySig
+    GetSpatialAttribute(String, String): PrivateScope, Public, HideBySig
+    GetSpatialAttributes(String): PrivateScope, Public, HideBySig
+    GetSpatialGeometry(String): PrivateScope, Public, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.S57DatasetGroup: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Chart.ChartDatasetGroup
+  Properties:
+    SuperMap.Data.PrjCoordSys PrjCoordSys 'get ' : 
+  Methods:
+    get_PrjCoordSys(): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Chart.ChartDatasetGroupType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.ChartDatasetGroupType Unknown = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.ChartDatasetGroupType S57DatasetGroup = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.ChartDatasetGroupType S57EditDatasetGroup = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Chart.S57MaskingIndicator: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.S57MaskingIndicator Mask = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57MaskingIndicator Show = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57MaskingIndicator None = 255 : Public, Static, Literal, HasDefault
+Class SuperMap.Chart.ChartDatasetGroupManager: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    CreateS57EditDatasetGroup(S57CellInformation, Datasource, String, UInt16): PrivateScope, Public, Static, HideBySig
+    ConvertToS57EditDatasetGroup(S57DatasetGroup, Datasource, String, UInt16): PrivateScope, Public, Static, HideBySig
+    ConvertToS57DatasetGroup(S57EditDatasetGroup, Datasource): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Chart.S57CellInformation: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    System.String DataSetParameterComment 'get set' : 
+    Int64 CoordinateFactor 'get set' : 
+    Int64 CompilationScale 'get set' : 
+    Int32 SoundingDatum 'get set' : 
+    Int32 VerticalDatum 'get set' : 
+    SuperMap.Chart.S57LexicalLevel NATFLexicalLevel 'get set' : 
+    SuperMap.Chart.S57LexicalLevel ATTFLexicalLevel 'get set' : 
+    System.String DataSetIdentificationComment 'get set' : 
+    Int32 AgencyCode 'get set' : 
+    System.DateTime IssueDate 'get set' : 
+    System.DateTime UpdateDate 'get set' : 
+    System.String UpdateVersion 'get set' : 
+    System.String EditionVersion 'get set' : 
+    System.String CellName 'get set' : 
+    SuperMap.Chart.S57IntendedUsage IntendedUsage 'get set' : 
+  Methods:
+    get_IntendedUsage(): PrivateScope, Public, HideBySig, SpecialName
+    set_IntendedUsage(S57IntendedUsage): PrivateScope, Public, HideBySig, SpecialName
+    get_CellName(): PrivateScope, Public, HideBySig, SpecialName
+    set_CellName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_EditionVersion(): PrivateScope, Public, HideBySig, SpecialName
+    set_EditionVersion(String): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateVersion(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateVersion(String): PrivateScope, Public, HideBySig, SpecialName
+    get_UpdateDate(): PrivateScope, Public, HideBySig, SpecialName
+    set_UpdateDate(DateTime): PrivateScope, Public, HideBySig, SpecialName
+    get_IssueDate(): PrivateScope, Public, HideBySig, SpecialName
+    set_IssueDate(DateTime): PrivateScope, Public, HideBySig, SpecialName
+    get_AgencyCode(): PrivateScope, Public, HideBySig, SpecialName
+    set_AgencyCode(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_DataSetIdentificationComment(): PrivateScope, Public, HideBySig, SpecialName
+    set_DataSetIdentificationComment(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ATTFLexicalLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_ATTFLexicalLevel(S57LexicalLevel): PrivateScope, Public, HideBySig, SpecialName
+    get_NATFLexicalLevel(): PrivateScope, Public, HideBySig, SpecialName
+    set_NATFLexicalLevel(S57LexicalLevel): PrivateScope, Public, HideBySig, SpecialName
+    get_VerticalDatum(): PrivateScope, Public, HideBySig, SpecialName
+    set_VerticalDatum(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SoundingDatum(): PrivateScope, Public, HideBySig, SpecialName
+    set_SoundingDatum(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_CompilationScale(): PrivateScope, Public, HideBySig, SpecialName
+    set_CompilationScale(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_CoordinateFactor(): PrivateScope, Public, HideBySig, SpecialName
+    set_CoordinateFactor(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_DataSetParameterComment(): PrivateScope, Public, HideBySig, SpecialName
+    set_DataSetParameterComment(String): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct SuperMap.Chart.S57IntendedUsage: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.S57IntendedUsage OverView = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57IntendedUsage General = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57IntendedUsage Coastal = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57IntendedUsage Approach = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57IntendedUsage Harbour = 5 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57IntendedUsage Berthing = 6 : Public, Static, Literal, HasDefault
+Struct SuperMap.Chart.S57LexicalLevel: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.S57LexicalLevel Level0 = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57LexicalLevel Level1 = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57LexicalLevel Level2 = 2 : Public, Static, Literal, HasDefault
+Class SuperMap.Chart.ChartEnvironment: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    System.String S57SpecsInfoFile 'get set' : 
+    System.String S57SpecsObjectFile 'get set' : 
+    System.String AgencyFile 'get set' : 
+    System.String S57AttributeFile 'get set' : 
+    System.String S57ObjectFile 'get set' : 
+  Methods:
+    get_S57ObjectFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_S57ObjectFile(String): PrivateScope, Public, HideBySig, SpecialName
+    get_S57AttributeFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_S57AttributeFile(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AgencyFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_AgencyFile(String): PrivateScope, Public, HideBySig, SpecialName
+    get_S57SpecsObjectFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_S57SpecsObjectFile(String): PrivateScope, Public, HideBySig, SpecialName
+    get_S57SpecsInfoFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_S57SpecsInfoFile(String): PrivateScope, Public, HideBySig, SpecialName
+    GetDisplayStyleNames(): PrivateScope, Public, HideBySig
+    AddNewDisplayStyle(String, ChartDisplayStyleType): PrivateScope, Public, HideBySig
+    RemoveDisplayStyle(String): PrivateScope, Public, HideBySig
+    GetPointLookupFile(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    SetPointLookupFile(String, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    GetLineLookupFile(String): PrivateScope, Public, HideBySig
+    SetLineLookupFile(String, String): PrivateScope, Public, HideBySig
+    GetAreaLookupFile(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    SetAreaLookupFile(String, String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    GetColourTable(String, ColourModeChart): PrivateScope, Public, HideBySig
+    SetColourTable(String, String, ColourModeChart): PrivateScope, Public, HideBySig
+    GetDisplayStyleType(String): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct SuperMap.Chart.ChartDisplayStyleType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.ChartDisplayStyleType NONE = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.ChartDisplayStyleType ENC = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.ChartDisplayStyleType PAPERCHART = 2 : Public, Static, Literal, HasDefault
+Struct SuperMap.Chart.ColourModeChart: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.ColourModeChart DayBright = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.ColourModeChart Dusk = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.ColourModeChart Night = 2 : Public, Static, Literal, HasDefault
+Class SuperMap.Chart.ChartQuery: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Methods:
+    Query(DatasetGroup[], Rectangle2D, ChartQueryParameter[], CursorType): PrivateScope, Public, Static, HideBySig
+    Query(DatasetGroup[], ChartQueryParameter[], CursorType): PrivateScope, Public, Static, HideBySig
+Class SuperMap.Chart.S57DatasetGroupExtInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.DatasetGroup): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.Int32,SuperMap.Data.Dataset[]] FeatureDatasets 'get set' : 
+    SuperMap.Data.Dataset FeatureRelationShipDataset 'get set' : 
+    SuperMap.Data.Dataset FeatureToPointDataset 'get set' : 
+    SuperMap.Data.Dataset FeatureToEdgeDataset 'get set' : 
+    SuperMap.Data.Dataset VectorEdgeDataset 'get set' : 
+    SuperMap.Data.Dataset VectorConnectedDataset 'get set' : 
+    SuperMap.Data.Dataset VectorIsolatedDataset 'get set' : 
+    SuperMap.Data.Dataset DSIDDataset 'get set' : 
+    SuperMap.Data.PrjCoordSys PrjCoordSys 'get set' : 
+    Int64 ChartScale 'get set' : 
+    System.String ChartCellName 'get set' : 
+    SuperMap.Data.DatasetGroup DatasetGroup 'get set' : 
+  Methods:
+    get_DatasetGroup(): PrivateScope, Public, HideBySig, SpecialName
+    set_DatasetGroup(DatasetGroup): PrivateScope, Public, HideBySig, SpecialName
+    Update(): PrivateScope, Public, HideBySig
+    IsChartDatasetGroup(): PrivateScope, Public, HideBySig
+    get_ChartCellName(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChartCellName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ChartScale(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChartScale(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_PrjCoordSys(): PrivateScope, Public, HideBySig, SpecialName
+    set_PrjCoordSys(PrjCoordSys): PrivateScope, Public, HideBySig, SpecialName
+    get_DSIDDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_DSIDDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_VectorIsolatedDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_VectorIsolatedDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_VectorConnectedDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_VectorConnectedDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_VectorEdgeDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_VectorEdgeDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_FeatureToEdgeDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_FeatureToEdgeDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_FeatureToPointDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_FeatureToPointDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_FeatureRelationShipDataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_FeatureRelationShipDataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    get_FeatureDatasets(): PrivateScope, Public, HideBySig, SpecialName
+    set_FeatureDatasets(Dictionary`2): PrivateScope, Public, HideBySig, SpecialName
+    GetFeatureDataset(Int32, DatasetType): PrivateScope, Public, HideBySig
+    SetFeatureDataset(Dataset): PrivateScope, Public, HideBySig
+    DeleteFeature(Int32, DatasetType): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Chart.FeatureInfoSpec: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Chart.AttributeSpec[] AttributeFields 'get set' : 
+    System.String Primitive 'get set' : 
+    Int32 Code 'get set' : 
+    System.String LocalName 'get set' : 
+    System.String Name 'get set' : 
+    System.String Acronym 'get set' : 
+  Methods:
+    get_Acronym(): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_LocalName(): PrivateScope, Public, HideBySig, SpecialName
+    get_Code(): PrivateScope, Public, HideBySig, SpecialName
+    get_Primitive(): PrivateScope, Public, HideBySig, SpecialName
+    get_AttributeFields(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.ChartQueryParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String AttributeFilter 'get set' : 
+    Boolean IsQueryRegion 'get set' : 
+    Boolean IsQueryLine 'get set' : 
+    Boolean IsQueryPoint 'get set' : 
+    SuperMap.Chart.FeatureInfoSpec FeatureInfo 'get set' : 
+  Methods:
+    get_FeatureInfo(): PrivateScope, Public, HideBySig, SpecialName
+    set_FeatureInfo(FeatureInfoSpec): PrivateScope, Public, HideBySig, SpecialName
+    get_IsQueryPoint(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsQueryPoint(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsQueryLine(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsQueryLine(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_IsQueryRegion(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsQueryRegion(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_AttributeFilter(): PrivateScope, Public, HideBySig, SpecialName
+    set_AttributeFilter(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.ChartQueryResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.Recordset[] Recordsets 'get ' : 
+    System.String DatasetGroupName 'get ' : 
+  Methods:
+    get_DatasetGroupName(): PrivateScope, Public, HideBySig, SpecialName
+    get_Recordsets(): PrivateScope, Public, HideBySig, SpecialName
+Struct SuperMap.Chart.FeatureTypeChart: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.FeatureTypeChart None = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.FeatureTypeChart Geo = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.FeatureTypeChart Meta = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.FeatureTypeChart Collection = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.FeatureTypeChart Cartographic = 4 : Public, Static, Literal, HasDefault
+Class SuperMap.Chart.Conversion.ExportChartSteppedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(System.String, System.String, Int32, Int32, SuperMap.Chart.Conversion.ExportSettingChart, Int32, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String Message 'get ' : 
+    System.String Title 'get ' : 
+    Boolean Cancel 'get set' : 
+    Int32 Count 'get ' : 
+    SuperMap.Chart.Conversion.ExportSettingChart CurrentTask 'get ' : 
+    Int32 SubPercent 'get ' : 
+    Int32 TotalPercent 'get ' : 
+  Methods:
+    get_TotalPercent(): PrivateScope, Public, HideBySig, SpecialName
+    get_SubPercent(): PrivateScope, Public, HideBySig, SpecialName
+    get_CurrentTask(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cancel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cancel(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_Title(): PrivateScope, Public, HideBySig, SpecialName
+    get_Message(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.Conversion.ExportChartSteppedEventHandler: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, ExportChartSteppedEventArgs): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, ExportChartSteppedEventArgs, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SuperMap.Chart.Conversion.DataExportChart: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Chart.Conversion.ExportSettingCharts ExportSettingCharts 'get set' : 
+  Events:
+    SuperMap.Chart.Conversion.ExportChartSteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(ExportChartSteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(ExportChartSteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_ExportSettingCharts(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExportSettingCharts(ExportSettingCharts): PrivateScope, Public, HideBySig, SpecialName
+    Run(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Chart.Conversion.ExportSettingCharts: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    SuperMap.Chart.Conversion.ExportSettingChart Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Add(ExportSettingChart): PrivateScope, Public, HideBySig
+    Insert(Int32, ExportSettingChart): PrivateScope, Public, HideBySig
+    Remove(Int32): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class SuperMap.Chart.Conversion.ExportSettingChart: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Chart.Conversion.FileTypeChart TargetFileType 'get set' : 
+    Boolean IsOverwrite 'get set' : 
+    System.String TargetFilePath 'get set' : 
+  Methods:
+    get_TargetFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsOverwrite(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsOverwrite(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_TargetFileType(FileTypeChart): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class SuperMap.Chart.Conversion.ExportResultChart: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Chart.Conversion.ExportSettingChart[] FailedSettings 'get ' : 
+    SuperMap.Chart.Conversion.ExportSettingChart[] SucceedSettings 'get ' : 
+  Methods:
+    get_SucceedSettings(): PrivateScope, Public, HideBySig, SpecialName
+    get_FailedSettings(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.Conversion.ExportSettingChartS57: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Chart.Conversion.ExportSettingChart
+    Void .ctor(SuperMap.Data.DatasetGroup, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SuperMap.Chart.Conversion.ExportSettingChartS57): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Chart.Conversion.FileTypeChart TargetFileType 'get set' : 
+    SuperMap.Data.DatasetGroup SourceData 'get set' : 
+  Methods:
+    get_SourceData(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceData(DatasetGroup): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetFileType(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_TargetFileType(FileTypeChart): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Struct SuperMap.Chart.Conversion.FileTypeChart: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.Conversion.FileTypeChart None = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.Conversion.FileTypeChart S57 = 40 : Public, Static, Literal, HasDefault
+Class SuperMap.Chart.Conversion.ImportChartSteppedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(System.String, System.String, Int32, Int32, SuperMap.Chart.Conversion.ImportSettingChart, Int32, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean Cancel 'get set' : 
+    Int32 Count 'get ' : 
+    SuperMap.Chart.Conversion.ImportSettingChart CurrentTask 'get ' : 
+    Int32 SubPercent 'get ' : 
+    Int32 TotalPercent 'get ' : 
+    System.String Message 'get ' : 
+    System.String Title 'get ' : 
+  Methods:
+    get_Title(): PrivateScope, Public, HideBySig, SpecialName
+    get_Message(): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalPercent(): PrivateScope, Public, HideBySig, SpecialName
+    get_SubPercent(): PrivateScope, Public, HideBySig, SpecialName
+    get_CurrentTask(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cancel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cancel(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.Conversion.ImportChartSteppedEventHandler: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, ImportChartSteppedEventArgs): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, ImportChartSteppedEventArgs, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SuperMap.Chart.Conversion.DataImportChart: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Chart.Conversion.ImportSettingCharts ImportSettingCharts 'get set' : 
+  Events:
+    SuperMap.Chart.Conversion.ImportChartSteppedEventHandler Stepped: SpecialName
+  Methods:
+    add_Stepped(ImportChartSteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Stepped(ImportChartSteppedEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_ImportSettingCharts(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImportSettingCharts(ImportSettingCharts): PrivateScope, Public, HideBySig, SpecialName
+    Run(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Chart.Conversion.ImportSettingCharts: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    SuperMap.Chart.Conversion.ImportSettingChart Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Add(ImportSettingChart): PrivateScope, Public, HideBySig
+    Insert(Int32, ImportSettingChart): PrivateScope, Public, HideBySig
+    Remove(Int32): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class SuperMap.Chart.Conversion.ImportSettingChart: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Boolean ConvertToMercator 'get set' : 
+    SuperMap.Data.DatasetGroup TargetDatasetGroup 'get set' : 
+    SuperMap.Data.Datasource TargetDatasource 'get set' : 
+    SuperMap.Data.DatasourceConnectionInfo TargetDatasourceConnectionInfo 'get set' : 
+    SuperMap.Data.EncodeType TargetEncodeType 'get set' : 
+    SuperMap.Chart.Conversion.FileTypeChart SourceFileType 'get ' : 
+    System.String SourceFilePath 'get set' : 
+  Methods:
+    get_SourceFilePath(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceFilePath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceFileType(): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetEncodeType(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetEncodeType(EncodeType): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasourceConnectionInfo(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasourceConnectionInfo(DatasourceConnectionInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasource(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasource(Datasource): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetDatasetGroup(): PrivateScope, Public, HideBySig, SpecialName
+    set_TargetDatasetGroup(DatasetGroup): PrivateScope, Public, HideBySig, SpecialName
+    set_ConvertToMercator(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ConvertToMercator(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Chart.Conversion.ImportResultChart: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.IDisposable
+  Properties:
+    SuperMap.Chart.Conversion.ImportSettingChart[] FailedSettings 'get ' : 
+    SuperMap.Chart.Conversion.ImportSettingChart[] SucceedSettings 'get ' : 
+  Methods:
+    get_SucceedSettings(): PrivateScope, Public, HideBySig, SpecialName
+    get_FailedSettings(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SuperMap.Chart.FeatureInfoS57: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Int32 Code 'get set' : 
+    SuperMap.Chart.FeatureTypeChart FeatureType 'get set' : 
+    System.String Remarks 'get set' : 
+    System.String References 'get set' : 
+    System.String Definition 'get set' : 
+    System.String Name 'get set' : 
+    System.String Acronym 'get set' : 
+  Methods:
+    get_Acronym(): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_Definition(): PrivateScope, Public, HideBySig, SpecialName
+    get_References(): PrivateScope, Public, HideBySig, SpecialName
+    get_Remarks(): PrivateScope, Public, HideBySig, SpecialName
+    get_FeatureType(): PrivateScope, Public, HideBySig, SpecialName
+    get_Code(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.FeatureInfoSpecs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit (Obsolete)
+  Properties:
+    SuperMap.Chart.AttributeSpecs[] AttributeFields 'get set' : 
+    System.String Primitive 'get set' : 
+    Int32 Code 'get set' : 
+    System.String LocalName 'get set' : 
+    System.String Name 'get set' : 
+    System.String Acronym 'get set' : 
+  Methods:
+    get_Acronym(): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_LocalName(): PrivateScope, Public, HideBySig, SpecialName
+    get_Code(): PrivateScope, Public, HideBySig, SpecialName
+    get_Primitive(): PrivateScope, Public, HideBySig, SpecialName
+    get_AttributeFields(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.S58Information: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    System.String Reference 'get set' : 
+    System.String Description 'get set' : 
+    System.String Level 'get set' : 
+    Int32 CheckID 'get set' : 
+  Methods:
+    get_CheckID(): PrivateScope, Public, HideBySig, SpecialName
+    get_Level(): PrivateScope, Public, HideBySig, SpecialName
+    get_Description(): PrivateScope, Public, HideBySig, SpecialName
+    get_Reference(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.DictionaryManagerChart: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Methods:
+    GetAgencyS57s(): PrivateScope, Public, Static, HideBySig
+    GetFeatureInfoS57s(): PrivateScope, Public, Static, HideBySig
+    GetAttributeS57s(): PrivateScope, Public, Static, HideBySig
+    GetFeatureInfoSpecs(String): PrivateScope, Public, Static, HideBySig (Obsolete)
+    GetFeatureInfoSpecs(Int32): PrivateScope, Public, Static, HideBySig (Obsolete)
+    GetFeatureInfoSpecs(): PrivateScope, Public, Static, HideBySig
+    GetAgencyS57(String): PrivateScope, Public, Static, HideBySig
+    GetAgencyS57(Int32): PrivateScope, Public, Static, HideBySig
+    GetFeatureInfoS57(String): PrivateScope, Public, Static, HideBySig
+    GetFeatureInfoS57(Int32): PrivateScope, Public, Static, HideBySig
+    GetAttributeS57(String): PrivateScope, Public, Static, HideBySig
+    GetAttributeS57(Int32): PrivateScope, Public, Static, HideBySig
+    GetFeatureInfoSpec(String): PrivateScope, Public, Static, HideBySig
+    GetFeatureInfoSpec(Int32): PrivateScope, Public, Static, HideBySig
+    ResetS57SpecObjectsFile(): PrivateScope, Public, Static, HideBySig
+    ResetS57SpecInfosFile(): PrivateScope, Public, Static, HideBySig
+    GetS58Information(Int32): PrivateScope, Public, Static, HideBySig
+    GetAgencys(): PrivateScope, Public, Static, HideBySig (Obsolete)
+    GetFeatureInfoSpecss(): PrivateScope, Public, Static, HideBySig (Obsolete)
+    ResetS57SpecsObjectsFile(): PrivateScope, Public, Static, HideBySig (Obsolete)
+    ResetS57SpecsInfosFile(): PrivateScope, Public, Static, HideBySig (Obsolete)
+Class SuperMap.Chart.S57DatasetExtInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Data.Dataset): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 FeatureCode 'get set' : 
+    System.String FeatureAcronym 'get set' : 
+    SuperMap.Chart.S57DatasetType S57DatasetType 'get set' : 
+    SuperMap.Data.Dataset Dataset 'get set' : 
+  Methods:
+    get_Dataset(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dataset(Dataset): PrivateScope, Public, HideBySig, SpecialName
+    Update(): PrivateScope, Public, HideBySig
+    IsChartDataset(): PrivateScope, Public, HideBySig
+    get_S57DatasetType(): PrivateScope, Public, HideBySig, SpecialName
+    set_S57DatasetType(S57DatasetType): PrivateScope, Public, HideBySig, SpecialName
+    get_FeatureAcronym(): PrivateScope, Public, HideBySig, SpecialName
+    set_FeatureAcronym(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FeatureCode(): PrivateScope, Public, HideBySig, SpecialName
+    set_FeatureCode(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct SuperMap.Chart.S57DatasetType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SuperMap.Chart.S57DatasetType NONE = 0 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57DatasetType S57FEATURE = 1 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57DatasetType S57DSID = 2 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57DatasetType S57VI = 3 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57DatasetType S57VC = 4 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57DatasetType S57VE = 5 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57DatasetType S57FVE = 6 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57DatasetType S57FVP = 7 : Public, Static, Literal, HasDefault
+    SuperMap.Chart.S57DatasetType S57RS = 8 : Public, Static, Literal, HasDefault
+Class SuperMap.Chart.S57FeatureObjectIDInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String FeatureObjectID 'get set' : 
+    System.String Acronym 'get set' : 
+  Methods:
+    get_Acronym(): PrivateScope, Public, HideBySig, SpecialName
+    set_Acronym(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FeatureObjectID(): PrivateScope, Public, HideBySig, SpecialName
+    set_FeatureObjectID(String): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.S57FeatureRelationships: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Chart.S57EditDatasetGroup): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetS57EditDatasetGroup(S57EditDatasetGroup): PrivateScope, Public, HideBySig
+    GetMasterSlaves(): PrivateScope, Public, HideBySig
+    CreateMasterSlave(S57FeatureObjectIDInfo, S57FeatureObjectIDInfo[]): PrivateScope, Public, HideBySig
+    GetMasterSlave(String): PrivateScope, Public, HideBySig
+    SetMasterSlave(S57FeatureObjectIDInfo, S57FeatureObjectIDInfo[]): PrivateScope, Public, HideBySig
+    RemoveMasterSlave(String): PrivateScope, Public, HideBySig
+    GetCollections(): PrivateScope, Public, HideBySig
+    CreateCollection(String, S57FeatureObjectIDInfo[]): PrivateScope, Public, HideBySig
+    GetCollectionReferenceFeatures(String): PrivateScope, Public, HideBySig
+    SetCollectionReferenceFeatures(S57FeatureObjectIDInfo, S57FeatureObjectIDInfo[]): PrivateScope, Public, HideBySig
+    RemoveCollection(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    SetS57AttributeValue(S57FeatureObjectIDInfo, String, Object): PrivateScope, Public, HideBySig
+    GetS57AttributeValue(S57FeatureObjectIDInfo, String): PrivateScope, Public, HideBySig
+    GetS57AttributeValues(S57FeatureObjectIDInfo): PrivateScope, Public, HideBySig
+Class SuperMap.Chart.Conversion.ImportSettingChartS57: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SuperMap.Chart.Conversion.ImportSettingChart
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IsImportUpdates 'get set' : 
+    SuperMap.Data.SpatialIndexInfo SpatialIndex 'get set' : 
+  Methods:
+    get_SpatialIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpatialIndex(SpatialIndexInfo): PrivateScope, Public, HideBySig, SpecialName
+    get_IsImportUpdates(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsImportUpdates(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Chart.S57SoundingGroup: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Chart.S57EditDatasetGroup): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetS57EditDatasetGroup(S57EditDatasetGroup): PrivateScope, Public, HideBySig
+    GroupSoundingAll(Int32[]): PrivateScope, Public, HideBySig
+    GroupSounding(Int32[]): PrivateScope, Public, HideBySig
+    AddSoundingsToGroup(String, Int32[]): PrivateScope, Public, HideBySig
+    RemoveSoundingsFromGroup(String, Int32[]): PrivateScope, Public, HideBySig
+    GetSoundingGroupFeatureIDs(): PrivateScope, Public, HideBySig
+    GetSoundingPoints(String): PrivateScope, Public, HideBySig
+    GetSoundingDepth(Int32): PrivateScope, Public, HideBySig
+    SetSoundingDepth(Int32, Double): PrivateScope, Public, HideBySig
+    GetSoundingGroupAttributes(String): PrivateScope, Public, HideBySig
+    GetSoundingGroupAttribute(String, String): PrivateScope, Public, HideBySig
+    SetSoundingGroupAttribute(String, String, Object): PrivateScope, Public, HideBySig

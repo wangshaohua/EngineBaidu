@@ -1,0 +1,86 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SuperMap.Realspace.SpatialAnalyst, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly SuperMap.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Assembly SuperMap.Realspace, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0635c574ea890381: 
+	hash=None, flags=None
+Class SuperMap.Realspace.SpatialAnalyst.BarrierPoint3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Data.Point3D IntersectionPoint 'get ' : 
+    System.String LayerName 'get ' : 
+    Int32 BarrierID 'get ' : 
+  Methods:
+    get_BarrierID(): PrivateScope, Public, HideBySig, SpecialName
+    get_LayerName(): PrivateScope, Public, HideBySig, SpecialName
+    get_IntersectionPoint(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Realspace.SpatialAnalyst.Geometrist3D: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Methods:
+    HasIntersection(Geometry3D, Geometry3D): PrivateScope, Public, Static, HideBySig
+    Intersect(Geometry3D, Geometry3D): PrivateScope, Public, Static, HideBySig
+    Union(Geometry3D, Geometry3D): PrivateScope, Public, Static, HideBySig
+    Erase(Geometry3D, Geometry3D): PrivateScope, Public, Static, HideBySig
+    XOR(Geometry3D, Geometry3D): PrivateScope, Public, Static, HideBySig
+Class SuperMap.Realspace.SpatialAnalyst.GridMatchAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Events:
+    SuperMap.Data.SteppedEventHandler Stepped: SpecialName
+  Methods:
+    GridMatch(DatasetGrid, DatasetVector, Datasource, String, String, Double, Double): PrivateScope, Public, Static, HideBySig
+    add_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Stepped(SteppedEventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+Class SuperMap.Realspace.SpatialAnalyst.ProfileAnalyst: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Methods:
+    CalculatePlumbProfile(Point2D, Point2D, DatasetVector[], DatasetGrid, Datasource, String): PrivateScope, Public, Static, HideBySig
+Class SuperMap.Realspace.SpatialAnalyst.VisibleResult3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    SuperMap.Realspace.SpatialAnalyst.BarrierPoint3D[] BarrierPoint3Ds 'get ' : 
+    SuperMap.Data.GeoLine3D LineInvisible 'get ' : 
+    SuperMap.Data.GeoLine3D LineVisible 'get ' : 
+    Boolean Visible 'get ' : 
+    SuperMap.Data.Point3D PointTarget 'get ' : 
+    SuperMap.Data.Point3D PointView 'get ' : 
+  Methods:
+    get_PointView(): PrivateScope, Public, HideBySig, SpecialName
+    get_PointTarget(): PrivateScope, Public, HideBySig, SpecialName
+    get_Visible(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineVisible(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineInvisible(): PrivateScope, Public, HideBySig, SpecialName
+    get_BarrierPoint3Ds(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Realspace.SpatialAnalyst.VisibleResult: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Int32 ObstructionModelID 'get ' : 
+    Int32 ModelDatasetIndex 'get ' : 
+    SuperMap.Data.Point3D ObstructionPoint 'get ' : 
+    Int32 TargetPointIndex 'get ' : 
+    Int32 ObservationPointIndex 'get ' : 
+    Boolean Visible 'get ' : 
+  Methods:
+    get_Visible(): PrivateScope, Public, HideBySig, SpecialName
+    get_ObservationPointIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_TargetPointIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_ObstructionPoint(): PrivateScope, Public, HideBySig, SpecialName
+    get_ModelDatasetIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_ObstructionModelID(): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Realspace.SpatialAnalyst.VisibilityAnalystParameter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SuperMap.Realspace.SpatialAnalyst.VisibilityAnalystParameter): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    SuperMap.Data.DatasetGrid[] SurfaceDatasets 'get set' : 
+    SuperMap.Data.DatasetVector[] ModelDatasets 'get set' : 
+  Methods:
+    get_ModelDatasets(): PrivateScope, Public, HideBySig, SpecialName
+    set_ModelDatasets(DatasetVector[]): PrivateScope, Public, HideBySig, SpecialName
+    get_SurfaceDatasets(): PrivateScope, Public, HideBySig, SpecialName
+    set_SurfaceDatasets(DatasetGrid[]): PrivateScope, Public, HideBySig, SpecialName
+Class SuperMap.Realspace.SpatialAnalyst.VisibilityAnalyst3D: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
+  Properties:
+    SuperMap.Realspace.Scene Scene 'get set' : 
+  Methods:
+    get_Scene(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_Scene(Scene): PrivateScope, Public, Static, HideBySig, SpecialName
+    IsVisible(Point3D, Point3D, VisibilityAnalystParameter): PrivateScope, Public, Static, HideBySig
+    IsVisible(Point3D, Point3D): PrivateScope, Public, Static, HideBySig
